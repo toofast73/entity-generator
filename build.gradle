@@ -3,10 +3,7 @@ buildscript {
 		springBootVersion = '1.5.4.RELEASE'
 	}
 	repositories {
-		maven {
-			url "http://sbtatlas.sigma.sbrf.ru/nexus/content/groups/dbofi/"
-		}
-		maven { url 'http://jitpack.io' }
+		mavenCentral()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -21,16 +18,26 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
+	mavenCentral()
 	maven {
-		url "http://sbtatlas.sigma.sbrf.ru/nexus/content/groups/dbofi/"
+		url "https://sbtatlas.sigma.sbrf.ru/nexus/content/groups/dbofi/"
 	}
-	maven { url 'http://jitpack.io' }
 }
 
 
 dependencies {
-	compile 'com.github.blocoio:faker:1.2.5'
-
 	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.springframework.boot:spring-boot-starter-jdbc')
+
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.9'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.9'
+
+	compile('org.apache.commons:commons-lang3:3.6')
+	compile('com.google.guava:guava:22.0')
+
+	runtime "com.oracle:ojdbc6:11.2.0.4"
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
