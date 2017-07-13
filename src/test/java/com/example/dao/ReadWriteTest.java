@@ -1,8 +1,8 @@
 package com.example.dao;
 
 import com.example.Start;
-import com.example.data.filereader.JsonFileReader;
-import com.example.data.filereader.KeyValueFileReader;
+import com.example.data.filereader.JsonLoader;
+import com.example.data.filereader.KeyValueLoader;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,14 +28,14 @@ public class ReadWriteTest {
     @Autowired
     private ReaderService readerService;
     @Autowired
-    private JsonFileReader jsonFileReader;
+    private JsonLoader jsonLoader;
     @Autowired
-    private KeyValueFileReader keyValueFileReader;
+    private KeyValueLoader keyValueLoader;
 
     @Test
     public void testKeyValue() throws Exception {
 
-        List<Map<String, String>> initialOperationsData = keyValueFileReader.load();
+        List<Map<String, String>> initialOperationsData = keyValueLoader.load();
 
         testReadWrite(initialOperationsData,
                 operationData -> writerService.createKeyValueOperation(operationData),
@@ -46,7 +46,7 @@ public class ReadWriteTest {
     @Test
     public void testChunks() throws Exception {
 
-        List<String> initialOperationsData = jsonFileReader.load();
+        List<String> initialOperationsData = jsonLoader.load();
 
         testReadWrite(initialOperationsData,
                 operationData -> writerService.createChunkedOperation(operationData),

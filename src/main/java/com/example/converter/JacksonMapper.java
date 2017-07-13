@@ -2,11 +2,14 @@ package com.example.converter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.Map;
 
+@Service
 public class JacksonMapper {
 
     ObjectMapper mapper = new ObjectMapper();
@@ -17,23 +20,43 @@ public class JacksonMapper {
     }
 
     // Convert JSON string to Object
-    public Object fromJson(String jsonInString, Class<?> valueType) throws IOException {
-        return mapper.readValue(jsonInString, valueType);
+    public Object fromJson(String jsonInString, Class<?> valueType) {
+        try {
+            return mapper.readValue(jsonInString, valueType);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // Convert object to map string
-    public <K,V> Map<K, V> toMap(Object object) throws JsonProcessingException {
-        return mapper.convertValue(object, new TypeReference<Map<K, V>>() {});
+    public <K, V> Map<K, V> toMap(Object object) {
+        return mapper.convertValue(object, new TypeReference<Map<K, V>>() {
+        });
     }
 
     // Convert map to object string
-    public Object map2Object(Map<Object, Object> map, Class<?> valueType) throws IOException {
-        return mapper.readValue(mapper.writeValueAsString(map), valueType);
+    public Object map2Object(Map<Object, Object> map, Class<?> valueType) {
+        try {
+            return mapper.readValue(mapper.writeValueAsString(map), valueType);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // Convert map to JSON string
-    public String fromMap(Map<Object, Object> map) throws IOException {
-        return mapper.writeValueAsString(map);
+    public String fromMap(Map<Object, Object> map) {
+        try {
+            return mapper.writeValueAsString(map);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
- }
+    public JsonNode readTree(String json) {
+        try {
+            return mapper.readTree(json);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  *
  */
 @Service
-public class JsonFileReader {
+public class JsonLoader {
 
     public List<String> load() {
 
