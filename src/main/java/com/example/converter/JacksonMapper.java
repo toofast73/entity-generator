@@ -12,8 +12,13 @@ public class JacksonMapper {
     ObjectMapper mapper = new ObjectMapper();
 
     // Convert object to JSON string
-    public String toJson(Object staff) throws JsonProcessingException {
-        return mapper.writeValueAsString(staff);
+    public String toJson(Object o) throws JsonProcessingException {
+        return mapper.writeValueAsString(o);
+    }
+
+    // Convert JSON string to Object
+    public Object fromJson(String jsonInString, Class<?> valueType) throws IOException {
+        return mapper.readValue(jsonInString, valueType);
     }
 
     // Convert object to map string
@@ -21,9 +26,9 @@ public class JacksonMapper {
         return mapper.convertValue(object, new TypeReference<Map<K, V>>() {});
     }
 
-    // Convert JSON string to Object
-    public Object fromJson(String jsonInString, Class<?> valueType) throws IOException {
-        return mapper.readValue(jsonInString, valueType);
+    // Convert map to object string
+    public Object map2Object(Map<Object, Object> map, Class<?> valueType) throws IOException {
+        return mapper.readValue(mapper.writeValueAsString(map), valueType);
     }
 
     // Convert map to JSON string

@@ -67,4 +67,9 @@ public class JacksonMapperTest {
         assertTrue(jacksonMapper.fromMap(map).equals(fromMap));
     }
 
+    @Test
+    public void map2Object() throws Exception {
+        Map<Object, Object> map = jacksonMapper.toMap(staff);
+        assertTrue(jacksonMapper.map2Object(map, Staff.class).equals(staff));
+    }
 }
