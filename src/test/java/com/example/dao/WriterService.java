@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -27,10 +28,13 @@ public class WriterService {
         long operationId = idGenerator.generateId();
 
         keyValueDao.insertMain(operationId, "SomeSystem", "Some operation");
-
-        for (Map.Entry<String, String> entry : data.entrySet()) {
-            keyValueDao.insertChild(operationId, entry.getKey(), entry.getValue());
-        }
+        keyValueDao.insertChild(
+                data.entrySet()
+                        .stream()
+                        .map(entry ->
+                                new Object[]{operationId, entry.getKey(), entry.getValue()}
+                        )
+                        .collect(Collectors.toList()));
     }
 
     public void storeChunks(String data) {
