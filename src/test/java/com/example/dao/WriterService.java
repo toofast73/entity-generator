@@ -5,10 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 /**
  *
@@ -24,7 +25,7 @@ public class WriterService {
     @Autowired
     private IdGenerator idGenerator;
 
-    public void storeKeyValue(Map<String, String> data) {
+    public long createKeyValueOperation(Map<String, String> data) {
 
         long operationId = idGenerator.generateId();
 
@@ -36,19 +37,23 @@ public class WriterService {
                                 new Object[]{operationId, entry.getKey(), entry.getValue()}
                         )
                         .collect(Collectors.toList()));
+        return operationId;
     }
 
-    public void storeChunks(String data) {
+    public long createChunkedOperation(String data) {
 
         long operationId = idGenerator.generateId();
-
         chunkDao.insertMain(operationId, "SomeSystem", "Some operation");
-        List<String> chunks = Splitter.fixedLength(4000).splitToList(data);
 
-        List<Object[]> params = new ArrayList<>(chunks.size());
-        for (int i = 0; i < chunks.size(); i++) {
-            params.add(new Object[]{operationId, i, chunks.get(i)});
-        }
-        chunkDao.insertChildren(params);
+        Stream<String> chunkStream = StreamSupport.stream(
+                Splitter.fixedLength(4000).split(data).spliterator(), false);
+
+        AtomicInteger index = new AtomicInteger();
+
+        chunkDao.insertChildren(
+                chunkStream.map(chunk ->
+                        new Object[]{operationId, index.getAndIncrement(), chunk}
+                ).collect(Collectors.toList()));
+        return operationId;
     }
 }
