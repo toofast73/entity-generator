@@ -3,7 +3,10 @@ buildscript {
 		springBootVersion = '1.5.4.RELEASE'
 	}
 	repositories {
-		mavenCentral()
+		maven {
+			url "http://sbtatlas.sigma.sbrf.ru/nexus/content/groups/dbofi/"
+		}
+		maven { url 'http://jitpack.io' }
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -18,11 +21,16 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+	maven {
+		url "http://sbtatlas.sigma.sbrf.ru/nexus/content/groups/dbofi/"
+	}
+	maven { url 'http://jitpack.io' }
 }
 
 
 dependencies {
+	compile 'com.github.blocoio:faker:1.2.5'
+
 	compile('org.springframework.boot:spring-boot-starter')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
