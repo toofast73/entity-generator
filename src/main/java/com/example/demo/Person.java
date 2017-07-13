@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.google.common.base.MoreObjects;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
@@ -120,16 +122,15 @@ public class Person {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Person{");
-        sb.append("id=").append(id);
-        sb.append(", citizen=").append(citizen);
-        sb.append(", salary=").append(salary);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", dateOfBirth=").append(dateOfBirth);
-        sb.append(", age=").append(age);
-        sb.append(", friends=").append(friends);
-        sb.append(", sex=").append(sex);
-        sb.append('}');
-        return sb.toString();
+        return MoreObjects.toStringHelper(this)
+                .add("id", id)
+                .add("citizen", citizen)
+                .add("salary", salary)
+                .add("name", name)
+                .add("dateOfBirth", dateOfBirth)
+                .add("age", age)
+                .add("friends", friends)
+                .add("sex", sex)
+                .toString();
     }
 }

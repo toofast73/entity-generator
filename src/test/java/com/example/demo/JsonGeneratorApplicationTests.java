@@ -9,10 +9,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class JsonGeneratorApplicationTests {
 
 	@Test
-	public void contextLoads() {
+	public void generatePerson() {
 
 		PersonGenerator personGenerator = new PersonGenerator();
-		Person generate = personGenerator.generate(1000, 10);
+		Person generate = personGenerator.generate(10000, 100);
 
 		System.out.println(generate);
 	}

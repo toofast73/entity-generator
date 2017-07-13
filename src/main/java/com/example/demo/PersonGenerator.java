@@ -28,7 +28,9 @@ public class PersonGenerator {
 
     private void populate(Person root, int friends, Queue<Person> result) {
         for (int i = 0; i < friends; i++) {
-
+            if(result.isEmpty()){
+                return;
+            }
             root.addFriend(result.remove());
         }
 

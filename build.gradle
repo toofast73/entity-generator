@@ -22,10 +22,12 @@ repositories {
 	maven {
 		url "https://sbtatlas.sigma.sbrf.ru/nexus/content/groups/dbofi/"
 	}
+	maven { url 'http://jitpack.io' }
 }
 
 
 dependencies {
+	compile 'com.github.blocoio:faker:1.2.5'
 	compile('org.springframework.boot:spring-boot-starter')
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 
