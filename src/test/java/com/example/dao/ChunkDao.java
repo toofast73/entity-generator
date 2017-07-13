@@ -23,7 +23,7 @@ class ChunkDao {
 
     private static final String SQL_READ_CHUNKS =
             "SELECT CHUNK_DATA FROM CHUNK_CHILD" +
-                    " WHERE MAIN_ID = ?" +
+                    " WHERE MAIN_ID = (SELECT ID FROM CHUNK_MAIN WHERE OPERATION_ID = ?)" +
                     " ORDER BY CHUNK_NUM";
 
     private final JdbcTemplate jt;

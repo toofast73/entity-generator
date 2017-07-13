@@ -26,7 +26,7 @@ class KeyValueDao {
 
     private static final String SQL_READ_KEY_VAL =
             "SELECT KEY, VALUE FROM KEY_VAL_CHILD" +
-                    " WHERE MAIN_ID = ?" +
+                    " WHERE MAIN_ID = (SELECT ID FROM KEY_VAL_MAIN WHERE OPERATION_ID = ?)" +
                     "";
 
     private final JdbcTemplate jt;
