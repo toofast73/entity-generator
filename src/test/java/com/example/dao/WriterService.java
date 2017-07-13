@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -28,7 +29,7 @@ public class WriterService {
         long operationId = idGenerator.generateId();
 
         keyValueDao.insertMain(operationId, "SomeSystem", "Some operation");
-        keyValueDao.insertChild(
+        keyValueDao.insertChildren(
                 data.entrySet()
                         .stream()
                         .map(entry ->
@@ -44,8 +45,10 @@ public class WriterService {
         chunkDao.insertMain(operationId, "SomeSystem", "Some operation");
         List<String> chunks = Splitter.fixedLength(4000).splitToList(data);
 
+        List<Object[]> params = new ArrayList<>(chunks.size());
         for (int i = 0; i < chunks.size(); i++) {
-            chunkDao.insertChild(operationId, i, chunks.get(i));
+            params.add(new Object[]{operationId, i, chunks.get(i)});
         }
+        chunkDao.insertChildren(params);
     }
 }

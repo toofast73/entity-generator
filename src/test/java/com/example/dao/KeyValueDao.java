@@ -19,6 +19,7 @@ class KeyValueDao {
                     ")";
     private static final String SQL_INSERT_CHILD_KEY_VAL =
             "INSERT INTO KEY_VAL_CHILD VALUES (?, ?, ?)";
+
     private final JdbcTemplate jt;
 
     @Autowired
@@ -30,7 +31,7 @@ class KeyValueDao {
         jt.update(SQL_INSERT_MAIN_KEY_VAL, new Date(), systemName, operationType, operationId);
     }
 
-    void insertChild(List<Object[]> keyValues) {
+    void insertChildren(List<Object[]> keyValues) {
         jt.batchUpdate(SQL_INSERT_CHILD_KEY_VAL, keyValues);
     }
 }
