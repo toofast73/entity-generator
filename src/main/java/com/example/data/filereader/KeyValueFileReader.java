@@ -1,6 +1,7 @@
 package com.example.data.filereader;
 
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 /**
  *
  */
+@Service
 public class KeyValueFileReader {
 
     public List<Map<String, String>> load() {

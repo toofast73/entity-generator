@@ -27,23 +27,22 @@ public class WriterService {
 
     public long createKeyValueOperation(Map<String, String> data) {
 
-        long operationId = idGenerator.generateId();
-
-        keyValueDao.insertMain(operationId, "SomeSystem", "Some operation");
+        long recordId = keyValueDao.insertMain(
+                idGenerator.generateId(), "SomeSystem", "Some operation");
         keyValueDao.insertChildren(
                 data.entrySet()
                         .stream()
                         .map(entry ->
-                                new Object[]{operationId, entry.getKey(), entry.getValue()}
+                                new Object[]{recordId, entry.getKey(), entry.getValue()}
                         )
                         .collect(Collectors.toList()));
-        return operationId;
+        return recordId;
     }
 
     public long createChunkedOperation(String data) {
 
-        long operationId = idGenerator.generateId();
-        chunkDao.insertMain(operationId, "SomeSystem", "Some operation");
+        long recordId = chunkDao.insertMain(
+                idGenerator.generateId(), "SomeSystem", "Some operation");
 
         Stream<String> chunkStream = StreamSupport.stream(
                 Splitter.fixedLength(4000).split(data).spliterator(), false);
@@ -52,8 +51,8 @@ public class WriterService {
 
         chunkDao.insertChildren(
                 chunkStream.map(chunk ->
-                        new Object[]{operationId, index.getAndIncrement(), chunk}
+                        new Object[]{recordId, index.getAndIncrement(), chunk}
                 ).collect(Collectors.toList()));
-        return operationId;
+        return recordId;
     }
 }
