@@ -18,4 +18,11 @@ class ChunkDao {
     }
 
 
+    void insertMain(long operationId, String systemName, String operationType) {
+
+    }
+
+    public void insertChild(long operationId, int chunkNum, String chunk) {
+
+    }
 }

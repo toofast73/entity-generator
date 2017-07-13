@@ -16,4 +16,12 @@ class KeyValueDao {
     public KeyValueDao(JdbcTemplate jdbcTemplate) {
         this.jt = jdbcTemplate;
     }
+
+    void insertMain(long operationId, String systemName, String operationType) {
+
+    }
+
+    void insertChild(long operationId, String key, String value) {
+
+    }
 }
