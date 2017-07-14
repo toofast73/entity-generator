@@ -27,9 +27,10 @@ import static com.example.benchmark.BenchmarkUtil.startTest;
 public class WriteBenchmark {
     private static Log log = LogFactory.getLog(WriteBenchmark.class);
 
-    private static final int THREAD_COUNT = 1;
-    private static int OPERATIONS_COUNT = 100;
-    private static final int MAX_TIMEOUT_IN_SECONDS = 3600;
+    private static final int THREAD_COUNT = 16;
+    private static int OPERATIONS_COUNT = 3_000;
+    private static final int LOGGING_PERIOD = 500;
+    private static final int MAX_TIMEOUT_IN_SECONDS = 3_600;
 
     @Autowired
     private WriterService writerService;
@@ -41,22 +42,24 @@ public class WriteBenchmark {
     @Test
     public void testKeyValue() throws Exception {
 
-        List<Map<String, String>> operations = keyValueLoader.load_1_20f();
+        List<Map<String, String>> operations = keyValueLoader.load_1_500f();
 
         executeConcurrent("write in key value",
                 () -> startTest("write in key value", operations,
-                        operationData -> writerService.createKeyValueOperation(operationData), OPERATIONS_COUNT),
+                        operationData -> writerService.createKeyValueOperation(operationData),
+                        OPERATIONS_COUNT, LOGGING_PERIOD),
                 THREAD_COUNT, MAX_TIMEOUT_IN_SECONDS);
     }
 
     @Test
     public void testChunks() throws Exception {
 
-        List<String> operations = jsonLoader.load_1_20f();
+        List<String> operations = jsonLoader.load_1_500f();
 
         executeConcurrent("write in chunks",
                 () -> startTest("write in chunks", operations,
-                        operationData -> writerService.createChunkedOperation(operationData), OPERATIONS_COUNT),
+                        operationData -> writerService.createChunkedOperation(operationData),
+                        OPERATIONS_COUNT, LOGGING_PERIOD),
                 THREAD_COUNT, MAX_TIMEOUT_IN_SECONDS);
     }
 }

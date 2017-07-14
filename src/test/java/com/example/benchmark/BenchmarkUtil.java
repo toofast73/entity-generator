@@ -1,10 +1,13 @@
 package com.example.benchmark;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
+
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +19,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static java.math.BigInteger.valueOf;
+import static java.math.BigDecimal.valueOf;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -30,7 +33,7 @@ class BenchmarkUtil {
                                          int threadCount,
                                          int maxTimeoutSeconds) throws InterruptedException {
 
-        List<Throwable> exceptions = Collections.synchronizedList(new ArrayList<Throwable>());
+        List<String> exceptions = Collections.synchronizedList(new ArrayList<>());
         ExecutorService threadPool = Executors.newFixedThreadPool(threadCount);
         try {
             CountDownLatch allExecutorThreadsReady = new CountDownLatch(threadCount);
@@ -47,7 +50,7 @@ class BenchmarkUtil {
                                     runnable.run();
 
                                 } catch (Throwable e) {
-                                    exceptions.add(e);
+                                    exceptions.add(ExceptionUtils.getStackTrace(e));
                                 } finally {
                                     allDone.countDown();
                                 }
@@ -70,9 +73,8 @@ class BenchmarkUtil {
         log.info("Concurrent test " + testName + " finished");
     }
 
-    static <T, R> void startTest(String testName, List<T> dataList, Function<T, R> operation, int executionsCount) {
+    static <T, R> void startTest(String testName, List<T> dataList, Function<T, R> operation, int executionsCount, int loggingPeriod) {
         int packetSize = dataList.size();
-        int loggingPeriod = 20;
 
         StopWatch totalSw = new StopWatch();
         totalSw.start();
@@ -89,8 +91,9 @@ class BenchmarkUtil {
             if (i % loggingPeriod == 0 && i > 0) {
                 localSw.stop();
 
-                long duration = localSw.getTime(TimeUnit.SECONDS);
-                BigInteger speed = valueOf(loggingPeriod * packetSize).divide(valueOf(duration));
+                long duration = localSw.getTime(TimeUnit.MILLISECONDS);
+                BigDecimal speed = valueOf(loggingPeriod * packetSize).multiply(valueOf(1_000))
+                        .divide(valueOf(duration), 0, RoundingMode.HALF_UP);
                 log.info("Test " + testName + " intermediate speed for " + loggingPeriod + " operations: " + speed + " op/s");
 
                 localSw.reset();
@@ -100,8 +103,9 @@ class BenchmarkUtil {
 
         totalSw.stop();
 
-        long totalDuration = totalSw.getTime(TimeUnit.SECONDS);
-        BigInteger totalSpeed = valueOf(executionsCount).divide(valueOf(totalDuration));
+        long totalDuration = totalSw.getTime(TimeUnit.MILLISECONDS);
+        BigDecimal totalSpeed = valueOf(executionsCount).multiply(valueOf(1_000))
+                .divide(valueOf(totalDuration), 0, RoundingMode.HALF_UP);
 
         log.info("Test " + testName + " completed for " + executionsCount +
                 " operations, speed: " + totalSpeed + " op/s");

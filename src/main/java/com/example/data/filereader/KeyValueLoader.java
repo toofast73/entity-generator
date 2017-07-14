@@ -33,4 +33,16 @@ public class KeyValueLoader {
                 .map(jsonToKeyValueConverter::convert)
                 .collect(Collectors.toList());
     }
+
+    public List<Map<String, String>> load_1_100f() {
+        return jsonLoader.load_1_100f().stream()
+                .map(jsonToKeyValueConverter::convert)
+                .collect(Collectors.toList());
+    }
+
+    public List<Map<String, String>> load_1_500f() {
+        return jsonLoader.load_1_500f().stream()
+                .map(jsonToKeyValueConverter::convert)
+                .collect(Collectors.toList());
+    }
 }

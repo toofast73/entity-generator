@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +56,8 @@ class KeyValueDao {
     }
 
     void insertChildren(List<Object[]> keyValues) {
-        jt.batchUpdate(SQL_INSERT_CHILD_KEY_VAL, keyValues);
+        jt.batchUpdate(SQL_INSERT_CHILD_KEY_VAL, keyValues,
+                new int[]{Types.NUMERIC, Types.VARCHAR, Types.VARCHAR});
     }
 
     Map<String, String> read(Long operationId) {

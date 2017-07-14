@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.List;
 
 /**
@@ -53,7 +54,8 @@ class ChunkDao {
     }
 
     void insertChildren(List<Object[]> keyValues) {
-        jt.batchUpdate(SQL_INSERT_CHILD_CHUNK, keyValues);
+        jt.batchUpdate(SQL_INSERT_CHILD_CHUNK, keyValues,
+                new int[]{Types.NUMERIC, Types.NUMERIC, Types.VARCHAR});
     }
 
     String read(Long operationId) {
