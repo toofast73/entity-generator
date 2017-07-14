@@ -1,11 +1,9 @@
 package com.example.benchmark;
 
 import com.example.Start;
-import com.example.dao.ReaderService;
 import com.example.dao.WriterService;
 import com.example.data.filereader.JsonLoader;
 import com.example.data.filereader.KeyValueLoader;
-import org.apache.commons.lang3.time.StopWatch;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
@@ -14,14 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
-import static java.math.BigInteger.valueOf;
+import static com.example.benchmark.BenchmarkUtil.executeConcurrent;
+import static com.example.benchmark.BenchmarkUtil.startTest;
 
 /**
  *
@@ -30,13 +25,14 @@ import static java.math.BigInteger.valueOf;
 @SpringBootTest(classes = Start.class)
 //@Transactional  // с анннотацией данные в БД откатываются после прогона
 public class WriteBenchmark {
-    private static final int OPERATIONS_COUNT = 1000;
-    private final Log log = LogFactory.getLog(getClass());
+    private static Log log = LogFactory.getLog(WriteBenchmark.class);
+
+    private static final int THREAD_COUNT = 1;
+    private static int OPERATIONS_COUNT = 100;
+    private static final int MAX_TIMEOUT_IN_SECONDS = 3600;
 
     @Autowired
     private WriterService writerService;
-    @Autowired
-    private ReaderService readerService;
     @Autowired
     private JsonLoader jsonLoader;
     @Autowired
@@ -45,59 +41,22 @@ public class WriteBenchmark {
     @Test
     public void testKeyValue() throws Exception {
 
-        List<Map<String, String>> initialOperationsData = keyValueLoader.load_1_20f();
+        List<Map<String, String>> operations = keyValueLoader.load_1_20f();
 
-        testWrite("write in key value", initialOperationsData,
-                operationData -> writerService.createKeyValueOperation(operationData), OPERATIONS_COUNT
-        );
+        executeConcurrent("write in key value",
+                () -> startTest("write in key value", operations,
+                        operationData -> writerService.createKeyValueOperation(operationData), OPERATIONS_COUNT),
+                THREAD_COUNT, MAX_TIMEOUT_IN_SECONDS);
     }
 
     @Test
     public void testChunks() throws Exception {
 
-        List<String> initialOperationsData = jsonLoader.load_1_20f();
+        List<String> operations = jsonLoader.load_1_20f();
 
-        testWrite("write in chunks", initialOperationsData,
-                operationData -> writerService.createChunkedOperation(operationData), OPERATIONS_COUNT
-        );
-    }
-
-    private <T> void testWrite(String testName, List<T> initialOperationsData,
-                               Function<T, Long> writeOperation, int operationsCount) {
-
-        int packetSize = initialOperationsData.size();
-        int loggingPeriod = 20;
-
-        StopWatch totalSw = new StopWatch();
-        totalSw.start();
-
-        StopWatch localSw = new StopWatch();
-        localSw.start();
-
-        int iterations = operationsCount / packetSize;
-        for (int i = 0; i < iterations; i++) {
-
-            initialOperationsData.stream()
-                    .map(writeOperation).collect(Collectors.toList());
-
-            if (i % loggingPeriod == 0 && i > 0) {
-                localSw.stop();
-
-                long duration = localSw.getTime(TimeUnit.SECONDS);
-                BigInteger speed = valueOf(loggingPeriod * packetSize).divide(valueOf(duration));
-                log.info("Test " + testName + " intermediate speed " + speed + " op/s");
-
-                localSw.reset();
-                localSw.start();
-            }
-        }
-
-        totalSw.stop();
-
-        long totalDuration = totalSw.getTime(TimeUnit.SECONDS);
-        BigInteger totalSpeed = valueOf(operationsCount).divide(valueOf(totalDuration));
-
-        log.info("Test " + testName + " completed for " + operationsCount +
-                " operations, speed: " + totalSpeed + " op/s");
+        executeConcurrent("write in chunks",
+                () -> startTest("write in chunks", operations,
+                        operationData -> writerService.createChunkedOperation(operationData), OPERATIONS_COUNT),
+                THREAD_COUNT, MAX_TIMEOUT_IN_SECONDS);
     }
 }
