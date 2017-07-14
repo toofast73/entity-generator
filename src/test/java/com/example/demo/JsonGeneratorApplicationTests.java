@@ -1,12 +1,8 @@
 package com.example.demo;
 
-import com.example.converter.JacksonMapper;
+import com.example.mapper.JacksonMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
-import static org.assertj.core.api.Assertions.*;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 
 public class JsonGeneratorApplicationTests {

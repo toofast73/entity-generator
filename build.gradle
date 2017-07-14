@@ -1,13 +1,13 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.4.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -18,29 +18,35 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
-	maven {
-		url "https://sbtatlas.sigma.sbrf.ru/nexus/content/groups/dbofi/"
-	}
+    mavenCentral()
+    maven {
+        url "https://sbtatlas.sigma.sbrf.ru/nexus/content/groups/dbofi/"
+    }
 	maven { url 'http://jitpack.io' }
 }
 
 
 dependencies {
 	compile 'com.github.blocoio:faker:1.2.5'
-	compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter')
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 
-	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.9'
-	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
-	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.9'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.9'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.9'
+    // https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
 
-	compile('org.apache.commons:commons-lang3:3.6')
+    // https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core
+    compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.3.0'
+    // https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-mapping
+    compile group: 'com.datastax.cassandra', name: 'cassandra-driver-mapping', version: '3.3.0'
+
+    compile('org.apache.commons:commons-lang3:3.6')
 	compile('commons-io:commons-io:2.5')
 	compile('com.google.guava:guava:22.0')
+    runtime "com.oracle:ojdbc6:11.2.0.4"
 
-	runtime "com.oracle:ojdbc6:11.2.0.4"
-
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }

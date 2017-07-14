@@ -1,4 +1,4 @@
-package com.example.converter;
+package com.example.mapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -28,13 +28,13 @@ public class JacksonMapper {
         }
     }
 
-    // Convert object to map string
+    // Convert object to map
     public <K, V> Map<K, V> toMap(Object object) {
         return mapper.convertValue(object, new TypeReference<Map<K, V>>() {
         });
     }
 
-    // Convert map to object string
+    // Convert map to object
     public Object map2Object(Map<Object, Object> map, Class<?> valueType) {
         try {
             return mapper.readValue(mapper.writeValueAsString(map), valueType);
