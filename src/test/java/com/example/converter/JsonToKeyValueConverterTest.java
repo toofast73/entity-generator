@@ -30,7 +30,7 @@ public class JsonToKeyValueConverterTest {
     public void test() throws Exception {
 
 
-        List<String> operations = jsonLoader.load();
+        List<String> operations = jsonLoader.loadAll();
 
         operations.forEach(json -> {
 

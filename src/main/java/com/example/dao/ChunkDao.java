@@ -39,8 +39,7 @@ class ChunkDao {
     Long insertMain(long operationId, String systemName, String operationType) {
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        jt.update(
-                connection -> {
+        jt.update(connection -> {
                     PreparedStatement ps = connection.prepareStatement(SQL_INSERT_MAIN_CHUNK, new String[]{"ID"});
 
                     ps.setTimestamp(1, new Timestamp(System.currentTimeMillis()));

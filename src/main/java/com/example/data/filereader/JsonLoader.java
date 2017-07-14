@@ -12,16 +12,26 @@ import java.util.stream.Collectors;
 @Service
 public class JsonLoader {
 
-    public List<String> load() {
+    public List<String> loadAll() {
 
+        return loadFiles(new String[]{
+                "/data/json/01.01.01_20f.json",
+                "/data/json/01.01.02.json",
+                "/data/json/01.01.03.json",
+                "/data/json/01.01.04.json",
+                "/data/json/01.01.05.json",
+        });
+    }
+
+    public List<String> load_1_20f() {
+        return loadFiles(new String[]{
+                "/data/json/01.01.01_20f.json"
+        });
+    }
+
+    private List<String> loadFiles(String[] files) {
         return Arrays.stream(
-                new String[]{
-                        "/data/json/01.01.01.json",
-                        "/data/json/01.01.02.json",
-                        "/data/json/01.01.03.json",
-                        "/data/json/01.01.04.json",
-                        "/data/json/01.01.05.json",
-                }).map(FileUtil::readFile)
+                files).map(FileUtil::readFile)
                 .collect(Collectors.toList());
     }
 }

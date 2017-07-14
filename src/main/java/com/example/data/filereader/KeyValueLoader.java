@@ -21,9 +21,15 @@ public class KeyValueLoader {
         this.jsonToKeyValueConverter = jsonToKeyValueConverter;
     }
 
-    public List<Map<String, String>> load() {
+    public List<Map<String, String>> loadAll() {
 
-        return jsonLoader.load().stream()
+        return jsonLoader.loadAll().stream()
+                .map(jsonToKeyValueConverter::convert)
+                .collect(Collectors.toList());
+    }
+
+    public List<Map<String, String>> load_1_20f() {
+        return jsonLoader.load_1_20f().stream()
                 .map(jsonToKeyValueConverter::convert)
                 .collect(Collectors.toList());
     }

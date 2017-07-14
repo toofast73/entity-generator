@@ -35,7 +35,7 @@ public class ReadWriteTest {
     @Test
     public void testKeyValue() throws Exception {
 
-        List<Map<String, String>> initialOperationsData = keyValueLoader.load();
+        List<Map<String, String>> initialOperationsData = keyValueLoader.loadAll();
 
         testReadWrite(initialOperationsData,
                 operationData -> writerService.createKeyValueOperation(operationData),
@@ -46,7 +46,7 @@ public class ReadWriteTest {
     @Test
     public void testChunks() throws Exception {
 
-        List<String> initialOperationsData = jsonLoader.load();
+        List<String> initialOperationsData = jsonLoader.loadAll();
 
         testReadWrite(initialOperationsData,
                 operationData -> writerService.createChunkedOperation(operationData),

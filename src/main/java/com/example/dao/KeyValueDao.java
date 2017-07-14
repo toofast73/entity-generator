@@ -21,16 +21,14 @@ class KeyValueDao {
 
     private static final String SQL_INSERT_MAIN_KEY_VAL =
             "INSERT INTO KEY_VAL_MAIN VALUES (" +
-                    "SEQ_KEY_VAL_MAIN.nextval, ?, ?, ?, ?" +
-                    ")";
+                    "SEQ_KEY_VAL_MAIN.nextval, ?, ?, ?, ?)";
 
     private static final String SQL_INSERT_CHILD_KEY_VAL =
             "INSERT INTO KEY_VAL_CHILD VALUES (?, ?, ?)";
 
     private static final String SQL_READ_KEY_VAL =
             "SELECT KEY, VALUE FROM KEY_VAL_CHILD" +
-                    " WHERE MAIN_ID = ?" +
-                    "";
+                    " WHERE MAIN_ID = ?";
 
     private final JdbcTemplate jt;
 
