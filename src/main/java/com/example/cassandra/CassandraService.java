@@ -9,6 +9,7 @@ import com.datastax.driver.core.UserType;
 import com.datastax.driver.core.schemabuilder.Create;
 import com.datastax.driver.core.schemabuilder.CreateType;
 import com.datastax.driver.core.schemabuilder.SchemaBuilder;
+import com.datastax.driver.core.schemabuilder.UDTType;
 import com.example.mapper.CustomTypes.Department;
 import com.example.mapper.FieldCollector;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -20,8 +21,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 import static com.datastax.driver.core.schemabuilder.SchemaBuilder.udtLiteral;
+import static org.springframework.util.Assert.notNull;
 import static org.springframework.util.ReflectionUtils.doWithFields;
 
 @Service
@@ -40,20 +43,34 @@ public class CassandraService {
         KeyspaceMetadata space = cluster.getMetadata().getKeyspace(keySpace);
         types = space.getUserTypes();
         session = cluster.connect(keySpace);
-        //        createType(); single time in keyspace
+        createType(); //single time in keyspace
     }
 
     public Session connect() {
         return session;
     }
 
-    public void createTableByTemplate(String name, Class<?> aClass) throws JsonProcessingException {
+    public void createTableByTemplate(String name, Class<?> aClass) {
+        FieldCollector fc = new FieldCollector();
+        doWithFields(aClass, fc);
+
+        createTableByTemplate(name, fc);
+    }
+
+    public void createTableByTemplate(String name, Map<String, Object> objectMap) {
+        Map<String, Class> classMap = objectMap.entrySet().stream().collect(
+                Collectors.toMap(Map.Entry::getKey, e -> e.getValue().getClass()));
+        FieldCollector fc = new FieldCollector();
+        fc.doWith(classMap);
+
+        createTableByTemplate(name, fc);
+    }
+
+    private void createTableByTemplate(String name, FieldCollector fc) {
         Create createStmt = SchemaBuilder.createTable(name);
         Consumer<? super Map.Entry<String, Class>> addColumn = entry -> createColumn(entry, createStmt);
 
-        FieldCollector fc = new FieldCollector();
-        doWithFields(aClass, fc);
-        fc.getFields().entrySet().stream().forEach(addColumn);
+        fc.getFields().entrySet().forEach(addColumn);
         execute(createStmt);
     }
 
@@ -79,19 +96,39 @@ public class CassandraService {
             createStmt.addPartitionKey(ID_NAME, DataType.text());
             return;
         }
-
         Class value = entry.getValue();
-        // TODO: 14/07/2017 mapper
-        if (value.isAssignableFrom(List.class)) {
-            createStmt.addColumn(entry.getKey(), DataType.list(DataType.text()));
-        } else if (value.isAssignableFrom(Integer.class)) {
-            createStmt.addColumn(entry.getKey(), DataType.varint());
-        } else if (value.isAssignableFrom(BigDecimal.class)) {
-            createStmt.addColumn(entry.getKey(), DataType.decimal());
-        } else if (value.isAssignableFrom(Department.class)) { // TODO: 14/07/2017
-            createStmt.addUDTColumn(entry.getKey(), udtLiteral(Department.class.getSimpleName().toLowerCase()));
+        DataType dataType = mapCQLType(value);
+        if (dataType != null) {
+            createStmt.addColumn(entry.getKey(), dataType);
         } else {
-            createStmt.addColumn(entry.getKey(), DataType.text());//?
+            UDTType udtType = mapUserType(value);
+            notNull(udtType, "Couldn't map type " + value);
+            createStmt.addUDTColumn(entry.getKey(), udtType);
+        }
+    }
+
+    // TODO: 14/07/2017 mapper
+    private UDTType mapUserType(Class value) {
+
+        if (value.isAssignableFrom(Department.class)) {
+            return udtLiteral(Department.class.getSimpleName().toLowerCase());
+        } else {
+            return null;
+        }
+    }
+
+    // TODO: 14/07/2017 mapper
+    private DataType mapCQLType(Class value) {
+        if (value.isAssignableFrom(List.class)) {
+            return DataType.list(DataType.text());//
+        } else if (value.isAssignableFrom(Integer.class)) {
+            return DataType.varint();
+        } else if (value.isAssignableFrom(BigDecimal.class)) {
+            return DataType.decimal();
+        } else if (value.isAssignableFrom(String.class)) {
+            return DataType.text();
+        } else {
+            return null;
         }
     }
 

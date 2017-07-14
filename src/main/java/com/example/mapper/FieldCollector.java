@@ -23,21 +23,44 @@ public class FieldCollector implements ReflectionUtils.FieldCallback {
 
     @Override
     public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException {
+        Class<?> aClass = field.getType();
+        String name = field.getName();
+        doWith(aClass, name);
+    }
 
-        if (isComplex(field)) {
-            path.push(field.getName());
-            doWithFields(field.getType(), this);
+    public void doWith(Map.Entry<String, Class> entry) throws IllegalArgumentException, IllegalAccessException {
+        String name = entry.getKey();
+        Class aClass = entry.getValue();
+        doWith(aClass, name);
+    }
+
+
+    public void doWith(Map<String, Class> classMap) {
+        classMap.entrySet().forEach(entry -> {
+            try {
+                doWith(entry);
+            } catch (IllegalAccessException e) {
+                throw new IllegalStateException(e);
+            }
+        });
+    }
+
+    private void doWith(Class<?> aClass, String name) {
+        if (isComplex(aClass)) {
+            path.push(name);
+            doWithFields(aClass, this);
             path.pop();
         } else {
-            path.push(field.getName());
-            fields.put(join(DELIMITER, path), field.getType());
+            path.push(name);
+            fields.put(join(DELIMITER, path), aClass);
             path.pop();
         }
     }
 
     // TODO: 14/07/2017
-    private boolean isComplex(Field field) {
+    private boolean isComplex(Class aClass) {
         return false;
-//        return field.getType().getName().startsWith("com.example");
+//        return aClass.getName().startsWith("com.example");
     }
+
 }
