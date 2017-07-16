@@ -12,7 +12,6 @@ import com.datastax.driver.core.schemabuilder.SchemaBuilder;
 import com.datastax.driver.core.schemabuilder.UDTType;
 import com.example.mapper.CustomTypes.Department;
 import com.example.mapper.FieldCollector;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +42,7 @@ public class CassandraService {
         KeyspaceMetadata space = cluster.getMetadata().getKeyspace(keySpace);
         types = space.getUserTypes();
         session = cluster.connect(keySpace);
-        createType(); //single time in keyspace
+//        createType(); //single time in keyspace
     }
 
     public Session connect() {
@@ -57,7 +56,7 @@ public class CassandraService {
         createTableByTemplate(name, fc);
     }
 
-    public void createTableByTemplate(String name, Map<String, Object> objectMap) {
+    public void createTableByTemplate(String name, Map<String, ?> objectMap) {
         Map<String, Class> classMap = objectMap.entrySet().stream().collect(
                 Collectors.toMap(Map.Entry::getKey, e -> e.getValue().getClass()));
         FieldCollector fc = new FieldCollector();
@@ -66,28 +65,20 @@ public class CassandraService {
         createTableByTemplate(name, fc);
     }
 
-    private void createTableByTemplate(String name, FieldCollector fc) {
-        Create createStmt = SchemaBuilder.createTable(name);
-        Consumer<? super Map.Entry<String, Class>> addColumn = entry -> createColumn(entry, createStmt);
-
-        fc.getFields().entrySet().forEach(addColumn);
-        execute(createStmt);
-    }
-
     public void execute(Statement stmt) {
         session.execute(stmt);
-    }
-
-    public void createTableByTemplate(Class<?> aClass) throws JsonProcessingException {
-        createTableByTemplate(aClass.getSimpleName(), aClass);
     }
 
     public void dropTable(String name) {
         session.execute(SchemaBuilder.dropTable(name));
     }
 
-    public void dropTable(Class<?> aClass) {
-        session.execute(SchemaBuilder.dropTable(aClass.getSimpleName()));
+    private void createTableByTemplate(String name, FieldCollector fc) {
+        Create createStmt = SchemaBuilder.createTable(name);
+        Consumer<? super Map.Entry<String, Class>> addColumn = entry -> createColumn(entry, createStmt);
+
+        fc.getFields().entrySet().forEach(addColumn);
+        execute(createStmt);
     }
 
     private void createColumn(Map.Entry<String, Class> entry, Create createStmt) {
@@ -119,14 +110,14 @@ public class CassandraService {
 
     // TODO: 14/07/2017 mapper
     private DataType mapCQLType(Class value) {
-        if (value.isAssignableFrom(List.class)) {
-            return DataType.list(DataType.text());//
+        if (value.isAssignableFrom(String.class)) {
+            return DataType.text();
         } else if (value.isAssignableFrom(Integer.class)) {
             return DataType.varint();
         } else if (value.isAssignableFrom(BigDecimal.class)) {
             return DataType.decimal();
-        } else if (value.isAssignableFrom(String.class)) {
-            return DataType.text();
+        } else if (value.isAssignableFrom(List.class)) {
+            return DataType.list(DataType.text());//
         } else {
             return null;
         }
@@ -139,5 +130,4 @@ public class CassandraService {
         createType.addColumn("boss", DataType.text());
         execute(createType);
     }
-
 }

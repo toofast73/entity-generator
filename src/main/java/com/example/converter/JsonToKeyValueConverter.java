@@ -18,6 +18,10 @@ public class JsonToKeyValueConverter {
     @Autowired
     private JacksonMapper jacksonMapper;
 
+    private String POINT = ".";
+    private String OPEN = "[";
+    private String CLOSE = "]";
+
     public Map<String, String> convert(String json) {
 
         Map<String, String> map = new HashMap<>();
@@ -30,7 +34,7 @@ public class JsonToKeyValueConverter {
         if (jsonNode.isObject()) {
             ObjectNode objectNode = (ObjectNode) jsonNode;
             Iterator<Map.Entry<String, JsonNode>> iter = objectNode.fields();
-            String pathPrefix = currentPath.isEmpty() ? "" : currentPath + ".";
+            String pathPrefix = currentPath.isEmpty() ? "" : currentPath + POINT;
 
             while (iter.hasNext()) {
                 Map.Entry<String, JsonNode> entry = iter.next();
@@ -39,11 +43,20 @@ public class JsonToKeyValueConverter {
         } else if (jsonNode.isArray()) {
             ArrayNode arrayNode = (ArrayNode) jsonNode;
             for (int i = 0; i < arrayNode.size(); i++) {
-                addKeys(currentPath + "[" + i + "]", arrayNode.get(i), map);
+                addKeys(currentPath + OPEN + i + CLOSE, arrayNode.get(i), map);
             }
         } else if (jsonNode.isValueNode()) {
             ValueNode valueNode = (ValueNode) jsonNode;
             map.put(currentPath, valueNode.asText());
         }
+    }
+
+    /**
+     * в названии колонок не может быть . и [ ]
+     */
+    public void cql() {
+        POINT = "POINT";
+        OPEN = "OPEN";
+        CLOSE = "CLOSE";
     }
 }
