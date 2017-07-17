@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 
 import static com.datastax.driver.core.schemabuilder.SchemaBuilder.udtLiteral;
 import static org.springframework.util.Assert.notNull;
+import static org.springframework.util.CollectionUtils.isEmpty;
 import static org.springframework.util.ReflectionUtils.doWithFields;
 
 @Service
@@ -53,9 +54,12 @@ public class CassandraService {
             KeyspaceMetadata space = cluster.getMetadata().getKeyspace(keySpace);
             types = space.getUserTypes();
             session = cluster.connect(keySpace);
-//        createType(); //single time in keyspace
         } catch (Exception e) {
             // TODO: 17/07/2017
+        }
+        // TODO: 17/07/2017 single time in keyspace
+        if (isEmpty(types) && session != null){
+            createType();
         }
     }
 

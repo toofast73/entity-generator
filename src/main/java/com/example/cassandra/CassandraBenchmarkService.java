@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
-import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
 
 import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
 import static com.example.cassandra.CassandraService.ID_NAME;
@@ -19,6 +19,7 @@ public class CassandraBenchmarkService {
     private CassandraDao cassandraDao;
 
     private static final String BENCHMARK_TABLE = "benchmark";
+    private static final AtomicLong ID = new AtomicLong();
 
     public void createBenchmarkMapTable(){
         cassandraService.createTableOfMap(BENCHMARK_TABLE);
@@ -26,10 +27,10 @@ public class CassandraBenchmarkService {
 
     public long writeBenchmarkMapTable(Map<String, String> operationData){
         // TODO: 17/07/2017 main table
-        Long id = UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
+        String strId = String.valueOf(ID.incrementAndGet());
 
-        cassandraDao.insertMapIntoMap(BENCHMARK_TABLE, id.toString(), operationData);
-        return id;
+        cassandraDao.insertMapIntoMap(BENCHMARK_TABLE, strId, operationData);
+        return ID.get();
     }
 
     public void dropBenchmarkMapTable(){
