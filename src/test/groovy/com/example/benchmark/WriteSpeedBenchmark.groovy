@@ -23,7 +23,7 @@ import static com.example.benchmark.Util.executeBenchmarks
 @SpringBootTest(classes = Start.class)
 //@Transactional  // с анннотацией данные в БД откатываются после прогона
 class WriteSpeedBenchmark {
-    private static Log log = LogFactory.getLog(WriteBenchmark.class)
+    private static Log log = LogFactory.getLog(WriteSpeedBenchmark.class)
 
     @Autowired
     private WriterService writerService
