@@ -3,6 +3,7 @@ package com.example.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,7 +21,15 @@ public class ReaderService {
         return keyValueDao.read(operationId);
     }
 
-    public String readChunkedOperation(Long operationId) {
+    public String readChunkOperation(Long operationId) {
         return chunkDao.read(operationId);
+    }
+
+    public List<Long> loadKeyValueOperationIds(int fieldsCount) {
+        return keyValueDao.loadKeyValueOperationIds(fieldsCount);
+    }
+
+    public List<Long> loadChunkOperationIds(int fieldsCount) {
+        return chunkDao.loadKeyValueOperationIds(fieldsCount);
     }
 }

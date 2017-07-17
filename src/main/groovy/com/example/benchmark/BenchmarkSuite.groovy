@@ -23,7 +23,7 @@ class BenchmarkSuite implements Callable {
 
     void start() {
         try {
-            for (;;) {
+            for (; ;) {
                 call()
                 report.increment()
                 if (stop.isTrue()) {
@@ -42,7 +42,7 @@ class BenchmarkSuite implements Callable {
         report.taskNames = tasks.keySet().toString()
         def tp = Executors.newFixedThreadPool(report.threadCount)
 
-        log.info "Starting the tasks: ${tasks.keySet()}"
+        log.info "Starting the tasks: ${tasks.keySet()} in ${report.threadCount} thread(s), test duration: ${report.duration}ms"
         report.start()
         report.threadCount.times {
             tp.submit({
@@ -60,7 +60,7 @@ class BenchmarkSuite implements Callable {
 
         def stp = Executors.newSingleThreadExecutor()
 
-        log.info "Starting monitoring thread"
+        log.info "Starting monitoring thread for ${report.threadCount} concurrent thread(s), cheking interval: ${report.checkSpeedInterval}ms"
         stp.submit({
             while (true) {
                 if (report.finished() || this.stop.isTrue()) {
@@ -75,12 +75,10 @@ class BenchmarkSuite implements Callable {
     }
 
 
-    static void executeBenchmarks(List<BenchmarkReport> reports, Map<String, Callable> tasks) {
-        reports.each { report ->
-            def suite = new BenchmarkSuite(report: report)
-            ExecutorService es = suite.startTasks(tasks)
-            suite.startMonitoringThread()
-            es.shutdown()
-        }
+    static void executeBenchmark(BenchmarkReport report, Map<String, Callable> tasks) {
+        def suite = new BenchmarkSuite(report: report)
+        ExecutorService es = suite.startTasks(tasks)
+        suite.startMonitoringThread()
+        es.shutdown()
     }
 }

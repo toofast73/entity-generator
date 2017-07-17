@@ -39,7 +39,7 @@ class BenchmarkReport {
             def perSecSpeed = (count * 1000 / time) as Long
             def perHourSpeed = perSecSpeed * 60 * 60
             log.info "Tasks: ${taskNames}, total executions ${count} for ${formatDurationHMS(time)}, " +
-                    "speed: ${perSecSpeed} per/sec, ${perHourSpeed} per/h, with $threadCount threads "
+                    "speed: ${perSecSpeed} per/sec, ${perHourSpeed} per/h, with $threadCount thread(s)"
         }
         res
     }
@@ -52,7 +52,7 @@ class BenchmarkReport {
 
 
         log.info "Tasks: ${taskNames}, executed ${countDelta} times for ${formatDurationHMS(timeDelta)}, " +
-                "speed: ${perSecSpeed} per/sec, ${perHourSpeed} per/h, with $threadCount threads "
+                "speed: ${perSecSpeed} per/sec, ${perHourSpeed} per/h, with $threadCount thread(s)"
         lastCounterValue = count
         lastTimeValue = time
     }

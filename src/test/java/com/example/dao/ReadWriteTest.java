@@ -53,7 +53,7 @@ public class ReadWriteTest {
 
         testReadWrite(initialOperationsData,
                 operationData -> writerService.createChunkedOperation(operationData),
-                operationId -> readerService.readChunkedOperation(operationId)
+                operationId -> readerService.readChunkOperation(operationId)
         );
     }
 

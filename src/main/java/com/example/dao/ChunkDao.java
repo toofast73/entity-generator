@@ -30,6 +30,11 @@ class ChunkDao {
                     " WHERE MAIN_ID = ?" +
                     " ORDER BY CHUNK_NUM";
 
+    private static final String SELECT_CHUNK_OPERATION_IDS =
+            "select ID from CHUNK_MAIN m" +
+                    " where ROWNUM <= 10" +
+                    "      and ? = (select count(1) from CHUNK_CHILD c where c.MAIN_ID = m.ID)";
+
     private final JdbcTemplate jt;
 
     @Autowired
@@ -69,5 +74,9 @@ class ChunkDao {
                 });
 
         return data.toString();
+    }
+
+    List<Long> loadKeyValueOperationIds(int fieldsCount) {
+        return jt.queryForList(SELECT_CHUNK_OPERATION_IDS, new Object[]{fieldsCount}, Long.class);
     }
 }

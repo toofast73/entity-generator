@@ -31,6 +31,11 @@ class KeyValueDao {
             "SELECT KEY, VALUE FROM KEY_VAL_CHILD" +
                     " WHERE MAIN_ID = ?";
 
+    private static final String SELECT_KEY_VALUE_OPERATION_IDS =
+            "select ID from KEY_VAL_MAIN m" +
+                    " where ROWNUM <= 10" +
+                    "      and ? = (select count(1) from KEY_VAL_CHILD c where c.MAIN_ID = m.ID)";
+
     private final JdbcTemplate jt;
 
     @Autowired
@@ -70,5 +75,9 @@ class KeyValueDao {
                     return null;
                 });
         return keyValues;
+    }
+
+    List<Long> loadKeyValueOperationIds(int fieldsCount) {
+        return jt.queryForList(SELECT_KEY_VALUE_OPERATION_IDS, new Object[]{fieldsCount}, Long.class);
     }
 }
