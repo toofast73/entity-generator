@@ -18,6 +18,7 @@ class BenchmarkReport {
     long duration
     Integer threadCount
     int checkSpeedInterval
+    boolean logInIntervalsEnabled = true
     String taskNames
 
     private long lastCounterValue
@@ -45,11 +46,14 @@ class BenchmarkReport {
     }
 
     def logSpeed() {
+        if (!logInIntervalsEnabled) {
+            return
+        }
+
         Long count = counter.get(), countDelta = count - lastCounterValue
         Long time = sw.getTime(), timeDelta = time - lastTimeValue
         Long perSecSpeed = countDelta * 1000 / timeDelta
         Long perHourSpeed = perSecSpeed * 60 * 60
-
 
         log.info "Tasks: ${taskNames}, executed ${countDelta} times for ${formatDurationHMS(timeDelta)}, " +
                 "speed: ${perSecSpeed} per/sec, ${perHourSpeed} per/h, with $threadCount thread(s)"
