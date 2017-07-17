@@ -45,4 +45,10 @@ public class KeyValueLoader {
                 .map(jsonToKeyValueConverter::convert)
                 .collect(Collectors.toList());
     }
+
+    public List<Map<String,String>> load_1_10000f() {
+        return jsonLoader.load_1_10000f().stream()
+                .map(jsonToKeyValueConverter::convert)
+                .collect(Collectors.toList());
+    }
 }
