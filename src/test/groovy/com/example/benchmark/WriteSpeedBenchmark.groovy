@@ -1,6 +1,7 @@
 package com.example.benchmark
 
 import com.example.Start
+import com.example.cassandra.CassandraBenchmarkService
 import com.example.dao.WriterService
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
@@ -15,7 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner
 import java.util.concurrent.Callable
 
 import static com.example.benchmark.Util.executeBenchmarks
-
 /**
  *
  */
@@ -31,6 +31,8 @@ class WriteSpeedBenchmark {
     private JsonLoader jsonLoader
     @Autowired
     private KeyValueLoader keyValueLoader
+    @Autowired
+    private CassandraBenchmarkService cassandraBenchmarkService
 
     @Test
     void testKeyValue() {
@@ -94,5 +96,41 @@ class WriteSpeedBenchmark {
                 operation -> writerService.createChunkedOperation(operation)
             }
         } as Callable)
+    }
+
+    @Test
+    void testCassandraKeyValue() {
+        cassandraBenchmarkService.createBenchmarkMapTable()
+
+        List<Map<String, String>> operations20 = keyValueLoader.load_1_20f()
+        executeBenchmarks("Write in key value, 20 fields", {
+            operations20.collect {
+                operation -> cassandraBenchmarkService.writeBenchmarkMapTable(operation)
+            }
+        } as Callable)
+
+        List<Map<String, String>> operations100 = keyValueLoader.load_1_100f()
+        executeBenchmarks("Write in key value, 100 fields", {
+            operations100.collect {
+                operation -> cassandraBenchmarkService.writeBenchmarkMapTable(operation)
+            }
+        } as Callable)
+
+        List<Map<String, String>> operations500 = keyValueLoader.load_1_500f()
+        executeBenchmarks("Write in key value, 500 fields", {
+            operations500.collect {
+                operation -> cassandraBenchmarkService.writeBenchmarkMapTable(operation)
+            }
+        } as Callable)
+
+
+        List<Map<String, String>> operations10000 = keyValueLoader.load_1_10000f()
+        executeBenchmarks("Write in key value, 10_000 fields", {
+            operations10000.collect {
+                operation -> cassandraBenchmarkService.writeBenchmarkMapTable(operation)
+            }
+        } as Callable)
+
+        cassandraBenchmarkService.dropBenchmarkMapTable();
     }
 }

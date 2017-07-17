@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.Start;
+import com.example.cassandra.CassandraBenchmarkService;
 import com.example.data.filereader.JsonLoader;
 import com.example.data.filereader.KeyValueLoader;
 import org.junit.Assert;
@@ -31,6 +32,8 @@ public class ReadWriteTest {
     private JsonLoader jsonLoader;
     @Autowired
     private KeyValueLoader keyValueLoader;
+    @Autowired
+    private CassandraBenchmarkService cassandraBenchmarkService;
 
     @Test
     public void testKeyValue() throws Exception {
@@ -68,4 +71,20 @@ public class ReadWriteTest {
 
         Assert.assertEquals(initialOperationsData, dbOperationsData);
     }
+
+    @Test
+    public void testCassandreKeyValue() throws Exception {
+
+        cassandraBenchmarkService.createBenchmarkMapTable();
+
+        List<Map<String, String>> initialOperationsData = keyValueLoader.loadAll();
+
+        testReadWrite(initialOperationsData,
+                operationData -> cassandraBenchmarkService.writeBenchmarkMapTable(operationData),
+                operationId -> cassandraBenchmarkService.readBenchmarkMapTable(operationId)
+        );
+
+        cassandraBenchmarkService.dropBenchmarkMapTable();
+    }
+
 }

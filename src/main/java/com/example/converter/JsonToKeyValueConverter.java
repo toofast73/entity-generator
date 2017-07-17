@@ -54,7 +54,7 @@ public class JsonToKeyValueConverter {
     /**
      * в названии колонок не может быть . и [ ]
      */
-    public void cql() {
+    public void cqlMode() {
         POINT = "POINT";
         OPEN = "OPEN";
         CLOSE = "CLOSE";

@@ -3,6 +3,7 @@ package com.example.cassandra;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.DataType;
 import com.datastax.driver.core.KeyspaceMetadata;
+import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Session;
 import com.datastax.driver.core.Statement;
 import com.datastax.driver.core.UserType;
@@ -13,7 +14,9 @@ import com.datastax.driver.core.schemabuilder.UDTType;
 import com.example.mapper.CustomTypes.Department;
 import com.example.mapper.FieldCollector;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
@@ -25,27 +28,44 @@ import static com.datastax.driver.core.schemabuilder.SchemaBuilder.udtLiteral;
 import static org.springframework.util.Assert.notNull;
 import static org.springframework.util.ReflectionUtils.doWithFields;
 
-//@Service
+@Service
 public class CassandraService {
 
     // TODO: 14/07/2017
     public static final String ID_NAME = "id";
 
-    private final Session session;
-    private final Cluster cluster;
-    private final Collection<UserType> types;
+    private Session session;
+    private Cluster cluster;
+    private Collection<UserType> types;
+    private final String host;
+    private final String keySpace;
 
     CassandraService(@Value("localhost") String host, @Value("demo") String keySpace) {
-        cluster = Cluster.builder().addContactPoint(host).build();
-        // already created
-        KeyspaceMetadata space = cluster.getMetadata().getKeyspace(keySpace);
-        types = space.getUserTypes();
-        session = cluster.connect(keySpace);
+        this.host = host;
+        this.keySpace = keySpace;
+    }
+
+    @PostConstruct
+    void createSession() {
+        try {
+            cluster = Cluster.builder().addContactPoint(host).build();
+            // already created
+            KeyspaceMetadata space = cluster.getMetadata().getKeyspace(keySpace);
+            types = space.getUserTypes();
+            session = cluster.connect(keySpace);
 //        createType(); //single time in keyspace
+        } catch (Exception e) {
+            // TODO: 17/07/2017
+        }
+    }
+
+    Session getSession() {
+        if (session != null) return session;
+        else throw new IllegalStateException("Cassandra session not created");
     }
 
     public Session connect() {
-        return session;
+        return getSession();
     }
 
     public void createTableByTemplate(String name, Class<?> aClass) {
@@ -64,12 +84,12 @@ public class CassandraService {
         createTableByTemplate(name, fc);
     }
 
-    public void execute(Statement stmt) {
-        session.execute(stmt);
+    public ResultSet execute(Statement stmt) {
+        return getSession().execute(stmt);
     }
 
     public void dropTable(String name) {
-        session.execute(SchemaBuilder.dropTable(name));
+        getSession().execute(SchemaBuilder.dropTable(name));
     }
 
     private void createTableByTemplate(String name, FieldCollector fc) {
@@ -77,6 +97,13 @@ public class CassandraService {
         Consumer<? super Map.Entry<String, Class>> addColumn = entry -> createColumn(entry, createStmt);
 
         fc.getFields().entrySet().forEach(addColumn);
+        execute(createStmt);
+    }
+
+    public void createTableOfMap(String name) {
+        Create createStmt = SchemaBuilder.createTable(name);
+        createStmt.addPartitionKey(ID_NAME, DataType.text());
+        createStmt.addUDTColumn(name, udtLiteral("map<text,text>"));
         execute(createStmt);
     }
 

@@ -29,11 +29,21 @@ public class CassandraServiceTest {
     @Autowired
     private JsonToKeyValueConverter jsonToKeyValueConverter;
 
-    private Session session;
+     private Session session;
+    private String name;
+    private Staff staff;
+    private String jsonStaff;
+    private Map<String, String> mapStaff;
 
     @Before
     public void setUp() throws Exception {
         session = cassandraService.connect();
+        name = Staff.class.getSimpleName().toLowerCase();
+        staff = Staff.createDummyObject();
+        jsonStaff = jacksonMapper.toJson(staff);
+        jsonToKeyValueConverter.cqlMode();
+        mapStaff = jsonToKeyValueConverter.convert(jsonStaff);
+
     }
 
     @Test
@@ -43,9 +53,6 @@ public class CassandraServiceTest {
 
     @Test
     public void testInsertJsonIntoTable() throws Exception {
-        String name = Staff.class.getSimpleName().toLowerCase();
-        Staff staff = Staff.createDummyObject();
-        String jsonStaff = jacksonMapper.toJson(staff);
         // createTable
         cassandraService.createTableByTemplate(name, Staff.class);
         // insert
@@ -56,16 +63,20 @@ public class CassandraServiceTest {
 
     @Test
     public void testInsertMapIntoTable() throws Exception {
-        String name = Staff.class.getSimpleName().toLowerCase();
-        Staff staff = Staff.createDummyObject();
-        String jsonStaff = jacksonMapper.toJson(staff);
-
-        jsonToKeyValueConverter.cql();
-        Map<String, String> map = jsonToKeyValueConverter.convert(jsonStaff);
         // createTable
-        cassandraService.createTableByTemplate(name, map);
+        cassandraService.createTableByTemplate(name, mapStaff);
         // insert
-        cassandraDao.insertMap(name, map);
+        cassandraDao.insertMapIntoTable(name, mapStaff);
+        // drop
+        cassandraService.dropTable(name);
+    }
+
+    @Test
+    public void testInsertMap() throws Exception {
+        // createTable
+        cassandraService.createTableOfMap(name);
+        // insert
+        cassandraDao.insertMapIntoMap(name, mapStaff);
         // drop
         cassandraService.dropTable(name);
     }
