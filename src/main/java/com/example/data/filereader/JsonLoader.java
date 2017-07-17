@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  *
@@ -17,34 +16,16 @@ public class JsonLoader {
 
         return loadFiles(new String[]{
                 "/data/json/01.01.01_20f.json",
-                "/data/json/01.01.02_100f.json",
-                "/data/json/01.01.03_500f.json",
-                "/data/json/01.01.04_10000f.json",
-                "/data/json/01.01.05.json",
+                "/data/json/01.01.01_100f.json",
+                "/data/json/01.01.01_500f.json",
+                "/data/json/01.01.01_10000f.json",
+                "/data/json/01.01.02.json",
         });
     }
 
-    public List<String> load_1_20f() {
+    public List<String> load(int fieldsCount) {
         return loadFiles(new String[]{
-                "/data/json/01.01.01_20f.json"
-        });
-    }
-
-    public List<String> load_1_100f() {
-        return loadFiles(new String[]{
-                "/data/json/01.01.02_100f.json"
-        });
-    }
-
-    public List<String> load_1_500f() {
-        return loadFiles(new String[]{
-                "/data/json/01.01.03_500f.json"
-        });
-    }
-
-    public List<String> load_1_10000f() {
-        return loadFiles(new String[]{
-                "/data/json/01.01.04_10000f.json"
+                "/data/json/01.01.01_" + fieldsCount + "f.json"
         });
     }
 

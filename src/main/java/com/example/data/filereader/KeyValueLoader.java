@@ -22,32 +22,13 @@ public class KeyValueLoader {
     }
 
     public List<Map<String, String>> loadAll() {
-
         return jsonLoader.loadAll().stream()
                 .map(jsonToKeyValueConverter::convert)
                 .collect(Collectors.toList());
     }
 
-    public List<Map<String, String>> load_1_20f() {
-        return jsonLoader.load_1_20f().stream()
-                .map(jsonToKeyValueConverter::convert)
-                .collect(Collectors.toList());
-    }
-
-    public List<Map<String, String>> load_1_100f() {
-        return jsonLoader.load_1_100f().stream()
-                .map(jsonToKeyValueConverter::convert)
-                .collect(Collectors.toList());
-    }
-
-    public List<Map<String, String>> load_1_500f() {
-        return jsonLoader.load_1_500f().stream()
-                .map(jsonToKeyValueConverter::convert)
-                .collect(Collectors.toList());
-    }
-
-    public List<Map<String,String>> load_1_10000f() {
-        return jsonLoader.load_1_10000f().stream()
+    public List<Map<String, String>> load(int fieldsCount) {
+        return jsonLoader.load(fieldsCount).stream()
                 .map(jsonToKeyValueConverter::convert)
                 .collect(Collectors.toList());
     }
