@@ -68,28 +68,28 @@ class WriteSpeedBenchmark {
     void testChunks() {
 
         List<String> operations20 = jsonLoader.load_1_20f()
-        executeBenchmarks("Write in key value, 20 fields", {
+        executeBenchmarks("Write in chunks, 20 fields", {
             operations20.collect {
                 operation -> writerService.createChunkedOperation(operation)
             }
         } as Callable)
 
         List<String> operations100 = jsonLoader.load_1_100f()
-        executeBenchmarks("Write in key value, 100 fields", {
+        executeBenchmarks("Write in chunks, 100 fields", {
             operations100.collect {
                 operation -> writerService.createChunkedOperation(operation)
             }
         } as Callable)
 
         List<String> operations500 = jsonLoader.load_1_500f()
-        executeBenchmarks("Write in key value, 500 fields", {
+        executeBenchmarks("Write in chunks, 500 fields", {
             operations500.collect {
                 operation -> writerService.createChunkedOperation(operation)
             }
         } as Callable)
 
         List<String> operations10000 = jsonLoader.load_1_10000f()
-        executeBenchmarks("Write in key value, 10_000 fields", {
+        executeBenchmarks("Write in chunks, 10_000 fields", {
             operations10000.collect {
                 operation -> writerService.createChunkedOperation(operation)
             }
