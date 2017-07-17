@@ -52,9 +52,9 @@ class WriteSpeedBenchmark {
 
         [20, 100, 500, 10_000].each { fieldsCount ->
 
-            List<String> operations20 = jsonLoader.load(fieldsCount)
+            List<String> operations = jsonLoader.load(fieldsCount)
             executeBenchmarks("Write in chunks, $fieldsCount fields", {
-                operations20.collect {
+                operations.collect {
                     operation -> writerService.createChunkedOperation(operation)
                 }
             } as Callable)
