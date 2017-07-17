@@ -11,6 +11,7 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
@@ -43,10 +44,13 @@ dependencies {
     // https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-mapping
     compile group: 'com.datastax.cassandra', name: 'cassandra-driver-mapping', version: '3.3.0'
 
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.12'
+
     compile('org.apache.commons:commons-lang3:3.6')
 	compile('commons-io:commons-io:2.5')
 	compile('com.google.guava:guava:22.0')
-    runtime "com.oracle:ojdbc6:11.2.0.4"
+
+	runtime "com.oracle:ojdbc6:11.2.0.4"
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

@@ -13,7 +13,6 @@ import com.datastax.driver.core.schemabuilder.UDTType;
 import com.example.mapper.CustomTypes.Department;
 import com.example.mapper.FieldCollector;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -26,7 +25,7 @@ import static com.datastax.driver.core.schemabuilder.SchemaBuilder.udtLiteral;
 import static org.springframework.util.Assert.notNull;
 import static org.springframework.util.ReflectionUtils.doWithFields;
 
-@Service
+//@Service
 public class CassandraService {
 
     // TODO: 14/07/2017

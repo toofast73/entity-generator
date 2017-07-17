@@ -1,8 +1,0 @@
-2017-07-14 18:09:06.941  INFO 5624 --- [pool-3-thread-6] com.example.benchmark.BenchmarkUtil      : Test write in chunks completed for 10000 operations, speed: 195 op/s
-2017-07-14 18:09:08.391  INFO 5624 --- [pool-3-thread-2] com.example.benchmark.BenchmarkUtil      : Test write in chunks completed for 10000 operations, speed: 189 op/s
-2017-07-14 18:09:08.836  INFO 5624 --- [pool-3-thread-4] com.example.benchmark.BenchmarkUtil      : Test write in chunks completed for 10000 operations, speed: 188 op/s
-2017-07-14 18:09:14.057  INFO 5624 --- [pool-3-thread-8] com.example.benchmark.BenchmarkUtil      : Test write in chunks completed for 10000 operations, speed: 171 op/s
-2017-07-14 18:09:14.817  INFO 5624 --- [pool-3-thread-7] com.example.benchmark.BenchmarkUtil      : Test write in chunks completed for 10000 operations, speed: 169 op/s
-2017-07-14 18:09:16.827  INFO 5624 --- [pool-3-thread-3] com.example.benchmark.BenchmarkUtil      : Test write in chunks completed for 10000 operations, speed: 163 op/s
-2017-07-14 18:09:21.192  INFO 5624 --- [pool-3-thread-1] com.example.benchmark.BenchmarkUtil      : Test write in chunks completed for 10000 operations, speed: 152 op/s
-2017-07-14 18:09:21.237  INFO 5624 --- [pool-3-thread-5] com.example.benchmark.BenchmarkUtil      : Test write in chunks completed for 10000 operations, speed: 152 op/s
