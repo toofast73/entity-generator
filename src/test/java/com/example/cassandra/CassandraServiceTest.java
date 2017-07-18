@@ -41,7 +41,7 @@ public class CassandraServiceTest {
         name = Staff.class.getSimpleName().toLowerCase();
         staff = Staff.createDummyObject();
         jsonStaff = jacksonConverter.toJson(staff);
-        jsonToKeyValueConverter.cqlMode();
+        jsonToKeyValueConverter.cqlMode(true);
         mapStaff = jsonToKeyValueConverter.convertTo(jsonStaff);
 
     }

@@ -144,9 +144,15 @@ public class JsonToKeyValueConverter {
     /**
      * в названии колонок не может быть . и [ ]
      */
-    public void cqlMode() {
-        POINT = "POINT";
-        OPEN = "OPEN";
-        CLOSE = "CLOSE";
+    public void cqlMode(boolean b) {
+        if(b) {
+            POINT = "POINT";
+            OPEN = "OPEN";
+            CLOSE = "CLOSE";
+        }else {
+            POINT = ".";
+            OPEN = "[";
+            CLOSE = "]";
+        }
     }
 }

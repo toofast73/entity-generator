@@ -86,30 +86,18 @@ class WriteSpeedBenchmark {
 
     @Test
     void testCassandraKeyValue() {
-        jsonToKeyValueConverter.cqlMode() //todo switch off
+        jsonToKeyValueConverter.cqlMode(true)
 
-        Map<String, String> pattern = keyValueLoader.load(20).get(0) //todo single map
-        cassandraBenchmarkService.createBenchmarkTable(pattern)
-        [20].each { fieldsCount ->
+        [20, 100, 500, 10_000].each { fieldsCount ->
+            Map<String, String> pattern = keyValueLoader.load(fieldsCount).get(0)
+            cassandraBenchmarkService.createBenchmarkTable(pattern)
             List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
             executeBenchmarks("Write in key value, $fieldsCount fields", {
                 operations.collect {
                     operation -> cassandraBenchmarkService.writeBenchmarkMapToTable(operation)
                 }
             } as Callable)
+            cassandraBenchmarkService.dropBenchmarkTable()
         }
-        cassandraBenchmarkService.dropBenchmarkTable()
-
-        pattern = keyValueLoader.load(100).get(0) //todo single map
-        cassandraBenchmarkService.createBenchmarkTable(pattern)
-        [100].each { fieldsCount ->
-            List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
-            executeBenchmarks("Write in key value, $fieldsCount fields", {
-                operations.collect {
-                    operation -> cassandraBenchmarkService.writeBenchmarkMapToTable(operation)
-                }
-            } as Callable)
-        }
-        cassandraBenchmarkService.dropBenchmarkTable()
     }
 }
