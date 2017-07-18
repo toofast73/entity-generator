@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  *
  */
 @Service
-public class KeyValueLoader {
+public class KeyValueLoader implements FileLoader<Map<String, String>> {
 
     private final JsonLoader jsonLoader;
     private final JsonToKeyValueConverter jsonToKeyValueConverter;
@@ -21,12 +21,14 @@ public class KeyValueLoader {
         this.jsonToKeyValueConverter = jsonToKeyValueConverter;
     }
 
+    @Override
     public List<Map<String, String>> loadAll() {
         return jsonLoader.loadAll().stream()
                 .map(jsonToKeyValueConverter::convert)
                 .collect(Collectors.toList());
     }
 
+    @Override
     public List<Map<String, String>> load(int fieldsCount) {
         return jsonLoader.load(fieldsCount).stream()
                 .map(jsonToKeyValueConverter::convert)

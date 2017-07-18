@@ -7,13 +7,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
 /**
  *
  */
-class FileUtil {
+public interface FileLoader<T> {
+
+    List<T> loadAll();
+
+    List<T> load(int fieldsCount);
 
     static String readFile(String classPathResource) {
 

@@ -1,8 +1,6 @@
 package com.example.demo;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.cassandra.mapping.PrimaryKey;
-import org.springframework.data.cassandra.mapping.Table;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.math.BigDecimal;
@@ -10,12 +8,10 @@ import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
 
-@Document(indexName="documents")
-@Table
+@Document(indexName = "documents")
 public class Person {
 
     @Id
-    @PrimaryKey
     private String id;
     private Boolean citizen;
     private Double salary;

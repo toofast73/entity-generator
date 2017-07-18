@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  *
  */
 @Service
-public class PojoLoader {
+public class PojoLoader implements FileLoader<Operation[]> {
 
     private final JsonLoader jsonLoader;
     private final JacksonConverter jacksonConverter;
@@ -21,17 +21,19 @@ public class PojoLoader {
         this.jacksonConverter = jacksonConverter;
     }
 
-    public <T> List<T> loadAll() {
+    @Override
+    public List<Operation[]> loadAll() {
         return jsonLoader.loadAll().stream()
                 .map(json -> {
-                    return (T) jacksonConverter.fromJson(json, Operation[].class);
+                    return (Operation[]) jacksonConverter.fromJson(json, Operation[].class);
                 }).collect(Collectors.toList());
     }
 
-    public <T> List<T> load(int fieldsCount) {
+    @Override
+    public List<Operation[]> load(int fieldsCount) {
         return jsonLoader.load(fieldsCount).stream()
                 .map(json -> {
-                    return (T) jacksonConverter.fromJson(json, Operation[].class);
+                    return (Operation[]) jacksonConverter.fromJson(json, Operation[].class);
                 }).collect(Collectors.toList());
     }
 }

@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
  *
  */
 @Service
-public class JsonLoader {
+public class JsonLoader implements FileLoader<String> {
 
+    @Override
     public List<String> loadAll() {
-
         return loadFiles(new String[]{
                 "/data/json/01.01.01_20f.json",
                 "/data/json/01.01.01_100f.json",
@@ -23,6 +23,7 @@ public class JsonLoader {
         });
     }
 
+    @Override
     public List<String> load(int fieldsCount) {
         return loadFiles(new String[]{
                 "/data/json/01.01.01_" + fieldsCount + "f.json"
@@ -31,7 +32,7 @@ public class JsonLoader {
 
     private List<String> loadFiles(String[] files) {
         return Arrays.stream(files)
-                .map(FileUtil::readFile)
+                .map(FileLoader::readFile)
                 .collect(Collectors.toList());
     }
 }

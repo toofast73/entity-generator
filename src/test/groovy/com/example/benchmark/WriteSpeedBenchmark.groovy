@@ -2,8 +2,8 @@ package com.example.benchmark
 
 import com.example.Start
 import com.example.cassandra.CassandraBenchmarkService
-import com.example.converter.JsonToKeyValueConverter
 import com.example.dao.WriterService
+import com.example.data.converter.JsonToKeyValueConverter
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
 import org.apache.commons.logging.Log
@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner
 import java.util.concurrent.Callable
 
 import static com.example.benchmark.Util.executeBenchmarks
+
 /**
  *
  */
@@ -34,7 +35,7 @@ class WriteSpeedBenchmark {
     @Autowired
     private CassandraBenchmarkService cassandraBenchmarkService
     @Autowired
-    private JsonToKeyValueConverter jsonToKeyValueConverter;
+    private JsonToKeyValueConverter jsonToKeyValueConverter
 
     @Test
     void testKeyValue() {
