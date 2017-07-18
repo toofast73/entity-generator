@@ -15,12 +15,16 @@ public class JacksonConverter {
     ObjectMapper mapper = new ObjectMapper();
 
     // Convert object to JSON string
-    public String toJson(Object o) throws JsonProcessingException {
-        return mapper.writeValueAsString(o);
+    public String toJson(Object o) {
+        try {
+            return mapper.writeValueAsString(o);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // Convert JSON string to Object
-    public Object fromJson(String jsonInString, Class<?> valueType) {
+    public <T> T fromJson(String jsonInString, Class<T> valueType) {
         try {
             return mapper.readValue(jsonInString, valueType);
         } catch (IOException e) {

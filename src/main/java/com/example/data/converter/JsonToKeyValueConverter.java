@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 @Service
-public class JsonToKeyValueConverter {
+public class JsonToKeyValueConverter implements Converter<String, Map<String, String>> {
 
     @Autowired
     private JacksonConverter jacksonConverter;
@@ -21,12 +21,17 @@ public class JsonToKeyValueConverter {
     private String OPEN = "[";
     private String CLOSE = "]";
 
-    public Map<String, String> convert(String json) {
+    @Override
+    public Map<String, String> convertTo(String json) {
 
         Map<String, String> map = new HashMap<>();
         addKeys("", jacksonConverter.readTree(json), map);
-
         return map;
+    }
+
+    @Override
+    public String convertFrom(Map<String, String> data) {
+        throw new UnsupportedOperationException("Not implemented");
     }
 
     private void addKeys(String currentPath, JsonNode jsonNode, Map<String, String> map) {

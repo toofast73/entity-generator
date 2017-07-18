@@ -34,7 +34,7 @@ public class JsonToKeyValueConverterTest {
 
         operations.forEach(json -> {
 
-            Map<String, String> map = jsonToKeyValueConverter.convert(json);
+            Map<String, String> map = jsonToKeyValueConverter.convertTo(json);
             StringBuilder sb = new StringBuilder("Result map:");
 
             map.forEach((key, value) -> {

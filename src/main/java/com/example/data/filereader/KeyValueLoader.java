@@ -24,14 +24,14 @@ public class KeyValueLoader implements FileLoader<Map<String, String>> {
     @Override
     public List<Map<String, String>> loadAll() {
         return jsonLoader.loadAll().stream()
-                .map(jsonToKeyValueConverter::convert)
+                .map(jsonToKeyValueConverter::convertTo)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<Map<String, String>> load(int fieldsCount) {
         return jsonLoader.load(fieldsCount).stream()
-                .map(jsonToKeyValueConverter::convert)
+                .map(jsonToKeyValueConverter::convertTo)
                 .collect(Collectors.toList());
     }
 }
