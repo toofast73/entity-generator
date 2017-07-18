@@ -1,6 +1,5 @@
-package com.example.converter;
+package com.example.data.converter;
 
-import com.example.mapper.JacksonMapper;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -16,7 +15,7 @@ import java.util.Map;
 public class JsonToKeyValueConverter {
 
     @Autowired
-    private JacksonMapper jacksonMapper;
+    private JacksonConverter jacksonConverter;
 
     private String POINT = ".";
     private String OPEN = "[";
@@ -25,7 +24,7 @@ public class JsonToKeyValueConverter {
     public Map<String, String> convert(String json) {
 
         Map<String, String> map = new HashMap<>();
-        addKeys("", jacksonMapper.readTree(json), map);
+        addKeys("", jacksonConverter.readTree(json), map);
 
         return map;
     }

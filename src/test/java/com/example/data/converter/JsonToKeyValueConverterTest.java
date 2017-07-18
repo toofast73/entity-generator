@@ -1,4 +1,4 @@
-package com.example.converter;
+package com.example.data.converter;
 
 import com.example.Start;
 import com.example.data.filereader.JsonLoader;

@@ -1,4 +1,4 @@
-package com.example.mapper;
+package com.example.data.converter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Map;
 
 @Service
-public class JacksonMapper {
+public class JacksonConverter {
 
     ObjectMapper mapper = new ObjectMapper();
 

@@ -1,6 +1,6 @@
 package com.example.data.filereader;
 
-import com.example.converter.JsonToKeyValueConverter;
+import com.example.data.converter.JsonToKeyValueConverter;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

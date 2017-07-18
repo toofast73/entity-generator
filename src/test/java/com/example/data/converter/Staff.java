@@ -1,4 +1,4 @@
-package com.example.mapper;
+package com.example.data.converter;
 
 import com.example.mapper.CustomTypes.Department;
 
