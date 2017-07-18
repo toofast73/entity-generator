@@ -10,12 +10,12 @@ import java.util.Set;
 
 public class Person {
 
-    private  long id;
-    private  boolean citizen;
-    private  double salary;
-    private  String name;
-    private  Date dateOfBirth;
-    private  BigDecimal age;
+    private long id;
+    private boolean citizen;
+    private double salary;
+    private String name;
+    private Date dateOfBirth;
+    private BigDecimal age;
     private Set<Person> friends = new HashSet<>();
     private Sex sex;
 
@@ -133,4 +133,6 @@ public class Person {
                 .add("sex", sex)
                 .toString();
     }
+
+
 }
