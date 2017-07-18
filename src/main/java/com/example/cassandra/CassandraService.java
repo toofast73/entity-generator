@@ -25,6 +25,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static com.datastax.driver.core.schemabuilder.SchemaBuilder.udtLiteral;
+import static com.sun.org.apache.xml.internal.utils.LocaleUtility.EMPTY_STRING;
 import static org.springframework.util.Assert.notNull;
 import static org.springframework.util.CollectionUtils.isEmpty;
 import static org.springframework.util.ReflectionUtils.doWithFields;
@@ -79,13 +80,18 @@ public class CassandraService {
         createTableByTemplate(name, fc);
     }
 
-    public void createTableByTemplate(String name, Map<String, ?> objectMap) {
-        Map<String, Class> classMap = objectMap.entrySet().stream().collect(
+    public void createTableByTemplate(String name, Map<String, ?> map) {
+        Map<String, Class> classMap = map.entrySet().stream().collect(
                 Collectors.toMap(Map.Entry::getKey, e -> e.getValue().getClass()));
         FieldCollector fc = new FieldCollector();
         fc.doWith(classMap);
 
         createTableByTemplate(name, fc);
+    }
+
+    public void createTableByTemplate(String name, String id, Map<String, String> map) {
+        map.put(id, EMPTY_STRING);
+        createTableByTemplate(name, map);
     }
 
     public ResultSet execute(Statement stmt) {

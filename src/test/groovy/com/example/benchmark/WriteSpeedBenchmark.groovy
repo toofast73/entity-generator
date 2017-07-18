@@ -2,6 +2,7 @@ package com.example.benchmark
 
 import com.example.Start
 import com.example.cassandra.CassandraBenchmarkService
+import com.example.converter.JsonToKeyValueConverter
 import com.example.dao.WriterService
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
@@ -32,6 +33,8 @@ class WriteSpeedBenchmark {
     private KeyValueLoader keyValueLoader
     @Autowired
     private CassandraBenchmarkService cassandraBenchmarkService
+    @Autowired
+    private JsonToKeyValueConverter jsonToKeyValueConverter;
 
     @Test
     void testKeyValue() {
@@ -62,8 +65,8 @@ class WriteSpeedBenchmark {
     }
 
     @Test
-    void testCassandraKeyValue() {
-        cassandraBenchmarkService.createBenchmarkMapTable()
+    void testCassandraMap() {
+        cassandraBenchmarkService.createBenchmarkTable()
 
 
         [20, 100, 500, 10_000].each { fieldsCount ->
@@ -71,12 +74,41 @@ class WriteSpeedBenchmark {
             List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
             executeBenchmarks("Write in key value, $fieldsCount fields", {
                 operations.collect {
-                    operation -> cassandraBenchmarkService.writeBenchmarkMapTable(operation)
+                    operation -> cassandraBenchmarkService.writeBenchmarkMapToMap(operation)
                 }
             } as Callable)
 
         }
 
-        cassandraBenchmarkService.dropBenchmarkMapTable()
+        cassandraBenchmarkService.dropBenchmarkTable()
+    }
+
+    @Test
+    void testCassandraKeyValue() {
+        jsonToKeyValueConverter.cqlMode() //todo switch off
+
+        Map<String, String> pattern = keyValueLoader.load(20).get(0) //todo single map
+        cassandraBenchmarkService.createBenchmarkTable(pattern)
+        [20].each { fieldsCount ->
+            List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
+            executeBenchmarks("Write in key value, $fieldsCount fields", {
+                operations.collect {
+                    operation -> cassandraBenchmarkService.writeBenchmarkMapToTable(operation)
+                }
+            } as Callable)
+        }
+        cassandraBenchmarkService.dropBenchmarkTable()
+
+        pattern = keyValueLoader.load(100).get(0) //todo single map
+        cassandraBenchmarkService.createBenchmarkTable(pattern)
+        [100].each { fieldsCount ->
+            List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
+            executeBenchmarks("Write in key value, $fieldsCount fields", {
+                operations.collect {
+                    operation -> cassandraBenchmarkService.writeBenchmarkMapToTable(operation)
+                }
+            } as Callable)
+        }
+        cassandraBenchmarkService.dropBenchmarkTable()
     }
 }

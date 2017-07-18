@@ -8,11 +8,11 @@ import java.util.concurrent.atomic.AtomicLong;
  *
  */
 @Service
-class IdGenerator {
+public class IdGenerator {
 
-    private AtomicLong counter = new AtomicLong(0);
+    private final AtomicLong counter = new AtomicLong(0);
 
-    long generateId() {
+    public long generateId() {
         return counter.incrementAndGet();
     }
 }

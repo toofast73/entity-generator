@@ -75,16 +75,16 @@ public class ReadWriteTest {
     @Test
     public void testCassandreKeyValue() throws Exception {
 
-        cassandraBenchmarkService.createBenchmarkMapTable();
+        cassandraBenchmarkService.createBenchmarkTable();
 
         List<Map<String, String>> initialOperationsData = keyValueLoader.loadAll();
 
         testReadWrite(initialOperationsData,
-                operationData -> cassandraBenchmarkService.writeBenchmarkMapTable(operationData),
+                operationData -> cassandraBenchmarkService.writeBenchmarkMapToMap(operationData),
                 operationId -> cassandraBenchmarkService.readBenchmarkMapTable(operationId)
         );
 
-        cassandraBenchmarkService.dropBenchmarkMapTable();
+        cassandraBenchmarkService.dropBenchmarkTable();
     }
 
 }

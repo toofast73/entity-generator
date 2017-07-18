@@ -2,38 +2,48 @@ package com.example.cassandra;
 
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
+import com.example.dao.IdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
 import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
 import static com.example.cassandra.CassandraService.ID_NAME;
 
 @Service
 public class CassandraBenchmarkService {
+    private static final String BENCHMARK_TABLE = "benchmark";
+
     @Autowired
     private CassandraService cassandraService;
     @Autowired
     private CassandraDao cassandraDao;
+    @Autowired
+    private IdGenerator idGenerator;
 
-    private static final String BENCHMARK_TABLE = "benchmark";
-    private static final AtomicLong ID = new AtomicLong();
 
-    public void createBenchmarkMapTable(){
+    public void createBenchmarkTable(){
         cassandraService.createTableOfMap(BENCHMARK_TABLE);
     }
 
-    public long writeBenchmarkMapTable(Map<String, String> operationData){
-        // TODO: 17/07/2017 main table
-        String strId = String.valueOf(ID.incrementAndGet());
-
-        cassandraDao.insertMapIntoMap(BENCHMARK_TABLE, strId, operationData);
-        return ID.get();
+    public void createBenchmarkTable(Map<String, String> map){
+        cassandraService.createTableByTemplate(BENCHMARK_TABLE, ID_NAME, map);
     }
 
-    public void dropBenchmarkMapTable(){
+    public long writeBenchmarkMapToMap(Map<String, String> operationData){
+        long id = idGenerator.generateId();
+        cassandraDao.insertMapIntoMap(BENCHMARK_TABLE, String.valueOf(id), operationData);
+        return id;
+    }
+
+    public long writeBenchmarkMapToTable(Map<String, String> operationData){
+        long id = idGenerator.generateId();
+        cassandraDao.insertMapIntoTable(BENCHMARK_TABLE, String.valueOf(id), operationData);
+        return id;
+    }
+
+    public void dropBenchmarkTable(){
         cassandraService.dropTable(BENCHMARK_TABLE);
     }
 

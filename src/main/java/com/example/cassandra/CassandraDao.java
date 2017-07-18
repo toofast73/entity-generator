@@ -40,4 +40,12 @@ public class CassandraDao {
         insertStmt.value(name, map);
         cassandraService.execute(insertStmt);
     }
+
+    public void insertMapIntoTable(String name, String id, Map<String, String> map) {
+        Insert insertStmt = QueryBuilder.insertInto(name);
+        insertStmt.value(ID_NAME, id);
+        map.entrySet().forEach(entry -> insertStmt.value(entry.getKey(), entry.getValue()));
+        cassandraService.execute(insertStmt);
+    }
+
 }
