@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -33,9 +35,11 @@ import java.util.Map;
         "longitude",
         "tags"
 })
+@org.springframework.data.elasticsearch.annotations.Document(indexName = "documents")
 public class Operation {
 
     @JsonProperty("_id")
+    @Id
     private String id;
     @JsonProperty("index")
     private Integer index;
@@ -73,6 +77,8 @@ public class Operation {
     private Double longitude;
     @JsonProperty("tags")
     private List<String> tags = null;
+
+    private List<Operation> nestedOperations;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<>();
 
@@ -276,4 +282,11 @@ public class Operation {
         this.additionalProperties.put(name, value);
     }
 
+    public List<Operation> getNestedOperations() {
+        return nestedOperations;
+    }
+
+    public void setNestedOperations(List<Operation> nestedOperations) {
+        this.nestedOperations = nestedOperations;
+    }
 }

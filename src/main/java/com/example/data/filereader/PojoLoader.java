@@ -25,15 +25,17 @@ public class PojoLoader implements FileLoader<Operation[]> {
     public List<Operation[]> loadAll() {
         return jsonLoader.loadAll().stream()
                 .map(json -> {
-                    return jacksonConverter.fromJson(json, Operation[].class);
-                }).collect(Collectors.toList());
+                    return (Operation[]) jacksonConverter.fromJson(json, Operation[].class);
+                })
+
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Operation[]> load(int fieldsCount) {
         return jsonLoader.load(fieldsCount).stream()
                 .map(json -> {
-                    return jacksonConverter.fromJson(json, Operation[].class);
+                    return (Operation[]) jacksonConverter.fromJson(json, Operation[].class);
                 }).collect(Collectors.toList());
     }
 }
