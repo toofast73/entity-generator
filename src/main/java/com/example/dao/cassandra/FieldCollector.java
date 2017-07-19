@@ -1,4 +1,4 @@
-package com.example.mapper;
+package com.example.dao.cassandra;
 
 import org.springframework.util.ReflectionUtils;
 

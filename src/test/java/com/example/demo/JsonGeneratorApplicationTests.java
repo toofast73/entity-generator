@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import com.example.data.converter.JacksonMarshaller;
+import com.example.data.generator.PersonGenerator;
+import com.example.data.pojo.Person;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 

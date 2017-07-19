@@ -1,4 +1,4 @@
-package com.example.cassandra;
+package com.example.dao.cassandra;
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.DataType;
@@ -11,8 +11,7 @@ import com.datastax.driver.core.schemabuilder.Create;
 import com.datastax.driver.core.schemabuilder.CreateType;
 import com.datastax.driver.core.schemabuilder.SchemaBuilder;
 import com.datastax.driver.core.schemabuilder.UDTType;
-import com.example.mapper.CustomTypes.Department;
-import com.example.mapper.FieldCollector;
+import com.example.data.pojo.Department;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

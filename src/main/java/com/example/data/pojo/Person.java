@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.data.pojo;
 
 import com.google.common.base.MoreObjects;
 

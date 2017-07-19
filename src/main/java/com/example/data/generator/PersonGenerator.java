@@ -1,12 +1,11 @@
-package com.example.demo;
+package com.example.data.generator;
 
+import com.example.data.pojo.Person;
+import com.example.data.pojo.Sex;
 import io.bloco.faker.Faker;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class PersonGenerator {

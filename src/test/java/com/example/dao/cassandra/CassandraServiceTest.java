@@ -1,4 +1,4 @@
-package com.example.cassandra;
+package com.example.dao.cassandra;
 
 import com.datastax.driver.core.Session;
 import com.example.Start;

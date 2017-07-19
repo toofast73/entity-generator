@@ -1,4 +1,4 @@
-package com.example.dao;
+package com.example.dao.oracle;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

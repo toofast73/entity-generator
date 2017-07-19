@@ -1,6 +1,6 @@
 package com.example.data.converter;
 
-import com.example.mapper.CustomTypes.Department;
+import com.example.data.pojo.Department;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.cassandra;
+package com.example.dao.cassandra;
 
 import com.datastax.driver.core.querybuilder.Insert;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-import static com.example.cassandra.CassandraService.ID_NAME;
+import static com.example.dao.cassandra.CassandraService.ID_NAME;
 
 @Service
 public class CassandraDao {

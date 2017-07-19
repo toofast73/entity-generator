@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.dao.mongo;
 
 import com.example.data.pojo.Operation;
 import org.springframework.data.mongodb.repository.MongoRepository;

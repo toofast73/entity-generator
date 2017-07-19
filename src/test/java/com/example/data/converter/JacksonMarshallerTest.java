@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class JacksonMarshallerTest {
@@ -23,24 +24,24 @@ public class JacksonMarshallerTest {
 
     @Test
     public void toJson() throws Exception {
-        assertTrue(jacksonMarshaller.toJson(staff).equals(JSON_STRING));
+        assertEquals(jacksonMarshaller.toJson(staff), JSON_STRING);
     }
 
     @Test
     public void toMap() throws Exception {
-        assertTrue(jacksonMarshaller.toMap(staff).toString().equals(MAP_TO_STRING));
+        assertEquals(jacksonMarshaller.toMap(staff).toString(), MAP_TO_STRING);
     }
 
     @Test
     public void fromJson() throws Exception {
 
-        assertTrue(jacksonMarshaller.fromJson(JSON_STRING, Staff.class).equals(staff));
+        assertEquals(jacksonMarshaller.fromJson(JSON_STRING, Staff.class), staff);
     }
 
     @Test
     public void fromMap() throws Exception {
         Map<Object, Object> map = jacksonMarshaller.toMap(staff);
-        assertTrue(jacksonMarshaller.fromMap(map).equals(JSON_STRING));
+        assertEquals(jacksonMarshaller.fromMap(map), JSON_STRING);
     }
 
     @Test

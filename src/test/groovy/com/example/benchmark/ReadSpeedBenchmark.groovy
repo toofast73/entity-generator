@@ -1,7 +1,7 @@
 package com.example.benchmark
 
 import com.example.Start
-import com.example.dao.ReaderService
+import com.example.dao.oracle.ReaderService
 import org.apache.commons.logging.Log
 import org.apache.commons.logging.LogFactory
 import org.junit.Test

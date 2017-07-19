@@ -1,8 +1,8 @@
 package com.example.benchmark
 
 import com.example.Start
-import com.example.cassandra.CassandraBenchmarkService
-import com.example.dao.WriterService
+import com.example.dao.cassandra.CassandraBenchmarkService
+import com.example.dao.oracle.WriterService
 import com.example.data.converter.PojoConverter
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader

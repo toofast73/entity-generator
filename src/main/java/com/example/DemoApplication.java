@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example;
 
+import com.example.dao.mongo.PersonMongoRepository;
 import com.example.data.filereader.PojoLoader;
 import com.example.data.pojo.Operation;
 import com.google.common.base.Stopwatch;

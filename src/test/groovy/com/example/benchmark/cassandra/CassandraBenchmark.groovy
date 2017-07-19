@@ -1,11 +1,11 @@
 package com.example.benchmark.cassandra
 
 import com.example.Start
-import com.example.cassandra.CassandraBenchmarkService
-import com.example.dao.IdGenerator
 import com.example.dao.ReadWrite
-import com.example.dao.ReaderService
-import com.example.dao.WriterService
+import com.example.dao.cassandra.CassandraBenchmarkService
+import com.example.dao.oracle.IdGenerator
+import com.example.dao.oracle.ReaderService
+import com.example.dao.oracle.WriterService
 import com.example.data.converter.PojoConverter
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader

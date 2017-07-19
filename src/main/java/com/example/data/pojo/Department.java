@@ -1,4 +1,4 @@
-package com.example.mapper.CustomTypes;
+package com.example.data.pojo;
 
 public class Department {
     String name = "";

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.dao.elastic;
 
 import com.example.data.pojo.Operation;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;

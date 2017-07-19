@@ -1,4 +1,4 @@
-package com.example.dao;
+package com.example.dao.oracle;
 
 import com.google.common.base.Splitter;
 import org.springframework.beans.factory.annotation.Autowired;

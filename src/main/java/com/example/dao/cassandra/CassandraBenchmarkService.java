@@ -1,15 +1,15 @@
-package com.example.cassandra;
+package com.example.dao.cassandra;
 
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
-import com.example.dao.IdGenerator;
+import com.example.dao.oracle.IdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
-import static com.example.cassandra.CassandraService.ID_NAME;
+import static com.example.dao.cassandra.CassandraService.ID_NAME;
 
 @Service
 public class CassandraBenchmarkService {
