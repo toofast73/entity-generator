@@ -35,10 +35,10 @@ import static org.apache.commons.beanutils.PropertyUtils.getProperty;
 import static org.apache.commons.beanutils.PropertyUtils.getPropertyType;
 
 @Service
-public class JsonToKeyValueConverter {
+class KeyValueMarshaller {
 
     @Autowired
-    private JacksonConverter jacksonConverter;
+    private JacksonMarshaller jacksonMarshaller;
 
     private Resolver resolver = new DefaultResolver();
 
@@ -48,18 +48,17 @@ public class JsonToKeyValueConverter {
     private String OPEN = "[";
     private String CLOSE = "]";
 
-    public Map<String, String> convertTo(String json) {
+    public Map<String, String> toKeyValue(String json) {
 
         Map<String, String> map = new LinkedHashMap<>();
-        addKeys("", jacksonConverter.readTree(json), map);
+        addKeys("", jacksonMarshaller.readTree(json), map);
         return map;
     }
 
-    public <T> T convertFrom(Map<String, String> keyValue, Class<T> valueType) {
+    public <T> T fromKeyValue(Map<String, String> keyValue, Class<T> valueType) {
         try {
 
             PojoTray tray = new PojoTray();
-            int depth;
 
             for (Map.Entry<String, String> entry : keyValue.entrySet()) {
                 Iterator<String> fields = asList(entry.getKey().split("\\.")).iterator();
@@ -96,6 +95,7 @@ public class JsonToKeyValueConverter {
 
             if (objValue == null) { // контейнер (лист, массив, мапа, сет) с данными
                 setDataValue(bean, field, String.class, dataValue);
+                return;
             }
 
             if (!fields.hasNext()) {

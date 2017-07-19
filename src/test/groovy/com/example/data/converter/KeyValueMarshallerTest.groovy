@@ -20,24 +20,24 @@ import static org.junit.Assert.assertEquals
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
-class JsonToKeyValueConverterTest {
+class KeyValueMarshallerTest {
     private final Log logger = LogFactory.getLog(getClass())
 
     @Autowired
-    JsonToKeyValueConverter jsonToKeyValueConverter
+    KeyValueMarshaller jsonToKeyValueConverter
     @Autowired
     JsonLoader jsonLoader
     @Autowired
     KeyValueLoader keyValueLoader
     @Autowired
-    JacksonConverter jacksonConverter
+    JacksonMarshaller jacksonConverter
 
     @Test
     void testPojoToKeyValue() throws Exception {
 
         jsonLoader.loadAll().each { json ->
 
-            Map<String, String> map = jsonToKeyValueConverter.convertTo(json)
+            Map<String, String> map = jsonToKeyValueConverter.toKeyValue(json)
             StringBuilder sb = new StringBuilder("Result map:")
 
             map.each { key, value ->
@@ -58,7 +58,7 @@ class JsonToKeyValueConverterTest {
 
             keyValueLoader.load(fieldsCount) each { keyValue ->
 
-                Operation[] pojo = jsonToKeyValueConverter.convertFrom(keyValue, Operation[].class)
+                Operation[] pojo = jsonToKeyValueConverter.fromKeyValue(keyValue, Operation[].class)
                 logger.info "Result: ${JsonOutput.prettyPrint(jacksonConverter.toJson(pojo))}"
             }
         }
@@ -70,8 +70,8 @@ class JsonToKeyValueConverterTest {
         [20, 100, 500, 10_000].each { fieldsCount ->
             jsonLoader.load(fieldsCount) each { json ->
 
-                Map<String, String> keyValue = jsonToKeyValueConverter.convertTo(json)
-                Operation[] pojo = jsonToKeyValueConverter.convertFrom(keyValue, Operation[].class)
+                Map<String, String> keyValue = jsonToKeyValueConverter.toKeyValue(json)
+                Operation[] pojo = jsonToKeyValueConverter.fromKeyValue(keyValue, Operation[].class)
 
                 assertEquals(JsonOutput.prettyPrint(json),
                         JsonOutput.prettyPrint(jacksonConverter.toJson(pojo)))

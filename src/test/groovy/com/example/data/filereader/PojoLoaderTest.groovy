@@ -1,7 +1,7 @@
 package com.example.data.filereader
 
 import com.example.Start
-import com.example.data.converter.JacksonConverter
+import com.example.data.converter.PojoConverter
 import groovy.json.JsonOutput
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -23,7 +23,7 @@ class PojoLoaderTest {
     @Autowired
     private PojoLoader pojoLoader
     @Autowired
-    private JacksonConverter jacksonConverter
+    private PojoConverter converter
 
     @Test
     void testLoad() {
@@ -34,7 +34,7 @@ class PojoLoaderTest {
         for (int i = 0; i < pojos.size(); i++) {
 
             assertEquals(JsonOutput.prettyPrint(jsons.get(i)),
-                    JsonOutput.prettyPrint(jacksonConverter.toJson(pojos.get(i))))
+                    JsonOutput.prettyPrint(converter.convertPojoToJson(pojos.get(i))))
         }
     }
 
@@ -49,7 +49,7 @@ class PojoLoaderTest {
             for (int i = 0; i < pojos.size(); i++) {
 
                 assertEquals(JsonOutput.prettyPrint(jsons.get(i)),
-                        JsonOutput.prettyPrint(jacksonConverter.toJson(pojos.get(i))))
+                        JsonOutput.prettyPrint(converter.convertPojoToJson(pojos.get(i))))
             }
         }
     }

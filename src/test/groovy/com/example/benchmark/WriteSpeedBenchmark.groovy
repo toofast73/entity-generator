@@ -3,7 +3,7 @@ package com.example.benchmark
 import com.example.Start
 import com.example.cassandra.CassandraBenchmarkService
 import com.example.dao.WriterService
-import com.example.data.converter.JsonToKeyValueConverter
+import com.example.data.converter.PojoConverter
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
 import org.apache.commons.logging.Log
@@ -35,7 +35,7 @@ class WriteSpeedBenchmark {
     @Autowired
     private CassandraBenchmarkService cassandraBenchmarkService
     @Autowired
-    private JsonToKeyValueConverter jsonToKeyValueConverter
+    private PojoConverter converter
 
     @Test
     void testKeyValue() {
@@ -86,7 +86,7 @@ class WriteSpeedBenchmark {
 
     @Test
     void testCassandraKeyValue() {
-        jsonToKeyValueConverter.cqlMode(true)
+        converter.cqlMode(true)
 
         [20, 100, 500, 10_000].each { fieldsCount ->
             Map<String, String> pattern = keyValueLoader.load(fieldsCount).get(0)

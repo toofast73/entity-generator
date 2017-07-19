@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.data.converter.JacksonConverter;
+import com.example.data.converter.JacksonMarshaller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 
@@ -15,8 +15,8 @@ public class JsonGeneratorApplicationTests {
 
 		System.out.println(generate);
 
-		JacksonConverter jacksonConverter = new JacksonConverter();
-		String json = jacksonConverter.toJson(generate);
+		JacksonMarshaller jacksonMarshaller = new JacksonMarshaller();
+		String json = jacksonMarshaller.toJson(generate);
 		System.out.println(json);
 	}
 

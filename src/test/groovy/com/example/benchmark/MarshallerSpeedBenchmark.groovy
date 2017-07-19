@@ -1,8 +1,7 @@
 package com.example.benchmark
 
 import com.example.Start
-import com.example.data.converter.JacksonConverter
-import com.example.data.converter.PojoToKeyValueConverter
+import com.example.data.converter.PojoConverter
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
 import com.example.data.filereader.PojoLoader
@@ -32,9 +31,8 @@ class MarshallerSpeedBenchmark {
     @Autowired
     private PojoLoader pojoLoader
     @Autowired
-    private JacksonConverter jacksonConverter
-    @Autowired
-    private PojoToKeyValueConverter pojoToKeyValueConverter
+    private PojoConverter converter
+
 
     @Test
     void testPojoToJson() {
@@ -45,7 +43,7 @@ class MarshallerSpeedBenchmark {
             BenchmarkSuite.executeBenchmark(prepareReport(),
                     [("Marshal POJO to JSON, $fieldsCount fields" as String): {
                         pojos.collect {
-                            pojo -> jacksonConverter.toJson(pojo)
+                            pojo -> converter.convertPojoToJson(pojo)
                         }
                     } as Callable])
         }
@@ -60,7 +58,7 @@ class MarshallerSpeedBenchmark {
             BenchmarkSuite.executeBenchmark(prepareReport(),
                     [("Marshal JSON to POJO, $fieldsCount fields" as String): {
                         jsons.collect {
-                            json -> jacksonConverter.fromJson(json, Operation[].class)
+                            json -> converter.convertJsonToPojo(json)
                         }
                     } as Callable])
         }
@@ -75,7 +73,7 @@ class MarshallerSpeedBenchmark {
             BenchmarkSuite.executeBenchmark(prepareReport(),
                     [("Marshal POJO to KeyValue, $fieldsCount fields" as String): {
                         pojos.collect {
-                            pojo -> pojoToKeyValueConverter.convertTo(pojo)
+                            pojo -> converter.convertPojoToKeyValue(pojo)
                         }
                     } as Callable])
         }
@@ -90,7 +88,7 @@ class MarshallerSpeedBenchmark {
             BenchmarkSuite.executeBenchmark(prepareReport(),
                     [("Marshal KeyValue to POJO, $fieldsCount fields" as String): {
                         keyValues.collect {
-                            keyValue -> pojoToKeyValueConverter.convertFrom(keyValue)
+                            keyValue -> converter.convertKeyValueToPojo(keyValue)
                         }
                     } as Callable])
         }

@@ -2,8 +2,8 @@ package com.example.cassandra;
 
 import com.datastax.driver.core.Session;
 import com.example.Start;
-import com.example.data.converter.JacksonConverter;
-import com.example.data.converter.JsonToKeyValueConverter;
+import com.example.data.converter.JacksonMarshaller;
+import com.example.data.converter.PojoConverter;
 import com.example.data.converter.Staff;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,13 +23,13 @@ public class CassandraServiceTest {
     @Autowired
     private CassandraService cassandraService;
     @Autowired
-    private JacksonConverter jacksonConverter;
+    private JacksonMarshaller jacksonMarshaller;
     @Autowired
     private CassandraDao cassandraDao;
     @Autowired
-    private JsonToKeyValueConverter jsonToKeyValueConverter;
+    private PojoConverter converter;
 
-     private Session session;
+    private Session session;
     private String name;
     private Staff staff;
     private String jsonStaff;
@@ -40,9 +40,9 @@ public class CassandraServiceTest {
         session = cassandraService.connect();
         name = Staff.class.getSimpleName().toLowerCase();
         staff = Staff.createDummyObject();
-        jsonStaff = jacksonConverter.toJson(staff);
-        jsonToKeyValueConverter.cqlMode(true);
-        mapStaff = jsonToKeyValueConverter.convertTo(jsonStaff);
+        jsonStaff = jacksonMarshaller.toJson(staff);
+        converter.cqlMode(true);
+        mapStaff = converter.convertJsonToKeyValue(jsonStaff);
 
     }
 

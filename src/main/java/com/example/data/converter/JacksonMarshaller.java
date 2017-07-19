@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Map;
 
 @Service
-public class JacksonConverter {
+public class JacksonMarshaller {
 
     ObjectMapper mapper = new ObjectMapper();
 
