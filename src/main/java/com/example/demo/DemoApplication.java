@@ -7,6 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchDataAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchRepositoriesAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.mongo.MongoRepositoriesAutoConfiguration;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,47 +21,60 @@ import java.util.concurrent.TimeUnit;
 import static com.google.common.collect.Lists.newArrayList;
 
 @SpringBootApplication(
-		scanBasePackages = {"com.example"}
+        scanBasePackages = {"com.example"},
+        exclude = {
+                MongoAutoConfiguration.class,
+                MongoDataAutoConfiguration.class,
+                //MongoClientDependsOnBeanFactoryPostProcessor.class,
+                MongoRepositoriesAutoConfiguration.class,
+                ElasticsearchAutoConfiguration.class,
+                ElasticsearchDataAutoConfiguration.class,
+                //ElasticsearchProperties.class,
+                ElasticsearchRepositoriesAutoConfiguration.class,
+        }
 )
 public class DemoApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
-	/**
-	 * Callback used to run the bean.
-	 *
-	 * @param args incoming main method arguments
-	 * @throws Exception on error
-	 */
-	@Autowired
-	PersonMongoRepository repository;
+    /**
+     * Callback used to run the bean.
+     *
+     * @param args incoming main method arguments
+     * @throws Exception on error
+     */
+    @Autowired(required = false)
+    PersonMongoRepository repository;
 
-	@Autowired
-	PojoLoader pojoLoader;
+    @Autowired
+    PojoLoader pojoLoader;
 
-	@Override
-	public void run(String... args) throws Exception {
-		repository.deleteAll();
+    @Override
+    public void run(String... args) throws Exception {
 
-		Operation result = new Operation();
-		result.setAge(1);
-		result.setAbout("About");
+        if (true) return;
 
-		List<Operation[]> operations = pojoLoader.loadAll();
-		List<Operation> operationList = new ArrayList<>();
+        repository.deleteAll();
 
-		for (Operation[] operation : operations) {
-			operationList.addAll(newArrayList(operation));
-		}
-		result.setNestedOperations(operationList);
+        Operation result = new Operation();
+        result.setAge(1);
+        result.setAbout("About");
 
-		Stopwatch started = Stopwatch.createStarted();
+        List<Operation[]> operations = pojoLoader.loadAll();
+        List<Operation> operationList = new ArrayList<>();
 
-		repository.save(result);
-		System.err.println("ELAPSED" + started.stop().elapsed(TimeUnit.MILLISECONDS));
-		System.err.println("COUNT" + repository.count());
+        for (Operation[] operation : operations) {
+            operationList.addAll(newArrayList(operation));
+        }
+        result.setNestedOperations(operationList);
 
-	}
+        Stopwatch started = Stopwatch.createStarted();
+
+        repository.save(result);
+        System.err.println("ELAPSED" + started.stop().elapsed(TimeUnit.MILLISECONDS));
+        System.err.println("COUNT" + repository.count());
+
+    }
 }
