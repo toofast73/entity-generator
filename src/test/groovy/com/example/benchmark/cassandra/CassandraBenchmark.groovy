@@ -62,10 +62,10 @@ class CassandraBenchmark extends ReadWrite{
 
     @Test
     void testWriteReadMap() {
-        cassandraBenchmarkService.createBenchmarkTable()
 
-        int i = 0
         [20, 100, 500, 10_000].each { fieldsCount ->
+
+            cassandraBenchmarkService.createBenchmarkTable()
 
             List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
             executeBenchmarks("Write in key value, $fieldsCount fields", {
@@ -83,16 +83,15 @@ class CassandraBenchmark extends ReadWrite{
                 cassandraBenchmarkService.readBenchmarkMapTable(String.valueOf(id))
 
             } as Callable)
+            cassandraBenchmarkService.dropBenchmarkTable()
         }
-
-        cassandraBenchmarkService.dropBenchmarkTable()
     }
 
     @Test
     void testWriteKeyValue() {
         jsonToKeyValueConverter.cqlMode(true)
 
-        [20/*, 100, 500, 10_000*/].each { fieldsCount ->
+        [20, 100, 500, 10_000].each { fieldsCount ->
             Map<String, String> pattern = keyValueLoader.load(fieldsCount).get(0)
             cassandraBenchmarkService.createBenchmarkTable(pattern)
             List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
