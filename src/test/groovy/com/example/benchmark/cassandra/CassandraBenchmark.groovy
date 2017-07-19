@@ -6,7 +6,7 @@ import com.example.dao.IdGenerator
 import com.example.dao.ReadWrite
 import com.example.dao.ReaderService
 import com.example.dao.WriterService
-import com.example.data.converter.JsonToKeyValueConverter
+import com.example.data.converter.PojoConverter
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
 import org.apache.commons.logging.Log
@@ -41,9 +41,9 @@ class CassandraBenchmark extends ReadWrite{
     @Autowired
     private CassandraBenchmarkService cassandraBenchmarkService
     @Autowired
-    private JsonToKeyValueConverter jsonToKeyValueConverter
+    private PojoConverter converter
     @Autowired
-    private IdGenerator generator;
+    private IdGenerator generator
 
     @Test
     void testReadWriteKeyValue() throws Exception {
@@ -89,7 +89,7 @@ class CassandraBenchmark extends ReadWrite{
 
     @Test
     void testWriteKeyValue() {
-        jsonToKeyValueConverter.cqlMode(true)
+        converter.cqlMode(true)
 
         [20, 100, 500, 10_000].each { fieldsCount ->
             Map<String, String> pattern = keyValueLoader.load(fieldsCount).get(0)
