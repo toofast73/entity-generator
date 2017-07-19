@@ -73,8 +73,8 @@ public class DemoApplication implements CommandLineRunner {
         Stopwatch started = Stopwatch.createStarted();
 
         repository.save(result);
-        System.err.println("ELAPSED" + started.stop().elapsed(TimeUnit.MILLISECONDS));
-        System.err.println("COUNT" + repository.count());
+        System.err.println("ELAPSED: " + started.stop().elapsed(TimeUnit.MILLISECONDS));
+        System.err.println("COUNT: " + repository.count());
 
     }
 }

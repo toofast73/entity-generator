@@ -1,10 +1,8 @@
 package com.example.dao;
 
 import com.example.Start;
-import com.example.cassandra.CassandraBenchmarkService;
 import com.example.data.filereader.JsonLoader;
 import com.example.data.filereader.KeyValueLoader;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -22,7 +18,7 @@ import java.util.stream.Collectors;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
 //@Transactional  // с анннотацией данные в БД откатываются после прогона
-public class ReadWriteTest {
+public class ReadWriteTest extends ReadWrite {
 
     @Autowired
     private WriterService writerService;
@@ -32,8 +28,6 @@ public class ReadWriteTest {
     private JsonLoader jsonLoader;
     @Autowired
     private KeyValueLoader keyValueLoader;
-    @Autowired
-    private CassandraBenchmarkService cassandraBenchmarkService;
 
     @Test
     public void testKeyValue() throws Exception {
@@ -56,35 +50,4 @@ public class ReadWriteTest {
                 operationId -> readerService.readChunkOperation(operationId)
         );
     }
-
-    private <T> void testReadWrite(List<T> initialOperationsData,
-                                   Function<T, Long> writeOperation,
-                                   Function<Long, T> readOperation) {
-        List<Long> ids = initialOperationsData
-                .stream()
-                .map(writeOperation).collect(Collectors.toList());
-
-        List<T> dbOperationsData = ids
-                .stream()
-                .map(readOperation)
-                .collect(Collectors.toList());
-
-        Assert.assertEquals(initialOperationsData, dbOperationsData);
-    }
-
-    @Test
-    public void testCassandreKeyValue() throws Exception {
-
-        cassandraBenchmarkService.createBenchmarkTable();
-
-        List<Map<String, String>> initialOperationsData = keyValueLoader.loadAll();
-
-        testReadWrite(initialOperationsData,
-                operationData -> cassandraBenchmarkService.writeBenchmarkMapToMap(operationData),
-                operationId -> cassandraBenchmarkService.readBenchmarkMapTable(operationId)
-        );
-
-        cassandraBenchmarkService.dropBenchmarkTable();
-    }
-
 }

@@ -51,4 +51,9 @@ public class CassandraBenchmarkService {
         Select.Where select = QueryBuilder.select().from(BENCHMARK_TABLE).where(eq(ID_NAME, operationId.toString()));
         return cassandraService.execute(select).one().getMap(BENCHMARK_TABLE,String.class, String.class);
     }
+
+    public Map<String, String> readBenchmarkMapTable(String operationId) {
+        Select.Where select = QueryBuilder.select().from(BENCHMARK_TABLE).where(eq(ID_NAME, operationId));
+        return cassandraService.execute(select).one().getMap(BENCHMARK_TABLE,String.class, String.class);
+    }
 }
