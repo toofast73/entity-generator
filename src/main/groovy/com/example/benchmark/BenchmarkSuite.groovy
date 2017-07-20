@@ -1,5 +1,6 @@
 package com.example.benchmark
 
+import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.apache.commons.lang3.mutable.MutableBoolean
 
@@ -7,6 +8,7 @@ import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
+@CompileStatic
 @Slf4j
 class BenchmarkSuite implements Callable {
 

@@ -74,8 +74,10 @@ class KeyValueMarshallerTest {
                 Map<String, String> keyValue = jsonToKeyValueConverter.toKeyValue(json)
                 Operation[] pojo = jsonToKeyValueConverter.fromKeyValue(keyValue, Operation[].class)
 
-                assertEquals(JsonOutput.prettyPrint(json),
-                        JsonOutput.prettyPrint(jacksonConverter.toJson(pojo)))
+                assertEquals(
+                        JsonOutput.prettyPrint(json),
+                        JsonOutput.prettyPrint(jacksonConverter.toJson(pojo))
+                )
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.example.benchmark
 
+import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.apache.commons.lang3.time.StopWatch
 
@@ -10,6 +11,7 @@ import static org.apache.commons.lang3.time.DurationFormatUtils.formatDurationHM
 /**
  *
  */
+@CompileStatic
 @Slf4j
 class BenchmarkReport {
 
@@ -50,10 +52,10 @@ class BenchmarkReport {
             return
         }
 
-        Long count = counter.get(), countDelta = count - lastCounterValue
-        Long time = sw.getTime(), timeDelta = time - lastTimeValue
-        Long perSecSpeed = countDelta * 1000 / timeDelta
-        Long perHourSpeed = perSecSpeed * 60 * 60
+        long count = counter.get(), countDelta = count - lastCounterValue
+        long time = sw.getTime(), timeDelta = time - lastTimeValue
+        long perSecSpeed = (countDelta * 1000 / timeDelta).longValue()
+        long perHourSpeed = perSecSpeed * 60 * 60
 
         log.info "Tasks: ${taskNames}, executed ${countDelta} times for ${formatDurationHMS(timeDelta)}, " +
                 "speed: ${perSecSpeed} per/sec, ${perHourSpeed} per/h, with $threadCount thread(s)"
