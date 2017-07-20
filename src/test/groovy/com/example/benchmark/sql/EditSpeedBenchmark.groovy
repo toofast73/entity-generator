@@ -7,6 +7,7 @@ import com.example.dao.oracle.ReaderService
 import com.example.dao.oracle.WriterService
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
+import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -57,6 +58,7 @@ class EditSpeedBenchmark {
         [20, 100, 500, 10_000].each { fieldsCount ->
 
             List<Long> ids = readerService.loadChunkOperationIds(fieldsCount)
+            Assert.assertFalse("Operations not found in DB", ids.isEmpty())
             Map<Long, String> operations = ids.collectEntries { id ->
                 [id: readerService.readChunkOperation(id)]
             }
