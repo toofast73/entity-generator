@@ -1,0 +1,167 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.4.RELEASE)
+
+2017-07-20 11:42:44.909  INFO 59641 --- [           main] c.example.benchmark.WriteSpeedBenchmark  : Starting WriteSpeedBenchmark on MacBook-Pro-alex.local with PID 59641 (started by home in /Users/home/Projects/entity-generator)
+2017-07-20 11:42:44.910  INFO 59641 --- [           main] c.example.benchmark.WriteSpeedBenchmark  : No active profile set, falling back to default profiles: default
+2017-07-20 11:42:44.943  INFO 59641 --- [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@9cb8225: startup date [Thu Jul 20 11:42:44 MSK 2017]; root of context hierarchy
+2017-07-20 11:42:45.767  INFO 59641 --- [           main] c.d.driver.core.GuavaCompatibility       : Detected Guava >= 19 in the classpath, using modern compatibility layer
+2017-07-20 11:42:45.935  INFO 59641 --- [           main] com.datastax.driver.core.ClockFactory    : Using native clock to generate timestamps.
+2017-07-20 11:42:46.029  INFO 59641 --- [           main] com.datastax.driver.core.NettyUtil       : Did not find Netty's native epoll transport in the classpath, defaulting to NIO.
+2017-07-20 11:42:46.297  WARN 59641 --- [           main] com.datastax.driver.core.Cluster         : You listed localhost/0:0:0:0:0:0:0:1:9042 in your contact points, but it wasn't found in the control host's system.peers at startup
+2017-07-20 11:42:46.390  INFO 59641 --- [           main] c.d.d.c.p.DCAwareRoundRobinPolicy        : Using data-center name 'datacenter1' for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)
+2017-07-20 11:42:46.391  INFO 59641 --- [           main] com.datastax.driver.core.Cluster         : New Cassandra host localhost/127.0.0.1:9042 added
+2017-07-20 11:42:46.600  INFO 59641 --- [           main] com.datastax.driver.core.ClockFactory    : Using native clock to generate timestamps.
+2017-07-20 11:42:46.688  INFO 59641 --- [           main] c.example.benchmark.WriteSpeedBenchmark  : Started WriteSpeedBenchmark in 2.019 seconds (JVM running for 2.947)
+2017-07-20 11:42:46.855  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 20 fields] in 1 thread(s), test duration: 30000ms
+2017-07-20 11:42:46.864  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:43:16.899  INFO 59641 --- [pool-2-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 20 fields], total executions 10993 for 00:00:30.023, speed: 366 per/sec, 1317600 per/h, with 1 thread(s)
+2017-07-20 11:43:16.901  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 20 fields] in 2 thread(s), test duration: 30000ms
+2017-07-20 11:43:16.901  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:43:46.905  INFO 59641 --- [pool-5-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 20 fields], total executions 16742 for 00:00:30.004, speed: 557 per/sec, 2005200 per/h, with 2 thread(s)
+2017-07-20 11:43:46.905  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 20 fields] in 4 thread(s), test duration: 30000ms
+2017-07-20 11:43:46.906  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:44:16.916  INFO 59641 --- [pool-7-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 20 fields], total executions 18389 for 00:00:30.010, speed: 612 per/sec, 2203200 per/h, with 4 thread(s)
+2017-07-20 11:44:16.917  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-20 11:44:16.919  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:44:46.932  INFO 59641 --- [pool-9-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 20 fields], total executions 13997 for 00:00:30.015, speed: 466 per/sec, 1677600 per/h, with 8 thread(s)
+2017-07-20 11:44:46.933  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 20 fields] in 10 thread(s), test duration: 30000ms
+2017-07-20 11:44:46.938  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:45:16.946  INFO 59641 --- [ool-11-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 20 fields], total executions 12534 for 00:00:30.013, speed: 417 per/sec, 1501200 per/h, with 10 thread(s)
+2017-07-20 11:45:16.948  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 20 fields] in 16 thread(s), test duration: 30000ms
+2017-07-20 11:45:16.960  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:45:46.972  INFO 59641 --- [ool-13-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 20 fields], total executions 11083 for 00:00:30.024, speed: 369 per/sec, 1328400 per/h, with 16 thread(s)
+2017-07-20 11:45:46.976  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 100 fields] in 1 thread(s), test duration: 30000ms
+2017-07-20 11:45:46.977  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:46:16.986  INFO 59641 --- [ool-15-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 100 fields], total executions 4736 for 00:00:30.009, speed: 157 per/sec, 565200 per/h, with 1 thread(s)
+2017-07-20 11:46:16.986  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 100 fields] in 2 thread(s), test duration: 30000ms
+2017-07-20 11:46:16.987  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:46:46.997  INFO 59641 --- [ool-17-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 100 fields], total executions 6373 for 00:00:30.010, speed: 212 per/sec, 763200 per/h, with 2 thread(s)
+2017-07-20 11:46:46.997  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 100 fields] in 4 thread(s), test duration: 30000ms
+2017-07-20 11:46:46.998  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:47:17.011  INFO 59641 --- [ool-19-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 100 fields], total executions 7410 for 00:00:30.013, speed: 246 per/sec, 885600 per/h, with 4 thread(s)
+2017-07-20 11:47:17.012  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-20 11:47:17.013  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:47:47.021  INFO 59641 --- [ool-21-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 100 fields], total executions 6666 for 00:00:30.009, speed: 222 per/sec, 799200 per/h, with 8 thread(s)
+2017-07-20 11:47:47.022  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 100 fields] in 10 thread(s), test duration: 30000ms
+2017-07-20 11:47:47.024  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:48:17.029  INFO 59641 --- [ool-23-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 100 fields], total executions 7101 for 00:00:30.007, speed: 236 per/sec, 849600 per/h, with 10 thread(s)
+2017-07-20 11:48:17.031  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 100 fields] in 16 thread(s), test duration: 30000ms
+2017-07-20 11:48:17.038  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:48:47.046  INFO 59641 --- [ool-25-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 100 fields], total executions 6794 for 00:00:30.016, speed: 226 per/sec, 813600 per/h, with 16 thread(s)
+2017-07-20 11:48:47.058  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 500 fields] in 1 thread(s), test duration: 30000ms
+2017-07-20 11:48:47.058  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:49:17.059  INFO 59641 --- [ool-27-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 500 fields], total executions 1448 for 00:00:30.002, speed: 48 per/sec, 172800 per/h, with 1 thread(s)
+2017-07-20 11:49:17.060  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 500 fields] in 2 thread(s), test duration: 30000ms
+2017-07-20 11:49:17.060  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:49:47.070  INFO 59641 --- [ool-29-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 500 fields], total executions 1889 for 00:00:30.010, speed: 62 per/sec, 223200 per/h, with 2 thread(s)
+2017-07-20 11:49:47.070  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 500 fields] in 4 thread(s), test duration: 30000ms
+2017-07-20 11:49:47.071  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:50:17.078  INFO 59641 --- [ool-31-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 500 fields], total executions 2018 for 00:00:30.008, speed: 67 per/sec, 241200 per/h, with 4 thread(s)
+2017-07-20 11:50:17.080  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-20 11:50:17.082  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:50:47.088  INFO 59641 --- [ool-33-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 500 fields], total executions 2407 for 00:00:30.008, speed: 80 per/sec, 288000 per/h, with 8 thread(s)
+2017-07-20 11:50:47.089  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 500 fields] in 10 thread(s), test duration: 30000ms
+2017-07-20 11:50:47.091  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:51:17.099  INFO 59641 --- [ool-35-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 500 fields], total executions 2111 for 00:00:30.010, speed: 70 per/sec, 252000 per/h, with 10 thread(s)
+2017-07-20 11:51:17.100  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 500 fields] in 16 thread(s), test duration: 30000ms
+2017-07-20 11:51:17.107  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:51:47.108  INFO 59641 --- [ool-37-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 500 fields], total executions 2052 for 00:00:30.008, speed: 68 per/sec, 244800 per/h, with 16 thread(s)
+2017-07-20 11:51:47.188  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 10000 fields] in 1 thread(s), test duration: 30000ms
+2017-07-20 11:51:47.189  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:52:17.196  INFO 59641 --- [ool-39-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 10000 fields], total executions 90 for 00:00:30.007, speed: 2 per/sec, 7200 per/h, with 1 thread(s)
+2017-07-20 11:52:17.196  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 10000 fields] in 2 thread(s), test duration: 30000ms
+2017-07-20 11:52:17.197  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:52:47.207  INFO 59641 --- [ool-41-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 10000 fields], total executions 132 for 00:00:30.011, speed: 4 per/sec, 14400 per/h, with 2 thread(s)
+2017-07-20 11:52:47.207  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 10000 fields] in 4 thread(s), test duration: 30000ms
+2017-07-20 11:52:47.208  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:53:17.218  INFO 59641 --- [ool-43-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 10000 fields], total executions 159 for 00:00:30.010, speed: 5 per/sec, 18000 per/h, with 4 thread(s)
+2017-07-20 11:53:17.219  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-20 11:53:17.220  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:53:47.228  INFO 59641 --- [ool-45-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 10000 fields], total executions 135 for 00:00:30.010, speed: 4 per/sec, 14400 per/h, with 8 thread(s)
+2017-07-20 11:53:47.229  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 10000 fields] in 10 thread(s), test duration: 30000ms
+2017-07-20 11:53:47.232  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:54:17.242  INFO 59641 --- [ool-47-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 10000 fields], total executions 145 for 00:00:30.012, speed: 4 per/sec, 14400 per/h, with 10 thread(s)
+2017-07-20 11:54:17.243  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in key value, 10000 fields] in 16 thread(s), test duration: 30000ms
+2017-07-20 11:54:17.249  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:54:47.254  INFO 59641 --- [ool-49-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in key value, 10000 fields], total executions 112 for 00:00:30.011, speed: 3 per/sec, 10800 per/h, with 16 thread(s)
+2017-07-20 11:54:47.273  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 20 fields] in 1 thread(s), test duration: 30000ms
+2017-07-20 11:54:47.274  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:55:17.284  INFO 59641 --- [ool-51-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 20 fields], total executions 8938 for 00:00:30.011, speed: 297 per/sec, 1069200 per/h, with 1 thread(s)
+2017-07-20 11:55:17.285  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 20 fields] in 2 thread(s), test duration: 30000ms
+2017-07-20 11:55:17.286  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:55:47.295  INFO 59641 --- [ool-53-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 20 fields], total executions 18082 for 00:00:30.010, speed: 602 per/sec, 2167200 per/h, with 2 thread(s)
+2017-07-20 11:55:47.295  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 20 fields] in 4 thread(s), test duration: 30000ms
+2017-07-20 11:55:47.297  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:56:17.301  INFO 59641 --- [ool-55-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 20 fields], total executions 24255 for 00:00:30.006, speed: 808 per/sec, 2908800 per/h, with 4 thread(s)
+2017-07-20 11:56:17.302  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-20 11:56:17.303  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:56:47.311  INFO 59641 --- [ool-57-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 20 fields], total executions 27537 for 00:00:30.009, speed: 917 per/sec, 3301200 per/h, with 8 thread(s)
+2017-07-20 11:56:47.312  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 20 fields] in 10 thread(s), test duration: 30000ms
+2017-07-20 11:56:47.315  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:57:17.327  INFO 59641 --- [ool-59-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 20 fields], total executions 27572 for 00:00:30.015, speed: 918 per/sec, 3304800 per/h, with 10 thread(s)
+2017-07-20 11:57:17.328  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 20 fields] in 16 thread(s), test duration: 30000ms
+2017-07-20 11:57:17.336  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:57:47.344  INFO 59641 --- [ool-61-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 20 fields], total executions 25349 for 00:00:30.015, speed: 844 per/sec, 3038400 per/h, with 16 thread(s)
+2017-07-20 11:57:47.346  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 100 fields] in 1 thread(s), test duration: 30000ms
+2017-07-20 11:57:47.346  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:58:17.357  INFO 59641 --- [ool-63-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 100 fields], total executions 10066 for 00:00:30.011, speed: 335 per/sec, 1206000 per/h, with 1 thread(s)
+2017-07-20 11:58:17.357  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 100 fields] in 2 thread(s), test duration: 30000ms
+2017-07-20 11:58:17.357  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:58:47.368  INFO 59641 --- [ool-65-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 100 fields], total executions 16736 for 00:00:30.011, speed: 557 per/sec, 2005200 per/h, with 2 thread(s)
+2017-07-20 11:58:47.369  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 100 fields] in 4 thread(s), test duration: 30000ms
+2017-07-20 11:58:47.370  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:59:17.380  INFO 59641 --- [ool-67-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 100 fields], total executions 21854 for 00:00:30.011, speed: 728 per/sec, 2620800 per/h, with 4 thread(s)
+2017-07-20 11:59:17.381  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-20 11:59:17.383  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 11:59:47.393  INFO 59641 --- [ool-69-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 100 fields], total executions 24051 for 00:00:30.012, speed: 801 per/sec, 2883600 per/h, with 8 thread(s)
+2017-07-20 11:59:47.394  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 100 fields] in 10 thread(s), test duration: 30000ms
+2017-07-20 11:59:47.395  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:00:17.405  INFO 59641 --- [ool-71-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 100 fields], total executions 24149 for 00:00:30.011, speed: 804 per/sec, 2894400 per/h, with 10 thread(s)
+2017-07-20 12:00:17.405  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 100 fields] in 16 thread(s), test duration: 30000ms
+2017-07-20 12:00:17.410  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:00:47.415  INFO 59641 --- [ool-73-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 100 fields], total executions 24892 for 00:00:30.010, speed: 829 per/sec, 2984400 per/h, with 16 thread(s)
+2017-07-20 12:00:47.418  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 500 fields] in 1 thread(s), test duration: 30000ms
+2017-07-20 12:00:47.418  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:01:17.426  INFO 59641 --- [ool-75-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 500 fields], total executions 7480 for 00:00:30.009, speed: 249 per/sec, 896400 per/h, with 1 thread(s)
+2017-07-20 12:01:17.427  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 500 fields] in 2 thread(s), test duration: 30000ms
+2017-07-20 12:01:17.427  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:01:47.434  INFO 59641 --- [ool-77-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 500 fields], total executions 11507 for 00:00:30.007, speed: 383 per/sec, 1378800 per/h, with 2 thread(s)
+2017-07-20 12:01:47.434  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 500 fields] in 4 thread(s), test duration: 30000ms
+2017-07-20 12:01:47.435  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:02:17.442  INFO 59641 --- [ool-79-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 500 fields], total executions 12437 for 00:00:30.008, speed: 414 per/sec, 1490400 per/h, with 4 thread(s)
+2017-07-20 12:02:17.443  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-20 12:02:17.445  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:02:47.451  INFO 59641 --- [ool-81-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 500 fields], total executions 12695 for 00:00:30.008, speed: 423 per/sec, 1522800 per/h, with 8 thread(s)
+2017-07-20 12:02:47.452  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 500 fields] in 10 thread(s), test duration: 30000ms
+2017-07-20 12:02:47.457  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:03:17.463  INFO 59641 --- [ool-83-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 500 fields], total executions 13194 for 00:00:30.011, speed: 439 per/sec, 1580400 per/h, with 10 thread(s)
+2017-07-20 12:03:17.464  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 500 fields] in 16 thread(s), test duration: 30000ms
+2017-07-20 12:03:17.472  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:03:47.479  INFO 59641 --- [ool-85-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 500 fields], total executions 11494 for 00:00:30.016, speed: 382 per/sec, 1375200 per/h, with 16 thread(s)
+2017-07-20 12:03:47.485  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 10000 fields] in 1 thread(s), test duration: 30000ms
+2017-07-20 12:03:47.486  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:04:17.495  INFO 59641 --- [ool-87-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 10000 fields], total executions 729 for 00:00:30.010, speed: 24 per/sec, 86400 per/h, with 1 thread(s)
+2017-07-20 12:04:17.496  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 10000 fields] in 2 thread(s), test duration: 30000ms
+2017-07-20 12:04:17.496  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:04:47.506  INFO 59641 --- [ool-89-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 10000 fields], total executions 904 for 00:00:30.011, speed: 30 per/sec, 108000 per/h, with 2 thread(s)
+2017-07-20 12:04:47.507  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 10000 fields] in 4 thread(s), test duration: 30000ms
+2017-07-20 12:04:47.508  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:05:17.511  INFO 59641 --- [ool-91-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 10000 fields], total executions 907 for 00:00:30.004, speed: 30 per/sec, 108000 per/h, with 4 thread(s)
+2017-07-20 12:05:17.511  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-20 12:05:17.512  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:05:47.523  INFO 59641 --- [ool-93-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 10000 fields], total executions 863 for 00:00:30.012, speed: 28 per/sec, 100800 per/h, with 8 thread(s)
+2017-07-20 12:05:47.524  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 10000 fields] in 10 thread(s), test duration: 30000ms
+2017-07-20 12:05:47.526  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:06:17.538  INFO 59641 --- [ool-95-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 10000 fields], total executions 723 for 00:00:30.014, speed: 24 per/sec, 86400 per/h, with 10 thread(s)
+2017-07-20 12:06:17.539  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Write in chunks, 10000 fields] in 16 thread(s), test duration: 30000ms
+2017-07-20 12:06:17.543  INFO 59641 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+2017-07-20 12:06:47.549  INFO 59641 --- [ool-97-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Write in chunks, 10000 fields], total executions 712 for 00:00:30.010, speed: 23 per/sec, 82800 per/h, with 16 thread(s)
+2017-07-20 12:06:47.552  INFO 59641 --- [       Thread-3] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@9cb8225: startup date [Thu Jul 20 11:42:44 MSK 2017]; root of context hierarchy
+
+Process finished with exit code 0

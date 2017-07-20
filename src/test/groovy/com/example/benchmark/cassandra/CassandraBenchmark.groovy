@@ -12,6 +12,7 @@ import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
 import org.apache.commons.logging.Log
 import org.apache.commons.logging.LogFactory
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -21,7 +22,6 @@ import org.springframework.test.context.junit4.SpringRunner
 import java.util.concurrent.Callable
 
 import static com.example.benchmark.Util.executeBenchmarks
-
 /**
  *
  */
@@ -47,8 +47,11 @@ class CassandraBenchmark extends ReadWrite {
     @Autowired
     private KeyValueMarshaller keyValueMarshaller
 
+
+    private static final Random random = new Random()
+
     @Test
-    void testReadWriteKeyValue() throws Exception {
+    void testReadWriteMapEquals() throws Exception {
 
         cassandraBenchmarkService.create()
 
@@ -56,7 +59,7 @@ class CassandraBenchmark extends ReadWrite {
 
         testReadWrite(initialOperationsData,
                 { operationData -> cassandraBenchmarkService.writeMapAsMap(operationData) },
-                { operationId -> cassandraBenchmarkService.read(operationId) }
+                { operationId -> cassandraBenchmarkService.readMap(operationId) }
         )
 
         cassandraBenchmarkService.drop();
@@ -70,17 +73,16 @@ class CassandraBenchmark extends ReadWrite {
             cassandraBenchmarkService.create()
 
             List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
-            executeBenchmarks("Write in key value, $fieldsCount fields", {
+            executeBenchmarks("Cassandra write map as cassandra map, $fieldsCount fields", {
                 operations.collect {
                     operation -> cassandraBenchmarkService.writeMapAsMap(operation)
                 }
             } as Callable)
 
             long id = generator.counter.get()
-            Random random = new Random()
-            executeBenchmarks("Read in Map, $fieldsCount fields", {
+            executeBenchmarks("Cassandra read cassandra map, $fieldsCount fields", {
 
-                cassandraBenchmarkService.read(String.valueOf(random.nextInt((Integer) id)))
+                cassandraBenchmarkService.readMap(String.valueOf(random.nextInt((Integer) id)))
 
             } as Callable)
             cassandraBenchmarkService.drop()
@@ -95,17 +97,16 @@ class CassandraBenchmark extends ReadWrite {
             Map<String, String> pattern = keyValueLoader.load(fieldsCount).get(0)
             cassandraBenchmarkService.create(pattern)
             List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
-            executeBenchmarks("Write in key value, $fieldsCount fields", {
+            executeBenchmarks("Cassandra write map as key-value, $fieldsCount fields", {
                 operations.collect {
                     operation -> cassandraBenchmarkService.writeMapAsKeyValue(operation)
                 }
             } as Callable)
 
             long id = generator.counter.get()
-            Random random = new Random()
-            executeBenchmarks("Read in key value, $fieldsCount fields", {
+            executeBenchmarks("Cassandra read cassandra key-value in map, $fieldsCount fields", {
 
-                cassandraBenchmarkService.read(String.valueOf(random.nextInt((Integer) id)))
+                cassandraBenchmarkService.read(String.valueOf(random.nextInt((Integer) id)), pattern)
 
             } as Callable)
 
@@ -113,4 +114,31 @@ class CassandraBenchmark extends ReadWrite {
         }
     }
 
+    //todo - тест не работает: не правильно создается таблица под JSON и не маппится наш JSON в нее
+    @Ignore
+    @Test
+    void testWriteJson() {
+        keyValueMarshaller.cqlMode(true)
+
+        [20/*, 100, 500, 10_000*/].each { fieldsCount ->
+
+            List<String> operations = jsonLoader.load(fieldsCount)
+
+            String jsonPattern = "{\"id\":\"\",\"array\":" + operations.get(0) + "}"
+
+            Map<String, String> pattern = keyValueMarshaller.toKeyValue(jsonPattern)
+
+            cassandraBenchmarkService.create(pattern)
+
+            executeBenchmarks("Write in key value, $fieldsCount fields", {
+                operations.collect {
+                    operation ->
+                        cassandraBenchmarkService.writeJson(
+                                "{\"id\":\"\",\"array\":" + operation + "}"
+                        )
+                }
+            } as Callable)
+            cassandraBenchmarkService.drop()
+        }
+    }
 }

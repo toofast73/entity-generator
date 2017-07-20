@@ -45,8 +45,9 @@ class ReadSpeedBenchmark {
     @Test
     void testChunks() {
 
+
         int i = 0
-        [20: 1, 100: 2, 500: 7, 10_000: 137].each { fieldsCount, chunksCount ->
+        [20: 1, 100: 2, 500: 7, 10_000: 134/*10_000: 137*/].each { fieldsCount, chunksCount ->
             List<Long> ids = readerService.loadChunkOperationIds(chunksCount)
 
             executeBenchmarks("Read in chunks, $fieldsCount fields", {

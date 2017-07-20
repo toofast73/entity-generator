@@ -7,10 +7,12 @@ import com.example.dao.oracle.IdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
 import static com.example.dao.cassandra.CassandraService.ID_NAME;
+import static java.util.stream.Collectors.toMap;
 
 @Service
 public class CassandraBenchmarkService {
@@ -24,21 +26,21 @@ public class CassandraBenchmarkService {
     private IdGenerator idGenerator;
 
 
-    public void create(){
+    public void create() {
         cassandraService.createTableOfMap(BENCHMARK_TABLE);
     }
 
-    public void create(Map<String, String> map){
+    public void create(Map<String, String> map) {
         cassandraService.createTableByTemplate(BENCHMARK_TABLE, ID_NAME, map);
     }
 
-    public long writeMapAsMap(Map<String, String> operationData){
+    public long writeMapAsMap(Map<String, String> operationData) {
         long id = idGenerator.generateId();
         cassandraDao.insertMapAsMap(BENCHMARK_TABLE, String.valueOf(id), operationData);
         return id;
     }
 
-    public long writeMapAsKeyValue(Map<String, String> operationData){
+    public long writeMapAsKeyValue(Map<String, String> operationData) {
         long id = idGenerator.generateId();
         cassandraDao.insertMapAsKeyValue(BENCHMARK_TABLE, String.valueOf(id), operationData);
         return id;
@@ -50,17 +52,24 @@ public class CassandraBenchmarkService {
         return id;
     }
 
-    public void drop(){
+    public void drop() {
         cassandraService.dropTable(BENCHMARK_TABLE);
     }
 
-    public Map<String, String> read(Long operationId) {
-        return read(operationId.toString());
+    public Map<String, String> readMap(Long operationId) {
+        return readMap(operationId.toString());
     }
 
-    public Map<String, String> read(String operationId) {
+    public Map<String, String> readMap(String operationId) {
         Select.Where select = QueryBuilder.select().from(BENCHMARK_TABLE).where(eq(ID_NAME, operationId));
         Row one = cassandraService.execute(select).one();
-        return one == null? null : one.getMap(BENCHMARK_TABLE,String.class, String.class);
+        return one == null ? null : one.getMap(BENCHMARK_TABLE, String.class, String.class);
+    }
+
+    public Map<String, String> read(String operationId, Map<String, String> pattern) {
+        Map<String, String> map = new HashMap<>(pattern.size());
+        Select.Where select = QueryBuilder.select().from(BENCHMARK_TABLE).where(eq(ID_NAME, operationId));
+        Row one = cassandraService.execute(select).one();
+        return one == null ? null : pattern.keySet().stream().collect(toMap(key -> key, key -> one.get(key, String.class)));
     }
 }
