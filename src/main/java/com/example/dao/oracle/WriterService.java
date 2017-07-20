@@ -29,13 +29,7 @@ public class WriterService {
 
         long recordId = keyValueDao.insertMain(
                 idGenerator.generateId(), "SomeSystem", "Some operation");
-        keyValueDao.insertChildren(
-                data.entrySet()
-                        .stream()
-                        .map(entry ->
-                                new Object[]{recordId, entry.getKey(), entry.getValue()}
-                        )
-                        .collect(Collectors.toList()));
+        keyValueDao.insertChildren(recordId, data);
         return recordId;
     }
 
@@ -54,5 +48,14 @@ public class WriterService {
                         new Object[]{recordId, index.getAndIncrement(), chunk}
                 ).collect(Collectors.toList()));
         return recordId;
+    }
+
+    public void editKeyValueOperation(int id,
+                                      Map<String, String> keysToDelete,
+                                      Map<String, String> keysToInsert,
+                                      Map<String, String> keysToUpdate) {
+        keyValueDao.deleteChildren(id, keysToDelete);
+        keyValueDao.insertChildren(id, keysToInsert);
+        keyValueDao.updateChildren(id, keysToUpdate);
     }
 }

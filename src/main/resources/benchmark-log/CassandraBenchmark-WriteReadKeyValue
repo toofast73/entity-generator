@@ -1,162 +1,147 @@
 
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::        (v1.5.4.RELEASE)
 
-2017-07-20 14:35:55.814  INFO 60542 --- [           main] c.e.b.cassandra.CassandraBenchmark       : Starting CassandraBenchmark on MacBook-Pro-alex.local with PID 60542 (started by home in /Users/home/Projects/entity-generator)
-2017-07-20 14:35:55.816  INFO 60542 --- [           main] c.e.b.cassandra.CassandraBenchmark       : No active profile set, falling back to default profiles: default
-2017-07-20 14:35:55.857  INFO 60542 --- [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@35b74c5c: startup date [Thu Jul 20 14:35:55 MSK 2017]; root of context hierarchy
-2017-07-20 14:35:56.812  INFO 60542 --- [           main] c.d.driver.core.GuavaCompatibility       : Detected Guava >= 19 in the classpath, using modern compatibility layer
-2017-07-20 14:35:56.981  INFO 60542 --- [           main] com.datastax.driver.core.ClockFactory    : Using native clock to generate timestamps.
-2017-07-20 14:35:57.073  INFO 60542 --- [           main] com.datastax.driver.core.NettyUtil       : Did not find Netty's native epoll transport in the classpath, defaulting to NIO.
-2017-07-20 14:35:57.359  WARN 60542 --- [           main] com.datastax.driver.core.Cluster         : You listed localhost/0:0:0:0:0:0:0:1:9042 in your contact points, but it wasn't found in the control host's system.peers at startup
-2017-07-20 14:35:57.442  INFO 60542 --- [           main] c.d.d.c.p.DCAwareRoundRobinPolicy        : Using data-center name 'datacenter1' for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)
-2017-07-20 14:35:57.444  INFO 60542 --- [           main] com.datastax.driver.core.Cluster         : New Cassandra host localhost/127.0.0.1:9042 added
-2017-07-20 14:35:57.667  INFO 60542 --- [           main] com.datastax.driver.core.ClockFactory    : Using native clock to generate timestamps.
-2017-07-20 14:35:57.755  INFO 60542 --- [           main] c.e.b.cassandra.CassandraBenchmark       : Started CassandraBenchmark in 2.229 seconds (JVM running for 3.263)
-2017-07-20 14:35:58.173  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 1 thread(s), test duration: 30000ms
-2017-07-20 14:35:58.182  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:36:28.219  INFO 60542 --- [pool-2-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 35211 for 00:00:30.023, speed: 1172 per/sec, 4219200 per/h, with 1 thread(s)
-2017-07-20 14:36:28.221  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 2 thread(s), test duration: 30000ms
-2017-07-20 14:36:28.226  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:36:58.234  INFO 60542 --- [pool-4-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 61594 for 00:00:30.013, speed: 2052 per/sec, 7387200 per/h, with 2 thread(s)
-2017-07-20 14:36:58.234  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 4 thread(s), test duration: 30000ms
-2017-07-20 14:36:58.235  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:37:28.244  INFO 60542 --- [pool-6-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 96810 for 00:00:30.010, speed: 3225 per/sec, 11610000 per/h, with 4 thread(s)
-2017-07-20 14:37:28.245  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 8 thread(s), test duration: 30000ms
-2017-07-20 14:37:28.248  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:37:58.255  INFO 60542 --- [pool-8-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 117334 for 00:00:30.010, speed: 3909 per/sec, 14072400 per/h, with 8 thread(s)
-2017-07-20 14:37:58.256  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 10 thread(s), test duration: 30000ms
-2017-07-20 14:37:58.261  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:38:28.269  INFO 60542 --- [ool-10-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 90980 for 00:00:30.012, speed: 3031 per/sec, 10911600 per/h, with 10 thread(s)
-2017-07-20 14:38:28.270  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 16 thread(s), test duration: 30000ms
-2017-07-20 14:38:28.274  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:38:58.286  INFO 60542 --- [ool-12-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 88777 for 00:00:30.016, speed: 2957 per/sec, 10645200 per/h, with 16 thread(s)
-2017-07-20 14:38:58.301  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 1 thread(s), test duration: 30000ms
-2017-07-20 14:38:58.302  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:39:28.313  INFO 60542 --- [ool-14-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 18622 for 00:00:30.012, speed: 620 per/sec, 2232000 per/h, with 1 thread(s)
-2017-07-20 14:39:28.313  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 2 thread(s), test duration: 30000ms
-2017-07-20 14:39:28.314  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:39:58.318  INFO 60542 --- [ool-16-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 46356 for 00:00:30.005, speed: 1544 per/sec, 5558400 per/h, with 2 thread(s)
-2017-07-20 14:39:58.319  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 4 thread(s), test duration: 30000ms
-2017-07-20 14:39:58.321  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:40:28.330  INFO 60542 --- [ool-18-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 75639 for 00:00:30.011, speed: 2520 per/sec, 9072000 per/h, with 4 thread(s)
-2017-07-20 14:40:28.331  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 8 thread(s), test duration: 30000ms
-2017-07-20 14:40:28.333  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:40:58.342  INFO 60542 --- [ool-20-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 121155 for 00:00:30.010, speed: 4037 per/sec, 14533200 per/h, with 8 thread(s)
-2017-07-20 14:40:58.342  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 10 thread(s), test duration: 30000ms
-2017-07-20 14:40:58.344  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:41:28.352  INFO 60542 --- [ool-22-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 107549 for 00:00:30.009, speed: 3583 per/sec, 12898800 per/h, with 10 thread(s)
-2017-07-20 14:41:28.352  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 16 thread(s), test duration: 30000ms
-2017-07-20 14:41:28.357  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:41:58.367  INFO 60542 --- [ool-24-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 145741 for 00:00:30.015, speed: 4855 per/sec, 17478000 per/h, with 16 thread(s)
-2017-07-20 14:42:00.820  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 1 thread(s), test duration: 30000ms
-2017-07-20 14:42:00.821  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:42:30.832  INFO 60542 --- [ool-26-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 16262 for 00:00:30.012, speed: 541 per/sec, 1947600 per/h, with 1 thread(s)
-2017-07-20 14:42:30.833  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 2 thread(s), test duration: 30000ms
-2017-07-20 14:42:30.833  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:43:00.843  INFO 60542 --- [ool-28-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 24821 for 00:00:30.011, speed: 827 per/sec, 2977200 per/h, with 2 thread(s)
-2017-07-20 14:43:00.844  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 4 thread(s), test duration: 30000ms
-2017-07-20 14:43:00.845  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:43:30.855  INFO 60542 --- [ool-30-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 38179 for 00:00:30.011, speed: 1272 per/sec, 4579200 per/h, with 4 thread(s)
-2017-07-20 14:43:30.857  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 8 thread(s), test duration: 30000ms
-2017-07-20 14:43:30.859  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:44:00.867  INFO 60542 --- [ool-32-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 45010 for 00:00:30.010, speed: 1499 per/sec, 5396400 per/h, with 8 thread(s)
-2017-07-20 14:44:00.868  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 10 thread(s), test duration: 30000ms
-2017-07-20 14:44:00.870  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:44:30.879  INFO 60542 --- [ool-34-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 42786 for 00:00:30.011, speed: 1425 per/sec, 5130000 per/h, with 10 thread(s)
-2017-07-20 14:44:30.880  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 16 thread(s), test duration: 30000ms
-2017-07-20 14:44:30.883  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:45:00.887  INFO 60542 --- [ool-36-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 49725 for 00:00:30.007, speed: 1657 per/sec, 5965200 per/h, with 16 thread(s)
-2017-07-20 14:45:00.890  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 1 thread(s), test duration: 30000ms
-2017-07-20 14:45:00.890  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:45:30.901  INFO 60542 --- [ool-38-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 18757 for 00:00:30.011, speed: 625 per/sec, 2250000 per/h, with 1 thread(s)
-2017-07-20 14:45:30.901  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 2 thread(s), test duration: 30000ms
-2017-07-20 14:45:30.902  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:46:00.908  INFO 60542 --- [ool-40-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 48397 for 00:00:30.007, speed: 1612 per/sec, 5803200 per/h, with 2 thread(s)
-2017-07-20 14:46:00.909  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 4 thread(s), test duration: 30000ms
-2017-07-20 14:46:00.910  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:46:30.920  INFO 60542 --- [ool-42-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 74478 for 00:00:30.011, speed: 2481 per/sec, 8931600 per/h, with 4 thread(s)
-2017-07-20 14:46:30.921  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 8 thread(s), test duration: 30000ms
-2017-07-20 14:46:30.923  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:47:00.931  INFO 60542 --- [ool-44-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 108461 for 00:00:30.010, speed: 3614 per/sec, 13010400 per/h, with 8 thread(s)
-2017-07-20 14:47:00.932  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 10 thread(s), test duration: 30000ms
-2017-07-20 14:47:00.935  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:47:30.939  INFO 60542 --- [ool-46-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 116131 for 00:00:30.007, speed: 3870 per/sec, 13932000 per/h, with 10 thread(s)
-2017-07-20 14:47:30.941  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 16 thread(s), test duration: 30000ms
-2017-07-20 14:47:30.944  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:48:00.949  INFO 60542 --- [ool-48-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 129724 for 00:00:30.008, speed: 4322 per/sec, 15559200 per/h, with 16 thread(s)
-2017-07-20 14:48:03.128  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 1 thread(s), test duration: 30000ms
-2017-07-20 14:48:03.128  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:48:33.136  INFO 60542 --- [ool-50-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 6983 for 00:00:30.008, speed: 232 per/sec, 835200 per/h, with 1 thread(s)
-2017-07-20 14:48:33.137  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 2 thread(s), test duration: 30000ms
-2017-07-20 14:48:33.137  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:49:03.147  INFO 60542 --- [ool-52-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 9064 for 00:00:30.011, speed: 302 per/sec, 1087200 per/h, with 2 thread(s)
-2017-07-20 14:49:03.148  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 4 thread(s), test duration: 30000ms
-2017-07-20 14:49:03.150  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:49:33.156  INFO 60542 --- [ool-54-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 12102 for 00:00:30.007, speed: 403 per/sec, 1450800 per/h, with 4 thread(s)
-2017-07-20 14:49:33.156  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 8 thread(s), test duration: 30000ms
-2017-07-20 14:49:33.159  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:50:03.167  INFO 60542 --- [ool-56-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 12849 for 00:00:30.010, speed: 428 per/sec, 1540800 per/h, with 8 thread(s)
-2017-07-20 14:50:03.168  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 10 thread(s), test duration: 30000ms
-2017-07-20 14:50:03.174  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:50:33.185  INFO 60542 --- [ool-58-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 12560 for 00:00:30.017, speed: 418 per/sec, 1504800 per/h, with 10 thread(s)
-2017-07-20 14:50:33.186  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 16 thread(s), test duration: 30000ms
-2017-07-20 14:50:33.193  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:51:03.198  INFO 60542 --- [ool-60-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 13107 for 00:00:30.012, speed: 436 per/sec, 1569600 per/h, with 16 thread(s)
-2017-07-20 14:51:03.199  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 1 thread(s), test duration: 30000ms
-2017-07-20 14:51:03.199  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:51:33.205  INFO 60542 --- [ool-62-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 12854 for 00:00:30.006, speed: 428 per/sec, 1540800 per/h, with 1 thread(s)
-2017-07-20 14:51:33.206  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 2 thread(s), test duration: 30000ms
-2017-07-20 14:51:33.206  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:52:03.215  INFO 60542 --- [ool-64-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 25116 for 00:00:30.009, speed: 836 per/sec, 3009600 per/h, with 2 thread(s)
-2017-07-20 14:52:03.216  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 4 thread(s), test duration: 30000ms
-2017-07-20 14:52:03.221  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:52:33.231  INFO 60542 --- [ool-66-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 36101 for 00:00:30.016, speed: 1202 per/sec, 4327200 per/h, with 4 thread(s)
-2017-07-20 14:52:33.232  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 8 thread(s), test duration: 30000ms
-2017-07-20 14:52:33.233  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:53:03.236  INFO 60542 --- [ool-68-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 42810 for 00:00:30.004, speed: 1426 per/sec, 5133600 per/h, with 8 thread(s)
-2017-07-20 14:53:03.236  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 10 thread(s), test duration: 30000ms
-2017-07-20 14:53:03.238  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:53:33.242  INFO 60542 --- [ool-70-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 50256 for 00:00:30.006, speed: 1674 per/sec, 6026400 per/h, with 10 thread(s)
-2017-07-20 14:53:33.244  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 16 thread(s), test duration: 30000ms
-2017-07-20 14:53:33.246  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:54:03.251  INFO 60542 --- [ool-72-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 48611 for 00:00:30.007, speed: 1619 per/sec, 5828400 per/h, with 16 thread(s)
-2017-07-20 14:54:06.978  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 1 thread(s), test duration: 30000ms
-2017-07-20 14:54:06.978  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:54:36.984  INFO 60542 --- [ool-74-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 392 for 00:00:30.006, speed: 13 per/sec, 46800 per/h, with 1 thread(s)
-2017-07-20 14:54:36.985  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 2 thread(s), test duration: 30000ms
-2017-07-20 14:54:36.986  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:55:06.989  INFO 60542 --- [ool-76-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 474 for 00:00:30.003, speed: 15 per/sec, 54000 per/h, with 2 thread(s)
-2017-07-20 14:55:06.989  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 4 thread(s), test duration: 30000ms
-2017-07-20 14:55:07.001  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:55:37.009  INFO 60542 --- [ool-78-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 576 for 00:00:30.019, speed: 19 per/sec, 68400 per/h, with 4 thread(s)
-2017-07-20 14:55:37.010  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 8 thread(s), test duration: 30000ms
-2017-07-20 14:55:37.039  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:56:07.063  INFO 60542 --- [ool-80-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 575 for 00:00:30.053, speed: 19 per/sec, 68400 per/h, with 8 thread(s)
-2017-07-20 14:56:07.064  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 10 thread(s), test duration: 30000ms
-2017-07-20 14:56:07.085  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:56:37.098  INFO 60542 --- [ool-82-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 581 for 00:00:30.034, speed: 19 per/sec, 68400 per/h, with 10 thread(s)
 
-2017-07-20 14:56:57.190  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 1 thread(s), test duration: 30000ms
-2017-07-20 14:56:57.190  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:57:27.201  INFO 60542 --- [ool-86-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 1262 for 00:00:30.011, speed: 42 per/sec, 151200 per/h, with 1 thread(s)
-2017-07-20 14:57:27.202  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 2 thread(s), test duration: 30000ms
-2017-07-20 14:57:27.202  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:57:57.208  INFO 60542 --- [ool-88-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 1992 for 00:00:30.006, speed: 66 per/sec, 237600 per/h, with 2 thread(s)
-2017-07-20 14:57:57.209  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 4 thread(s), test duration: 30000ms
-2017-07-20 14:57:57.210  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:58:27.218  INFO 60542 --- [ool-90-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 2100 for 00:00:30.009, speed: 69 per/sec, 248400 per/h, with 4 thread(s)
-2017-07-20 14:58:27.219  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 8 thread(s), test duration: 30000ms
-2017-07-20 14:58:27.220  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:58:57.227  INFO 60542 --- [ool-92-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 3515 for 00:00:30.008, speed: 117 per/sec, 421200 per/h, with 8 thread(s)
-2017-07-20 14:58:57.228  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 10 thread(s), test duration: 30000ms
-2017-07-20 14:58:57.243  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
-2017-07-20 14:59:27.249  INFO 60542 --- [ool-94-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 4492 for 00:00:30.021, speed: 149 per/sec, 536400 per/h, with 10 thread(s)
-2017-07-20 14:59:27.249  INFO 60542 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 16 thread(s), test duration: 30000ms
 
-Process finished with exit code 0
+
+
+ Starting the tasks: [Cassandra write map as key-value, 20 fields] in 1 thread(s), test duration: 30000ms
+ Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 20 fields], total executions 35211 for 00:00:30.023, speed: 1172 per/sec, 4219200 per/h, with 1 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 20 fields] in 2 thread(s), test duration: 30000ms
+ Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 20 fields], total executions 61594 for 00:00:30.013, speed: 2052 per/sec, 7387200 per/h, with 2 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 20 fields] in 4 thread(s), test duration: 30000ms
+ Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 20 fields], total executions 96810 for 00:00:30.010, speed: 3225 per/sec, 11610000 per/h, with 4 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 20 fields] in 8 thread(s), test duration: 30000ms
+ Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 20 fields], total executions 117334 for 00:00:30.010, speed: 3909 per/sec, 14072400 per/h, with 8 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 20 fields] in 10 thread(s), test duration: 30000ms
+ Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 20 fields], total executions 90980 for 00:00:30.012, speed: 3031 per/sec, 10911600 per/h, with 10 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 20 fields] in 16 thread(s), test duration: 30000ms
+ Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 20 fields], total executions 88777 for 00:00:30.016, speed: 2957 per/sec, 10645200 per/h, with 16 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 1 thread(s), test duration: 30000ms
+ Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 18622 for 00:00:30.012, speed: 620 per/sec, 2232000 per/h, with 1 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 2 thread(s), test duration: 30000ms
+ Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 46356 for 00:00:30.005, speed: 1544 per/sec, 5558400 per/h, with 2 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 4 thread(s), test duration: 30000ms
+ Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 75639 for 00:00:30.011, speed: 2520 per/sec, 9072000 per/h, with 4 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 8 thread(s), test duration: 30000ms
+ Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 121155 for 00:00:30.010, speed: 4037 per/sec, 14533200 per/h, with 8 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 10 thread(s), test duration: 30000ms
+ Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 107549 for 00:00:30.009, speed: 3583 per/sec, 12898800 per/h, with 10 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 16 thread(s), test duration: 30000ms
+ Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 145741 for 00:00:30.015, speed: 4855 per/sec, 17478000 per/h, with 16 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 100 fields] in 1 thread(s), test duration: 30000ms
+ Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 100 fields], total executions 16262 for 00:00:30.012, speed: 541 per/sec, 1947600 per/h, with 1 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 100 fields] in 2 thread(s), test duration: 30000ms
+ Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 100 fields], total executions 24821 for 00:00:30.011, speed: 827 per/sec, 2977200 per/h, with 2 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 100 fields] in 4 thread(s), test duration: 30000ms
+ Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 100 fields], total executions 38179 for 00:00:30.011, speed: 1272 per/sec, 4579200 per/h, with 4 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 100 fields] in 8 thread(s), test duration: 30000ms
+ Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 100 fields], total executions 45010 for 00:00:30.010, speed: 1499 per/sec, 5396400 per/h, with 8 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 100 fields] in 10 thread(s), test duration: 30000ms
+ Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 100 fields], total executions 42786 for 00:00:30.011, speed: 1425 per/sec, 5130000 per/h, with 10 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 100 fields] in 16 thread(s), test duration: 30000ms
+ Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 100 fields], total executions 49725 for 00:00:30.007, speed: 1657 per/sec, 5965200 per/h, with 16 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 1 thread(s), test duration: 30000ms
+ Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 18757 for 00:00:30.011, speed: 625 per/sec, 2250000 per/h, with 1 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 2 thread(s), test duration: 30000ms
+ Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 48397 for 00:00:30.007, speed: 1612 per/sec, 5803200 per/h, with 2 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 4 thread(s), test duration: 30000ms
+ Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 74478 for 00:00:30.011, speed: 2481 per/sec, 8931600 per/h, with 4 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 8 thread(s), test duration: 30000ms
+ Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 108461 for 00:00:30.010, speed: 3614 per/sec, 13010400 per/h, with 8 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 10 thread(s), test duration: 30000ms
+ Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 116131 for 00:00:30.007, speed: 3870 per/sec, 13932000 per/h, with 10 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 16 thread(s), test duration: 30000ms
+ Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 129724 for 00:00:30.008, speed: 4322 per/sec, 15559200 per/h, with 16 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 500 fields] in 1 thread(s), test duration: 30000ms
+ Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 500 fields], total executions 6983 for 00:00:30.008, speed: 232 per/sec, 835200 per/h, with 1 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 500 fields] in 2 thread(s), test duration: 30000ms
+ Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 500 fields], total executions 9064 for 00:00:30.011, speed: 302 per/sec, 1087200 per/h, with 2 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 500 fields] in 4 thread(s), test duration: 30000ms
+ Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 500 fields], total executions 12102 for 00:00:30.007, speed: 403 per/sec, 1450800 per/h, with 4 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 500 fields] in 8 thread(s), test duration: 30000ms
+ Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 500 fields], total executions 12849 for 00:00:30.010, speed: 428 per/sec, 1540800 per/h, with 8 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 500 fields] in 10 thread(s), test duration: 30000ms
+ Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 500 fields], total executions 12560 for 00:00:30.017, speed: 418 per/sec, 1504800 per/h, with 10 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 500 fields] in 16 thread(s), test duration: 30000ms
+ Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 500 fields], total executions 13107 for 00:00:30.012, speed: 436 per/sec, 1569600 per/h, with 16 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 1 thread(s), test duration: 30000ms
+ Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 12854 for 00:00:30.006, speed: 428 per/sec, 1540800 per/h, with 1 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 2 thread(s), test duration: 30000ms
+ Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 25116 for 00:00:30.009, speed: 836 per/sec, 3009600 per/h, with 2 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 4 thread(s), test duration: 30000ms
+ Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 36101 for 00:00:30.016, speed: 1202 per/sec, 4327200 per/h, with 4 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 8 thread(s), test duration: 30000ms
+ Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 42810 for 00:00:30.004, speed: 1426 per/sec, 5133600 per/h, with 8 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 10 thread(s), test duration: 30000ms
+ Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 50256 for 00:00:30.006, speed: 1674 per/sec, 6026400 per/h, with 10 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 16 thread(s), test duration: 30000ms
+ Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 48611 for 00:00:30.007, speed: 1619 per/sec, 5828400 per/h, with 16 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 1 thread(s), test duration: 30000ms
+ Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 10000 fields], total executions 392 for 00:00:30.006, speed: 13 per/sec, 46800 per/h, with 1 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 2 thread(s), test duration: 30000ms
+ Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 10000 fields], total executions 474 for 00:00:30.003, speed: 15 per/sec, 54000 per/h, with 2 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 4 thread(s), test duration: 30000ms
+ Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 10000 fields], total executions 576 for 00:00:30.019, speed: 19 per/sec, 68400 per/h, with 4 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 8 thread(s), test duration: 30000ms
+ Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 10000 fields], total executions 575 for 00:00:30.053, speed: 19 per/sec, 68400 per/h, with 8 thread(s)
+ Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 10 thread(s), test duration: 30000ms
+ Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra write map as key-value, 10000 fields], total executions 581 for 00:00:30.034, speed: 19 per/sec, 68400 per/h, with 10 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 1 thread(s), test duration: 30000ms
+ Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 1262 for 00:00:30.011, speed: 42 per/sec, 151200 per/h, with 1 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 2 thread(s), test duration: 30000ms
+ Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 1992 for 00:00:30.006, speed: 66 per/sec, 237600 per/h, with 2 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 4 thread(s), test duration: 30000ms
+ Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 2100 for 00:00:30.009, speed: 69 per/sec, 248400 per/h, with 4 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 8 thread(s), test duration: 30000ms
+ Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 3515 for 00:00:30.008, speed: 117 per/sec, 421200 per/h, with 8 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 10 thread(s), test duration: 30000ms
+ Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
+ Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 4492 for 00:00:30.021, speed: 149 per/sec, 536400 per/h, with 10 thread(s)
+ Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 16 thread(s), test duration: 30000ms
+
+

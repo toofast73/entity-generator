@@ -2,6 +2,7 @@ package com.example.benchmark
 
 import com.example.Start
 import com.example.dao.oracle.ReaderService
+import com.example.dao.oracle.WriterService
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.junit.Test
@@ -23,6 +24,8 @@ class EditSpeedBenchmark {
 
     @Autowired
     private ReaderService readerService
+    @Autowired
+    private WriterService writerService
 
     @Test
     void testKeyValue() {
@@ -35,9 +38,10 @@ class EditSpeedBenchmark {
                 BenchmarkSuite.executeBenchmark(prepareReport(),
                         [("Edit $percentsOfFieldsForEdit% fields in KeyValue table, with $fieldsCount fields in doc" as String): {
 
-                            Map<String, String> operation = readerService.readKeyValueOperation(ids[++i % 10])
+                            def id = ids[++i % 10]
+                            Map<String, String> operation = readerService.readKeyValueOperation(id)
                             def editInfo = determineKeysForEdit(operation, percentsOfFieldsForEdit)
-
+                            writerService.editKeyValueOperation(i, editInfo.keysToDelete, editInfo.keysToInsert, editInfo.keysToUpdate)
 
                         } as Callable])
             }
@@ -68,13 +72,30 @@ class EditSpeedBenchmark {
                 logInIntervalsEnabled: false)
     }
 
-    private KeyValueEditInfo determineKeysForEdit(Map<String, String> stringStringMap, int i) {
+    private KeyValueEditInfo determineKeysForEdit(Map<String, String> operation, int percentsOfFieldsForEdit) {
+        def editFieldsCount = operation.size() / 100 * percentsOfFieldsForEdit
+        def deleteInsertFieldsCount = editFieldsCount / 3
+        def updateFieldsCount = editFieldsCount - deleteInsertFieldsCount
 
+        def keyValueEditInfo = new KeyValueEditInfo()
+        def iterator = operation.entrySet().iterator()
+
+        deleteInsertFieldsCount.times {
+            def entry = iterator.next()
+            keyValueEditInfo.keysToDelete[entry.key] = entry.value
+            keyValueEditInfo.keysToInsert[entry.key] = entry.value
+        }
+
+        updateFieldsCount.times {
+            def entry = iterator.next()
+            keyValueEditInfo.keysToUpdate[entry.key] = entry.value
+        }
+        keyValueEditInfo
     }
 
     private class KeyValueEditInfo {
-        Map<String, String> keysToDelete = new HashMap<>()
-        Map<String, String> keysToInsert = new HashMap<>()
-        Map<String, String> keysToUpdate = new HashMap<>()
+        Map<String, String> keysToDelete = [:]
+        Map<String, String> keysToInsert = [:]
+        Map<String, String> keysToUpdate = [:]
     }
 }

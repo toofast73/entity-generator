@@ -13,6 +13,7 @@ import java.sql.Types;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -32,9 +33,15 @@ class KeyValueDao {
                     " WHERE MAIN_ID = ?";
 
     private static final String SELECT_KEY_VALUE_OPERATION_IDS =
-            "select ID from KEY_VAL_MAIN m" +
-                    " where ROWNUM <= 10" +
-                    "      and ? = (select count(1) from KEY_VAL_CHILD c where c.MAIN_ID = m.ID)";
+            "SELECT ID FROM KEY_VAL_MAIN m" +
+                    " WHERE ROWNUM <= 10" +
+                    "      AND ? = (SELECT count(1) FROM KEY_VAL_CHILD c WHERE c.MAIN_ID = m.ID)";
+
+    private static final String SQL_UPDATE_CHILD_KEY_VAL =
+            "UPDATE KEY_VAL_CHILD SET VALUE = ? WHERE MAIN_ID = ? AND KEY = ?";
+
+    private static final String SQL_DELETE_CHILD_KEY =
+            "DELETE KEY_VAL_CHILD WHERE MAIN_ID = ? AND KEY = ?";
 
     private final JdbcTemplate jt;
 
@@ -60,9 +67,38 @@ class KeyValueDao {
         return keyHolder.getKey().longValue();
     }
 
-    void insertChildren(List<Object[]> keyValues) {
-        jt.batchUpdate(SQL_INSERT_CHILD_KEY_VAL, keyValues,
+    void insertChildren(long recordId, Map<String, String> keyValues) {
+        jt.batchUpdate(SQL_INSERT_CHILD_KEY_VAL, keyValues.entrySet()
+                        .stream()
+                        .map(entry ->
+                                new Object[]{recordId, entry.getKey(), entry.getValue()}
+                        )
+                        .collect(Collectors.toList()),
                 new int[]{Types.NUMERIC, Types.VARCHAR, Types.VARCHAR});
+    }
+
+    List<Long> loadKeyValueOperationIds(int fieldsCount) {
+        return jt.queryForList(SELECT_KEY_VALUE_OPERATION_IDS, new Object[]{fieldsCount}, Long.class);
+    }
+
+    void deleteChildren(int recordId, Map<String, String> keyValues) {
+        jt.batchUpdate(SQL_DELETE_CHILD_KEY, keyValues.entrySet()
+                        .stream()
+                        .map(entry ->
+                                new Object[]{recordId, entry.getKey()}
+                        )
+                        .collect(Collectors.toList()),
+                new int[]{Types.NUMERIC, Types.VARCHAR});
+    }
+
+    void updateChildren(int recordId, Map<String, String> keyValues) {
+        jt.batchUpdate(SQL_UPDATE_CHILD_KEY_VAL, keyValues.entrySet()
+                        .stream()
+                        .map(entry ->
+                                new Object[]{entry.getValue(), recordId, entry.getKey()}
+                        )
+                        .collect(Collectors.toList()),
+                new int[]{Types.VARCHAR, Types.NUMERIC, Types.VARCHAR});
     }
 
     Map<String, String> read(Long operationId) {
@@ -75,9 +111,5 @@ class KeyValueDao {
                     return null;
                 });
         return keyValues;
-    }
-
-    List<Long> loadKeyValueOperationIds(int fieldsCount) {
-        return jt.queryForList(SELECT_KEY_VALUE_OPERATION_IDS, new Object[]{fieldsCount}, Long.class);
     }
 }
