@@ -25,6 +25,9 @@ class ChunkDao {
     private static final String SQL_INSERT_CHILD_CHUNK =
             "INSERT INTO CHUNK_CHILD VALUES (?, ?, ?)";
 
+    private static final String SQL_DELETE_CHILD_CHUNK =
+            "DELETE CHUNK_CHILD WHERE MAIN_ID = ?";
+
     private static final String SQL_READ_CHUNKS =
             "SELECT CHUNK_DATA FROM CHUNK_CHILD" +
                     " WHERE MAIN_ID = ?" +
@@ -61,6 +64,10 @@ class ChunkDao {
     void insertChildren(List<Object[]> keyValues) {
         jt.batchUpdate(SQL_INSERT_CHILD_CHUNK, keyValues,
                 new int[]{Types.NUMERIC, Types.NUMERIC, Types.VARCHAR});
+    }
+
+    void deleteChildren(long recordId) {
+        jt.update(SQL_DELETE_CHILD_CHUNK, recordId);
     }
 
     String read(Long operationId) {

@@ -33,20 +33,14 @@ public class WriterService {
         return recordId;
     }
 
-    public long createChunkedOperation(String data) {
+    public long createChunkedOperation(String json) {
 
         long recordId = chunkDao.insertMain(
                 idGenerator.generateId(), "SomeSystem", "Some operation");
 
-        Stream<String> chunkStream = StreamSupport.stream(
-                Splitter.fixedLength(4000).split(data).spliterator(), false);
-
         AtomicInteger index = new AtomicInteger();
 
-        chunkDao.insertChildren(
-                chunkStream.map(chunk ->
-                        new Object[]{recordId, index.getAndIncrement(), chunk}
-                ).collect(Collectors.toList()));
+        insertChunkedChildren(json, recordId, index);
         return recordId;
     }
 
@@ -57,5 +51,25 @@ public class WriterService {
         keyValueDao.deleteChildren(id, keysToDelete);
         keyValueDao.insertChildren(id, keysToInsert);
         keyValueDao.updateChildren(id, keysToUpdate);
+    }
+
+    public void editChunkedOperation(long recordId, String json) {
+        AtomicInteger index = new AtomicInteger();
+
+        chunkDao.deleteChildren(recordId);
+        insertChunkedChildren(json, recordId, index);
+    }
+
+    private void insertChunkedChildren(String json, long recordId, AtomicInteger index) {
+        chunkDao.insertChildren(
+                asChunkedStream(json)
+                        .map(chunk ->
+                                new Object[]{recordId, index.getAndIncrement(), chunk}
+                        ).collect(Collectors.toList()));
+    }
+
+    private Stream<String> asChunkedStream(String data) {
+        return StreamSupport.stream(
+                Splitter.fixedLength(4000).split(data).spliterator(), false);
     }
 }
