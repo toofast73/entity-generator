@@ -7,9 +7,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -80,7 +79,7 @@ public class Operation {
 
     private List<Operation> nestedOperations;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new LinkedHashMap<>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     @JsonProperty("_id")
     public String getId() {

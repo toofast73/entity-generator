@@ -16,7 +16,7 @@ public class Staff {
     private BigDecimal salary;
     private Department department;
     private List<String> skills;
-    private String[] test = new String[]{"+","-"};
+    private String[] test = new String[]{"+", "-"};
 
     public String getId() {
         return id;
@@ -114,9 +114,17 @@ public class Staff {
         return result;
     }
 
+    public static Staff createDummyObjectWithId() {
+        return createDummyObject(UUID.randomUUID().toString());
+    }
+
     public static Staff createDummyObject() {
+        return createDummyObject(null);
+    }
+
+    public static Staff createDummyObject(String id) {
         Staff staff = new Staff();
-        staff.setId(UUID.randomUUID().toString());
+        staff.setId(id);
         staff.setDepartment(new Department());
         staff.setName("example");
         staff.setAge(33);

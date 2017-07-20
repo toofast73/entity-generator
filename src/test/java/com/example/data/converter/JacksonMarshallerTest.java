@@ -3,15 +3,12 @@ package com.example.data.converter;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Map;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class JacksonMarshallerTest {
 
-    String JSON_STRING = "{\"name\":\"example\",\"age\":33,\"position\":\"Developer\",\"salary\":7500,\"skills\":[\"java\",\"python\"]}";
-    String MAP_TO_STRING = "{name=example, age=33, position=Developer, salary=7500, skills=[java, python]}";
+    String JSON_STRING = "{\"id\":null,\"name\":\"example\",\"age\":33,\"position\":\"Developer\",\"salary\":7500,\"department\":{\"name\":\"\",\"boss\":\"\"},\"skills\":[\"java\",\"python\"],\"test\":[\"+\",\"-\"]}";
+    String MAP_TO_STRING = "{id=null, name=example, age=33, position=Developer, salary=7500, department={name=, boss=}, skills=[java, python], test=[+, -]}";
 
     private JacksonMarshaller jacksonMarshaller;
     private Staff staff;
@@ -24,29 +21,30 @@ public class JacksonMarshallerTest {
 
     @Test
     public void toJson() throws Exception {
-        assertEquals(jacksonMarshaller.toJson(staff), JSON_STRING);
+        assertEquals(JSON_STRING, jacksonMarshaller.toJson(staff));
     }
 
     @Test
     public void toMap() throws Exception {
-        assertEquals(jacksonMarshaller.toMap(staff).toString(), MAP_TO_STRING);
+        assertEquals(MAP_TO_STRING, jacksonMarshaller.toMap(staff).toString());
     }
 
     @Test
     public void fromJson() throws Exception {
-
-        assertEquals(jacksonMarshaller.fromJson(JSON_STRING, Staff.class), staff);
+        assertEquals(staff, jacksonMarshaller.fromJson(JSON_STRING, Staff.class));
     }
 
     @Test
     public void fromMap() throws Exception {
-        Map<Object, Object> map = jacksonMarshaller.toMap(staff);
-        assertEquals(jacksonMarshaller.fromMap(map), JSON_STRING);
+        assertEquals(JSON_STRING, jacksonMarshaller.fromMap(
+                jacksonMarshaller.toMap(staff))
+        );
     }
 
     @Test
     public void map2Object() throws Exception {
-        Map<Object, Object> map = jacksonMarshaller.toMap(staff);
-        assertTrue(jacksonMarshaller.map2Object(map, Staff.class).equals(staff));
+        assertEquals(staff, jacksonMarshaller.map2Object(
+                jacksonMarshaller.toMap(staff), Staff.class)
+        );
     }
 }

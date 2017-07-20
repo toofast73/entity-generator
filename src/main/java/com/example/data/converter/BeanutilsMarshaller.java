@@ -1,6 +1,5 @@
 package com.example.data.converter;
 
-import com.google.common.collect.ImmutableMap;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.beanutils.expression.DefaultResolver;
 import org.apache.commons.beanutils.expression.Resolver;
@@ -33,8 +32,6 @@ import static org.apache.commons.beanutils.PropertyUtils.getPropertyType;
  */
 @Service
 class BeanutilsMarshaller implements KeyValueToPojoMarshaller {
-
-    private static final Map<String, String> FIELD_MAPPINGS = ImmutableMap.of("_id", "id");
 
     private Resolver resolver = new DefaultResolver();
 

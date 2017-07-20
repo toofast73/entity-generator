@@ -39,7 +39,7 @@ public class CassandraServiceTest {
     public void setUp() throws Exception {
         session = cassandraService.connect();
         name = Staff.class.getSimpleName().toLowerCase();
-        staff = Staff.createDummyObject();
+        staff = Staff.createDummyObjectWithId();
         jsonStaff = jacksonMarshaller.toJson(staff);
         converter.cqlMode(true);
         mapStaff = converter.convertJsonToKeyValue(jsonStaff);
