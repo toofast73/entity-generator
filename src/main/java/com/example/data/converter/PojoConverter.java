@@ -13,12 +13,14 @@ public class PojoConverter {
     private static Log log = LogFactory.getLog(PojoConverter.class);
 
     @Autowired
-    private JacksonMarshaller jacksonMarshaller;
+    private JsonMarshaller jacksonMarshaller;
     @Autowired
-    private KeyValueMarshaller keyValueMarshaller;
+    private BeanutilsMarshaller keyValueToPojoMarshaller;
+    @Autowired
+    private JacksonTreeMarshaller pojoToKeyValueMarshaller;
 
     public Map<String, String> convertPojoToKeyValue(Operation[] pojo) {
-        return keyValueMarshaller.toKeyValue(convertPojoToJson(pojo));
+        return pojoToKeyValueMarshaller.toKeyValue(convertPojoToJson(pojo));
     }
 
     public String convertPojoToJson(Operation[] pojo) {
@@ -30,14 +32,14 @@ public class PojoConverter {
     }
 
     public Map<String, String> convertJsonToKeyValue(String json) {
-        return keyValueMarshaller.toKeyValue(json);
+        return pojoToKeyValueMarshaller.toKeyValue(json);
     }
 
     public Operation[] convertKeyValueToPojo(Map<String, String> keyValue) {
-        return keyValueMarshaller.fromKeyValue(keyValue, Operation[].class);
+        return keyValueToPojoMarshaller.fromKeyValue(keyValue, Operation[].class);
     }
 
     public void cqlMode(boolean b) {
-        keyValueMarshaller.cqlMode(b);
+        pojoToKeyValueMarshaller.cqlMode(b);
     }
 }

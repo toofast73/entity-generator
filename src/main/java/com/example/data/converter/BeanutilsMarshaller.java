@@ -1,14 +1,9 @@
 package com.example.data.converter;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.node.ValueNode;
 import com.google.common.collect.ImmutableMap;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.beanutils.expression.DefaultResolver;
 import org.apache.commons.beanutils.expression.Resolver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.beans.PropertyEditor;
@@ -24,7 +19,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -34,27 +28,17 @@ import static java.util.Arrays.copyOf;
 import static org.apache.commons.beanutils.PropertyUtils.getProperty;
 import static org.apache.commons.beanutils.PropertyUtils.getPropertyType;
 
+/**
+ *
+ */
 @Service
-class KeyValueMarshaller {
-
-    @Autowired
-    private JacksonMarshaller jacksonMarshaller;
-
-    private Resolver resolver = new DefaultResolver();
+class BeanutilsMarshaller implements KeyValueToPojoMarshaller {
 
     private static final Map<String, String> FIELD_MAPPINGS = ImmutableMap.of("_id", "id");
 
-    private String POINT = ".";
-    private String OPEN = "[";
-    private String CLOSE = "]";
+    private Resolver resolver = new DefaultResolver();
 
-    public Map<String, String> toKeyValue(String json) {
-
-        Map<String, String> map = new LinkedHashMap<>();
-        addKeys("", jacksonMarshaller.readTree(json), map);
-        return map;
-    }
-
+    @Override
     public <T> T fromKeyValue(Map<String, String> keyValue, Class<T> valueType) {
         try {
 
@@ -207,42 +191,6 @@ class KeyValueMarshaller {
 
         public void setPojo(Object pojo) {
             this.pojo = pojo;
-        }
-    }
-
-    private void addKeys(String currentPath, JsonNode jsonNode, Map<String, String> map) {
-        if (jsonNode.isObject()) {
-            ObjectNode objectNode = (ObjectNode) jsonNode;
-            Iterator<Map.Entry<String, JsonNode>> iter = objectNode.fields();
-            String pathPrefix = currentPath.isEmpty() ? "" : currentPath + POINT;
-
-            while (iter.hasNext()) {
-                Map.Entry<String, JsonNode> entry = iter.next();
-                addKeys(pathPrefix + entry.getKey(), entry.getValue(), map);
-            }
-        } else if (jsonNode.isArray()) {
-            ArrayNode arrayNode = (ArrayNode) jsonNode;
-            for (int i = 0; i < arrayNode.size(); i++) {
-                addKeys(currentPath + OPEN + i + CLOSE, arrayNode.get(i), map);
-            }
-        } else if (jsonNode.isValueNode()) {
-            ValueNode valueNode = (ValueNode) jsonNode;
-            map.put(currentPath, valueNode.asText());
-        }
-    }
-
-    /**
-     * в названии колонок не может быть . и [ ]
-     */
-    public void cqlMode(boolean b) {
-        if (b) {
-            POINT = "POINT";
-            OPEN = "OPEN";
-            CLOSE = "CLOSE";
-        } else {
-            POINT = ".";
-            OPEN = "[";
-            CLOSE = "]";
         }
     }
 }

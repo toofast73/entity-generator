@@ -10,11 +10,12 @@ import java.io.IOException;
 import java.util.Map;
 
 @Service
-public class JacksonMarshaller {
+public class JacksonMarshaller implements JsonMarshaller {
 
     ObjectMapper mapper = new ObjectMapper();
 
     // Convert object to JSON string
+    @Override
     public String toJson(Object o) {
         try {
             return mapper.writeValueAsString(o);
@@ -24,6 +25,7 @@ public class JacksonMarshaller {
     }
 
     // Convert JSON string to Object
+    @Override
     public <T> T fromJson(String jsonInString, Class<T> valueType) {
         try {
             return mapper.readValue(jsonInString, valueType);
@@ -33,13 +35,13 @@ public class JacksonMarshaller {
     }
 
     // Convert object to map
-    public <K, V> Map<K, V> toMap(Object object) {
+    <K, V> Map<K, V> toMap(Object object) {
         return mapper.convertValue(object, new TypeReference<Map<K, V>>() {
         });
     }
 
     // Convert map to object
-    public Object map2Object(Map<Object, Object> map, Class<?> valueType) {
+    Object map2Object(Map<Object, Object> map, Class<?> valueType) {
         try {
             return mapper.readValue(mapper.writeValueAsString(map), valueType);
         } catch (IOException e) {
@@ -48,7 +50,7 @@ public class JacksonMarshaller {
     }
 
     // Convert map to JSON string
-    public String fromMap(Map<Object, Object> map) {
+    String fromMap(Map<Object, Object> map) {
         try {
             return mapper.writeValueAsString(map);
         } catch (JsonProcessingException e) {
@@ -56,7 +58,7 @@ public class JacksonMarshaller {
         }
     }
 
-    public JsonNode readTree(String json) {
+    JsonNode readTree(String json) {
         try {
             return mapper.readTree(json);
         } catch (IOException e) {

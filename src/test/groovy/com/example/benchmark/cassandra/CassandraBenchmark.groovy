@@ -6,7 +6,6 @@ import com.example.dao.cassandra.CassandraBenchmarkService
 import com.example.dao.oracle.IdGenerator
 import com.example.dao.oracle.ReaderService
 import com.example.dao.oracle.WriterService
-import com.example.data.converter.KeyValueMarshaller
 import com.example.data.converter.PojoConverter
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
@@ -44,8 +43,6 @@ class CassandraBenchmark extends ReadWrite {
     private PojoConverter converter
     @Autowired
     private IdGenerator generator
-    @Autowired
-    private KeyValueMarshaller keyValueMarshaller
 
 
     private static final Random random = new Random()
