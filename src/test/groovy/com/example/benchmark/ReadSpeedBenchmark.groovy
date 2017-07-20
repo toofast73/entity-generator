@@ -2,8 +2,8 @@ package com.example.benchmark
 
 import com.example.Start
 import com.example.dao.oracle.ReaderService
-import org.apache.commons.logging.Log
-import org.apache.commons.logging.LogFactory
+import groovy.transform.CompileStatic
+import groovy.util.logging.Slf4j
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -19,8 +19,9 @@ import static com.example.benchmark.Util.executeBenchmarks
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
+@CompileStatic
+@Slf4j
 class ReadSpeedBenchmark {
-    private static Log log = LogFactory.getLog(ReadSpeedBenchmark.class)
 
     @Autowired
     private ReaderService readerService
@@ -34,8 +35,7 @@ class ReadSpeedBenchmark {
 
             executeBenchmarks("Read in key value, $fieldsCount fields", {
 
-                int opIdx = ++i % 10
-                readerService.readKeyValueOperation(ids.get(opIdx))
+                readerService.readKeyValueOperation(ids[++i % 10])
 
 
             } as Callable)
@@ -51,8 +51,7 @@ class ReadSpeedBenchmark {
 
             executeBenchmarks("Read in chunks, $fieldsCount fields", {
 
-                int opIdx = ++i % 10
-                readerService.readChunkOperation(ids.get(opIdx))
+                readerService.readChunkOperation(ids[++i % 10])
 
             } as Callable)
         }

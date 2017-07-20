@@ -5,8 +5,8 @@ import com.example.dao.oracle.WriterService
 import com.example.data.converter.PojoConverter
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
-import org.apache.commons.logging.Log
-import org.apache.commons.logging.LogFactory
+import groovy.transform.CompileStatic
+import groovy.util.logging.Slf4j
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -21,8 +21,9 @@ import static com.example.benchmark.Util.executeBenchmarks
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
+@CompileStatic
+@Slf4j
 class WriteSpeedBenchmark {
-    private static Log log = LogFactory.getLog(WriteSpeedBenchmark.class)
 
     @Autowired
     private WriterService writerService

@@ -25,7 +25,7 @@ public class PojoLoader implements FileLoader<Operation[]> {
     public List<Operation[]> loadAll() {
         return jsonLoader.loadAll().stream()
                 .map(json -> {
-                    return (Operation[]) jacksonMarshaller.fromJson(json, Operation[].class);
+                    return jacksonMarshaller.fromJson(json, Operation[].class);
                 })
 
                 .collect(Collectors.toList());
@@ -35,7 +35,7 @@ public class PojoLoader implements FileLoader<Operation[]> {
     public List<Operation[]> load(int fieldsCount) {
         return jsonLoader.load(fieldsCount).stream()
                 .map(json -> {
-                    return (Operation[]) jacksonMarshaller.fromJson(json, Operation[].class);
+                    return jacksonMarshaller.fromJson(json, Operation[].class);
                 }).collect(Collectors.toList());
     }
 }

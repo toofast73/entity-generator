@@ -5,8 +5,8 @@ import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
 import com.example.data.pojo.Operation
 import groovy.json.JsonOutput
-import org.apache.commons.logging.Log
-import org.apache.commons.logging.LogFactory
+import groovy.transform.CompileStatic
+import groovy.util.logging.Slf4j
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -20,8 +20,9 @@ import static org.junit.Assert.assertEquals
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
+@CompileStatic
+@Slf4j
 class KeyValueMarshallerTest {
-    private final Log logger = LogFactory.getLog(getClass())
 
     @Autowired
     KeyValueMarshaller jsonToKeyValueConverter
@@ -47,7 +48,7 @@ class KeyValueMarshallerTest {
                         .append('\n')
             }
 
-            logger.info(sb.toString())
+            log.info(sb.toString())
         }
     }
 
@@ -59,7 +60,7 @@ class KeyValueMarshallerTest {
             keyValueLoader.load(fieldsCount) each { keyValue ->
 
                 Operation[] pojo = jsonToKeyValueConverter.fromKeyValue(keyValue, Operation[].class)
-                logger.info "Result: ${JsonOutput.prettyPrint(jacksonConverter.toJson(pojo))}"
+                log.info "Result: ${JsonOutput.prettyPrint(jacksonConverter.toJson(pojo))}"
             }
         }
     }

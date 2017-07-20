@@ -6,8 +6,7 @@ import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
 import com.example.data.filereader.PojoLoader
 import com.example.data.pojo.Operation
-import org.apache.commons.logging.Log
-import org.apache.commons.logging.LogFactory
+import groovy.transform.CompileStatic
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -21,8 +20,8 @@ import java.util.concurrent.Callable
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
+@CompileStatic
 class MarshallerSpeedBenchmark {
-    private static Log log = LogFactory.getLog(MarshallerSpeedBenchmark.class)
 
     @Autowired
     private JsonLoader jsonLoader
@@ -32,7 +31,6 @@ class MarshallerSpeedBenchmark {
     private PojoLoader pojoLoader
     @Autowired
     private PojoConverter converter
-
 
     @Test
     void testPojoToJson() {
