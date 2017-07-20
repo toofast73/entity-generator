@@ -38,6 +38,8 @@ class EditSpeedBenchmark {
             [20, 100, 500, 10_000].each { fieldsCount ->
 
                 List<Long> ids = readerService.loadKeyValueOperationIds(fieldsCount)
+                Assert.assertFalse("Operations not found in DB", ids.isEmpty())
+
                 BenchmarkSuite.executeBenchmark(prepareReport(),
                         [("Edit $percentsOfFieldsForEdit% fields in KeyValue table, with $fieldsCount fields in doc" as String): {
 
@@ -55,10 +57,11 @@ class EditSpeedBenchmark {
     void testChunks() {
 
         int i = 0
-        [20, 100, 500, 10_000].each { fieldsCount ->
+        [20: 1, 100: 2, 500: 7, /*10_000: 134*/10_000: 137].each { fieldsCount, chunksCount ->
 
-            List<Long> ids = readerService.loadChunkOperationIds(fieldsCount)
+            List<Long> ids = readerService.loadChunkOperationIds(chunksCount)
             Assert.assertFalse("Operations not found in DB", ids.isEmpty())
+
             Map<Long, String> operations = ids.collectEntries { id ->
                 [id: readerService.readChunkOperation(id)]
             }

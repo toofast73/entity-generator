@@ -32,6 +32,7 @@ class ReadSpeedBenchmark {
 
         int i = 0
         [20, 100, 500, 10_000].each { fieldsCount ->
+
             List<Long> ids = readerService.loadKeyValueOperationIds(fieldsCount)
             Assert.assertFalse("Operations not found in DB", ids.isEmpty())
 
@@ -49,6 +50,7 @@ class ReadSpeedBenchmark {
 
         int i = 0
         [20: 1, 100: 2, 500: 7, 10_000: 134/*10_000: 137*/].each { fieldsCount, chunksCount ->
+
             List<Long> ids = readerService.loadChunkOperationIds(chunksCount)
             Assert.assertFalse("Operations not found in DB", ids.isEmpty())
 
