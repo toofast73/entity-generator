@@ -37,16 +37,13 @@ class KeyValueMarshallerTest {
         jsonLoader.loadAll().each { json ->
 
             Map<String, String> map = converter.convertJsonToKeyValue(json)
-            StringBuilder sb = new StringBuilder("Result map:")
+            def sb = new StringBuilder("Result map:")
 
             map.each { key, value ->
-                sb.append(key)
-                        .append('=')
-                        .append(value)
-                        .append('\n')
+                sb << key << '=' << value << '\n'
             }
 
-            log.info(sb.toString())
+            log.info sb.toString()
         }
     }
 

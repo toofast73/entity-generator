@@ -38,8 +38,10 @@ class PojoLoaderTest {
 
         for (int i = 0; i < pojos.size(); i++) {
 
-            assertEquals(JsonOutput.prettyPrint(jsons.get(i)),
-                    JsonOutput.prettyPrint(converter.convertPojoToJson(pojos.get(i))))
+            assertEquals(
+                    JsonOutput.prettyPrint(jsons.get(i)),
+                    JsonOutput.prettyPrint(converter.convertPojoToJson(pojos.get(i)))
+            )
         }
     }
 
@@ -53,9 +55,18 @@ class PojoLoaderTest {
 
             for (int i = 0; i < pojos.size(); i++) {
 
-                assertEquals(JsonOutput.prettyPrint(jsons.get(i)),
-                        JsonOutput.prettyPrint(converter.convertPojoToJson(pojos.get(i))))
+                assertEquals(
+                        JsonOutput.prettyPrint(jsons.get(i)),
+                        JsonOutput.prettyPrint(converter.convertPojoToJson(pojos.get(i)))
+                )
             }
         }
+    }
+
+    @Test
+    void name() {
+
+        def pojo = pojoLoader.load(20)
+
     }
 }
