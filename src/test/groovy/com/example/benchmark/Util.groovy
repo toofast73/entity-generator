@@ -1,14 +1,12 @@
 package com.example.benchmark
 
 import groovy.transform.CompileStatic
-import groovy.transform.PackageScope
 
 import java.util.concurrent.Callable
 
 /**
  *
  */
-@PackageScope
 @CompileStatic
 class Util {
 

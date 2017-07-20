@@ -81,7 +81,7 @@ class KeyValueDao {
         return jt.queryForList(SELECT_KEY_VALUE_OPERATION_IDS, new Object[]{fieldsCount}, Long.class);
     }
 
-    void deleteChildren(int recordId, Map<String, String> keyValues) {
+    void deleteChildren(long recordId, Map<String, String> keyValues) {
         jt.batchUpdate(SQL_DELETE_CHILD_KEY, keyValues.entrySet()
                         .stream()
                         .map(entry ->
@@ -91,7 +91,7 @@ class KeyValueDao {
                 new int[]{Types.NUMERIC, Types.VARCHAR});
     }
 
-    void updateChildren(int recordId, Map<String, String> keyValues) {
+    void updateChildren(long recordId, Map<String, String> keyValues) {
         jt.batchUpdate(SQL_UPDATE_CHILD_KEY_VAL, keyValues.entrySet()
                         .stream()
                         .map(entry ->

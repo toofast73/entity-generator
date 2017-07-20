@@ -1,6 +1,8 @@
-package com.example.benchmark
+package com.example.benchmark.sql
 
 import com.example.Start
+import com.example.benchmark.BenchmarkReport
+import com.example.benchmark.BenchmarkSuite
 import com.example.dao.oracle.ReaderService
 import com.example.dao.oracle.WriterService
 import groovy.transform.CompileStatic
@@ -38,10 +40,10 @@ class EditSpeedBenchmark {
                 BenchmarkSuite.executeBenchmark(prepareReport(),
                         [("Edit $percentsOfFieldsForEdit% fields in KeyValue table, with $fieldsCount fields in doc" as String): {
 
-                            def id = ids[++i % 10]
+                            long id = ids[++i % 10]
                             Map<String, String> operation = readerService.readKeyValueOperation(id)
                             def editInfo = determineKeysForEdit(operation, percentsOfFieldsForEdit)
-                            writerService.editKeyValueOperation(i, editInfo.keysToDelete, editInfo.keysToInsert, editInfo.keysToUpdate)
+                            writerService.editKeyValueOperation(id, editInfo.keysToDelete, editInfo.keysToInsert, editInfo.keysToUpdate)
 
                         } as Callable])
             }
@@ -58,7 +60,8 @@ class EditSpeedBenchmark {
             BenchmarkSuite.executeBenchmark(prepareReport(),
                     [("Edit in Chunk table, with $fieldsCount fields in doc" as String): {
 
-                        String operation = readerService.readChunkOperation(ids[++i % 10])
+                        long id = ids[++i % 10]
+                        String operation = readerService.readChunkOperation(id)
 
                     } as Callable])
         }

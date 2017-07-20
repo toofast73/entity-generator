@@ -50,7 +50,7 @@ public class WriterService {
         return recordId;
     }
 
-    public void editKeyValueOperation(int id,
+    public void editKeyValueOperation(long id,
                                       Map<String, String> keysToDelete,
                                       Map<String, String> keysToInsert,
                                       Map<String, String> keysToUpdate) {
