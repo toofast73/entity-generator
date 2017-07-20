@@ -16,6 +16,7 @@ public class Staff {
     private BigDecimal salary;
     private Department department;
     private List<String> skills;
+    private String[] test = new String[]{"+","-"};
 
     public String getId() {
         return id;
@@ -128,4 +129,11 @@ public class Staff {
         return staff;
     }
 
+    public String[] getTest() {
+        return test;
+    }
+
+    public void setTest(String[] test) {
+        this.test = test;
+    }
 }

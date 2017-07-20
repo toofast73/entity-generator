@@ -1,7 +1,6 @@
 package com.example.benchmark
 
 import com.example.Start
-import com.example.dao.cassandra.CassandraBenchmarkService
 import com.example.dao.oracle.WriterService
 import com.example.data.converter.PojoConverter
 import com.example.data.filereader.JsonLoader
@@ -17,7 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner
 import java.util.concurrent.Callable
 
 import static com.example.benchmark.Util.executeBenchmarks
-
 /**
  *
  */
@@ -32,8 +30,6 @@ class WriteSpeedBenchmark {
     private JsonLoader jsonLoader
     @Autowired
     private KeyValueLoader keyValueLoader
-    @Autowired
-    private CassandraBenchmarkService cassandraBenchmarkService
     @Autowired
     private PojoConverter converter
 
@@ -62,42 +58,6 @@ class WriteSpeedBenchmark {
                     operation -> writerService.createChunkedOperation(operation)
                 }
             } as Callable)
-        }
-    }
-
-    @Test
-    void testCassandraMap() {
-        cassandraBenchmarkService.createBenchmarkTable()
-
-
-        [20, 100, 500, 10_000].each { fieldsCount ->
-
-            List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
-            executeBenchmarks("Write in key value, $fieldsCount fields", {
-                operations.collect {
-                    operation -> cassandraBenchmarkService.writeBenchmarkMapToMap(operation)
-                }
-            } as Callable)
-
-        }
-
-        cassandraBenchmarkService.dropBenchmarkTable()
-    }
-
-    @Test
-    void testCassandraKeyValue() {
-        converter.cqlMode(true)
-
-        [20, 100, 500, 10_000].each { fieldsCount ->
-            Map<String, String> pattern = keyValueLoader.load(fieldsCount).get(0)
-            cassandraBenchmarkService.createBenchmarkTable(pattern)
-            List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
-            executeBenchmarks("Write in key value, $fieldsCount fields", {
-                operations.collect {
-                    operation -> cassandraBenchmarkService.writeBenchmarkMapToTable(operation)
-                }
-            } as Callable)
-            cassandraBenchmarkService.dropBenchmarkTable()
         }
     }
 }

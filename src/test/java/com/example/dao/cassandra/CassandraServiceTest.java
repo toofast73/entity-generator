@@ -66,7 +66,7 @@ public class CassandraServiceTest {
         // createTable
         cassandraService.createTableByTemplate(name, mapStaff);
         // insert
-        cassandraDao.insertMapIntoTable(name, mapStaff);
+        cassandraDao.insertMapAsKeyValue(name, mapStaff);
         // drop
         cassandraService.dropTable(name);
     }
@@ -76,7 +76,7 @@ public class CassandraServiceTest {
         // createTable
         cassandraService.createTableOfMap(name);
         // insert
-        cassandraDao.insertMapIntoMap(name, mapStaff);
+        cassandraDao.insertMapAsMap(name, mapStaff);
         // drop
         cassandraService.dropTable(name);
     }

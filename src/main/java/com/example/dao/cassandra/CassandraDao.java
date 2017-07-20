@@ -21,27 +21,34 @@ public class CassandraDao {
         cassandraService.execute(insertStmt);
     }
 
-    public void insertMapIntoTable(String name, Map<String, ?> map) {
+    public void insertJson(String name, String id, String entity) {
+        Insert insertStmt = QueryBuilder.insertInto(name);
+//        insertStmt.value(ID_NAME, id);
+        insertStmt.json(entity);
+        cassandraService.execute(insertStmt);
+    }
+
+    public void insertMapAsKeyValue(String name, Map<String, ?> map) {
         Insert insertStmt = QueryBuilder.insertInto(name);
         map.entrySet().forEach(entry -> insertStmt.value(entry.getKey(), entry.getValue()));
         cassandraService.execute(insertStmt);
     }
 
-    public void insertMapIntoMap(String name, Map<String, String> map) {
+    public void insertMapAsMap(String name, Map<String, String> map) {
         Insert insertStmt = QueryBuilder.insertInto(name);
         insertStmt.value(ID_NAME, map.get(ID_NAME));
         insertStmt.value(name, map);
         cassandraService.execute(insertStmt);
     }
 
-    public void insertMapIntoMap(String name, String id, Map<String, String> map) {
+    public void insertMapAsMap(String name, String id, Map<String, String> map) {
         Insert insertStmt = QueryBuilder.insertInto(name);
         insertStmt.value(ID_NAME, id);
         insertStmt.value(name, map);
         cassandraService.execute(insertStmt);
     }
 
-    public void insertMapIntoTable(String name, String id, Map<String, String> map) {
+    public void insertMapAsKeyValue(String name, String id, Map<String, String> map) {
         Insert insertStmt = QueryBuilder.insertInto(name);
         insertStmt.value(ID_NAME, id);
         map.entrySet().forEach(entry -> insertStmt.value(entry.getKey(), entry.getValue()));

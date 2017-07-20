@@ -153,6 +153,8 @@ public class CassandraService {
             return DataType.decimal();
         } else if (value.isAssignableFrom(List.class)) {
             return DataType.list(DataType.text());//
+        } else if (value.isArray()) {
+            return DataType.list(DataType.text());//
         } else {
             return null;
         }
