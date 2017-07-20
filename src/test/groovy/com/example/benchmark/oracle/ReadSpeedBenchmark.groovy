@@ -1,4 +1,4 @@
-package com.example.benchmark.sql
+package com.example.benchmark.oracle
 
 import com.example.Start
 import com.example.dao.oracle.ReaderService
