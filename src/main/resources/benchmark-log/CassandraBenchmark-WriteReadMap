@@ -1,6 +1,4 @@
 
-
-
 Tasks: [Cassandra write map as cassandra map, 20 fields], total executions 26237 for 00:00:30.034, speed: 873 per/sec, 3142800 per/h, with 1 thread(s)
 Tasks: [Cassandra write map as cassandra map, 20 fields], total executions 49354 for 00:00:30.009, speed: 1644 per/sec, 5918400 per/h, with 2 thread(s)
 Tasks: [Cassandra write map as cassandra map, 20 fields], total executions 68160 for 00:00:30.007, speed: 2271 per/sec, 8175600 per/h, with 4 thread(s)
@@ -49,6 +47,3 @@ Tasks: [Cassandra read cassandra map, 10000 fields], total executions 65171 for 
 Tasks: [Cassandra read cassandra map, 10000 fields], total executions 111909 for 00:00:30.006, speed: 3729 per/sec, 13424400 per/h, with 8 thread(s)
 Tasks: [Cassandra read cassandra map, 10000 fields], total executions 121529 for 00:00:30.006, speed: 4050 per/sec, 14580000 per/h, with 10 thread(s)
 Tasks: [Cassandra read cassandra map, 10000 fields], total executions 144204 for 00:00:30.015, speed: 4804 per/sec, 17294400 per/h, with 16 thread(s)
-
-
-

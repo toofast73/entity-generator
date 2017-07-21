@@ -1,147 +1,48 @@
 
-
-
-
-
-
- Starting the tasks: [Cassandra write map as key-value, 20 fields] in 1 thread(s), test duration: 30000ms
- Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 20 fields], total executions 35211 for 00:00:30.023, speed: 1172 per/sec, 4219200 per/h, with 1 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 20 fields] in 2 thread(s), test duration: 30000ms
- Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 20 fields], total executions 61594 for 00:00:30.013, speed: 2052 per/sec, 7387200 per/h, with 2 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 20 fields] in 4 thread(s), test duration: 30000ms
- Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 20 fields], total executions 96810 for 00:00:30.010, speed: 3225 per/sec, 11610000 per/h, with 4 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 20 fields] in 8 thread(s), test duration: 30000ms
- Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 20 fields], total executions 117334 for 00:00:30.010, speed: 3909 per/sec, 14072400 per/h, with 8 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 20 fields] in 10 thread(s), test duration: 30000ms
- Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 20 fields], total executions 90980 for 00:00:30.012, speed: 3031 per/sec, 10911600 per/h, with 10 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 20 fields] in 16 thread(s), test duration: 30000ms
- Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 20 fields], total executions 88777 for 00:00:30.016, speed: 2957 per/sec, 10645200 per/h, with 16 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 1 thread(s), test duration: 30000ms
- Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 18622 for 00:00:30.012, speed: 620 per/sec, 2232000 per/h, with 1 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 2 thread(s), test duration: 30000ms
- Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 46356 for 00:00:30.005, speed: 1544 per/sec, 5558400 per/h, with 2 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 4 thread(s), test duration: 30000ms
- Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 75639 for 00:00:30.011, speed: 2520 per/sec, 9072000 per/h, with 4 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 8 thread(s), test duration: 30000ms
- Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 121155 for 00:00:30.010, speed: 4037 per/sec, 14533200 per/h, with 8 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 10 thread(s), test duration: 30000ms
- Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 107549 for 00:00:30.009, speed: 3583 per/sec, 12898800 per/h, with 10 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 16 thread(s), test duration: 30000ms
- Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 145741 for 00:00:30.015, speed: 4855 per/sec, 17478000 per/h, with 16 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 100 fields] in 1 thread(s), test duration: 30000ms
- Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 100 fields], total executions 16262 for 00:00:30.012, speed: 541 per/sec, 1947600 per/h, with 1 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 100 fields] in 2 thread(s), test duration: 30000ms
- Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 100 fields], total executions 24821 for 00:00:30.011, speed: 827 per/sec, 2977200 per/h, with 2 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 100 fields] in 4 thread(s), test duration: 30000ms
- Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 100 fields], total executions 38179 for 00:00:30.011, speed: 1272 per/sec, 4579200 per/h, with 4 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 100 fields] in 8 thread(s), test duration: 30000ms
- Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 100 fields], total executions 45010 for 00:00:30.010, speed: 1499 per/sec, 5396400 per/h, with 8 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 100 fields] in 10 thread(s), test duration: 30000ms
- Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 100 fields], total executions 42786 for 00:00:30.011, speed: 1425 per/sec, 5130000 per/h, with 10 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 100 fields] in 16 thread(s), test duration: 30000ms
- Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 100 fields], total executions 49725 for 00:00:30.007, speed: 1657 per/sec, 5965200 per/h, with 16 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 1 thread(s), test duration: 30000ms
- Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 18757 for 00:00:30.011, speed: 625 per/sec, 2250000 per/h, with 1 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 2 thread(s), test duration: 30000ms
- Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 48397 for 00:00:30.007, speed: 1612 per/sec, 5803200 per/h, with 2 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 4 thread(s), test duration: 30000ms
- Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 74478 for 00:00:30.011, speed: 2481 per/sec, 8931600 per/h, with 4 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 8 thread(s), test duration: 30000ms
- Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 108461 for 00:00:30.010, speed: 3614 per/sec, 13010400 per/h, with 8 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 10 thread(s), test duration: 30000ms
- Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 116131 for 00:00:30.007, speed: 3870 per/sec, 13932000 per/h, with 10 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 16 thread(s), test duration: 30000ms
- Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 129724 for 00:00:30.008, speed: 4322 per/sec, 15559200 per/h, with 16 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 500 fields] in 1 thread(s), test duration: 30000ms
- Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 500 fields], total executions 6983 for 00:00:30.008, speed: 232 per/sec, 835200 per/h, with 1 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 500 fields] in 2 thread(s), test duration: 30000ms
- Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 500 fields], total executions 9064 for 00:00:30.011, speed: 302 per/sec, 1087200 per/h, with 2 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 500 fields] in 4 thread(s), test duration: 30000ms
- Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 500 fields], total executions 12102 for 00:00:30.007, speed: 403 per/sec, 1450800 per/h, with 4 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 500 fields] in 8 thread(s), test duration: 30000ms
- Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 500 fields], total executions 12849 for 00:00:30.010, speed: 428 per/sec, 1540800 per/h, with 8 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 500 fields] in 10 thread(s), test duration: 30000ms
- Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 500 fields], total executions 12560 for 00:00:30.017, speed: 418 per/sec, 1504800 per/h, with 10 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 500 fields] in 16 thread(s), test duration: 30000ms
- Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 500 fields], total executions 13107 for 00:00:30.012, speed: 436 per/sec, 1569600 per/h, with 16 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 1 thread(s), test duration: 30000ms
- Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 12854 for 00:00:30.006, speed: 428 per/sec, 1540800 per/h, with 1 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 2 thread(s), test duration: 30000ms
- Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 25116 for 00:00:30.009, speed: 836 per/sec, 3009600 per/h, with 2 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 4 thread(s), test duration: 30000ms
- Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 36101 for 00:00:30.016, speed: 1202 per/sec, 4327200 per/h, with 4 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 8 thread(s), test duration: 30000ms
- Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 42810 for 00:00:30.004, speed: 1426 per/sec, 5133600 per/h, with 8 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 10 thread(s), test duration: 30000ms
- Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 50256 for 00:00:30.006, speed: 1674 per/sec, 6026400 per/h, with 10 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 16 thread(s), test duration: 30000ms
- Starting monitoring thread for 16 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 48611 for 00:00:30.007, speed: 1619 per/sec, 5828400 per/h, with 16 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 1 thread(s), test duration: 30000ms
- Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 10000 fields], total executions 392 for 00:00:30.006, speed: 13 per/sec, 46800 per/h, with 1 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 2 thread(s), test duration: 30000ms
- Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 10000 fields], total executions 474 for 00:00:30.003, speed: 15 per/sec, 54000 per/h, with 2 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 4 thread(s), test duration: 30000ms
- Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 10000 fields], total executions 576 for 00:00:30.019, speed: 19 per/sec, 68400 per/h, with 4 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 8 thread(s), test duration: 30000ms
- Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 10000 fields], total executions 575 for 00:00:30.053, speed: 19 per/sec, 68400 per/h, with 8 thread(s)
- Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 10 thread(s), test duration: 30000ms
- Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra write map as key-value, 10000 fields], total executions 581 for 00:00:30.034, speed: 19 per/sec, 68400 per/h, with 10 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 1 thread(s), test duration: 30000ms
- Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 1262 for 00:00:30.011, speed: 42 per/sec, 151200 per/h, with 1 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 2 thread(s), test duration: 30000ms
- Starting monitoring thread for 2 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 1992 for 00:00:30.006, speed: 66 per/sec, 237600 per/h, with 2 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 4 thread(s), test duration: 30000ms
- Starting monitoring thread for 4 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 2100 for 00:00:30.009, speed: 69 per/sec, 248400 per/h, with 4 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 8 thread(s), test duration: 30000ms
- Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 3515 for 00:00:30.008, speed: 117 per/sec, 421200 per/h, with 8 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 10 thread(s), test duration: 30000ms
- Starting monitoring thread for 10 concurrent thread(s), cheking interval: 10000ms
- Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 4492 for 00:00:30.021, speed: 149 per/sec, 536400 per/h, with 10 thread(s)
- Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 16 thread(s), test duration: 30000ms
-
-
+Tasks: [Cassandra write map as key-value, 20 fields], total executions 35211 for 00:00:30.023, speed: 1172 per/sec, 4219200 per/h, with 1 thread(s)
+Tasks: [Cassandra write map as key-value, 20 fields], total executions 61594 for 00:00:30.013, speed: 2052 per/sec, 7387200 per/h, with 2 thread(s)
+Tasks: [Cassandra write map as key-value, 20 fields], total executions 96810 for 00:00:30.010, speed: 3225 per/sec, 11610000 per/h, with 4 thread(s)
+Tasks: [Cassandra write map as key-value, 20 fields], total executions 117334 for 00:00:30.010, speed: 3909 per/sec, 14072400 per/h, with 8 thread(s)
+Tasks: [Cassandra write map as key-value, 20 fields], total executions 90980 for 00:00:30.012, speed: 3031 per/sec, 10911600 per/h, with 10 thread(s)
+Tasks: [Cassandra write map as key-value, 20 fields], total executions 88777 for 00:00:30.016, speed: 2957 per/sec, 10645200 per/h, with 16 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 18622 for 00:00:30.012, speed: 620 per/sec, 2232000 per/h, with 1 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 46356 for 00:00:30.005, speed: 1544 per/sec, 5558400 per/h, with 2 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 75639 for 00:00:30.011, speed: 2520 per/sec, 9072000 per/h, with 4 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 121155 for 00:00:30.010, speed: 4037 per/sec, 14533200 per/h, with 8 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 107549 for 00:00:30.009, speed: 3583 per/sec, 12898800 per/h, with 10 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 145741 for 00:00:30.015, speed: 4855 per/sec, 17478000 per/h, with 16 thread(s)
+Tasks: [Cassandra write map as key-value, 100 fields], total executions 16262 for 00:00:30.012, speed: 541 per/sec, 1947600 per/h, with 1 thread(s)
+Tasks: [Cassandra write map as key-value, 100 fields], total executions 24821 for 00:00:30.011, speed: 827 per/sec, 2977200 per/h, with 2 thread(s)
+Tasks: [Cassandra write map as key-value, 100 fields], total executions 38179 for 00:00:30.011, speed: 1272 per/sec, 4579200 per/h, with 4 thread(s)
+Tasks: [Cassandra write map as key-value, 100 fields], total executions 45010 for 00:00:30.010, speed: 1499 per/sec, 5396400 per/h, with 8 thread(s)
+Tasks: [Cassandra write map as key-value, 100 fields], total executions 42786 for 00:00:30.011, speed: 1425 per/sec, 5130000 per/h, with 10 thread(s)
+Tasks: [Cassandra write map as key-value, 100 fields], total executions 49725 for 00:00:30.007, speed: 1657 per/sec, 5965200 per/h, with 16 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 18757 for 00:00:30.011, speed: 625 per/sec, 2250000 per/h, with 1 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 48397 for 00:00:30.007, speed: 1612 per/sec, 5803200 per/h, with 2 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 74478 for 00:00:30.011, speed: 2481 per/sec, 8931600 per/h, with 4 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 108461 for 00:00:30.010, speed: 3614 per/sec, 13010400 per/h, with 8 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 116131 for 00:00:30.007, speed: 3870 per/sec, 13932000 per/h, with 10 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 129724 for 00:00:30.008, speed: 4322 per/sec, 15559200 per/h, with 16 thread(s)
+Tasks: [Cassandra write map as key-value, 500 fields], total executions 6983 for 00:00:30.008, speed: 232 per/sec, 835200 per/h, with 1 thread(s)
+Tasks: [Cassandra write map as key-value, 500 fields], total executions 9064 for 00:00:30.011, speed: 302 per/sec, 1087200 per/h, with 2 thread(s)
+Tasks: [Cassandra write map as key-value, 500 fields], total executions 12102 for 00:00:30.007, speed: 403 per/sec, 1450800 per/h, with 4 thread(s)
+Tasks: [Cassandra write map as key-value, 500 fields], total executions 12849 for 00:00:30.010, speed: 428 per/sec, 1540800 per/h, with 8 thread(s)
+Tasks: [Cassandra write map as key-value, 500 fields], total executions 12560 for 00:00:30.017, speed: 418 per/sec, 1504800 per/h, with 10 thread(s)
+Tasks: [Cassandra write map as key-value, 500 fields], total executions 13107 for 00:00:30.012, speed: 436 per/sec, 1569600 per/h, with 16 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 12854 for 00:00:30.006, speed: 428 per/sec, 1540800 per/h, with 1 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 25116 for 00:00:30.009, speed: 836 per/sec, 3009600 per/h, with 2 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 36101 for 00:00:30.016, speed: 1202 per/sec, 4327200 per/h, with 4 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 42810 for 00:00:30.004, speed: 1426 per/sec, 5133600 per/h, with 8 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 50256 for 00:00:30.006, speed: 1674 per/sec, 6026400 per/h, with 10 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 48611 for 00:00:30.007, speed: 1619 per/sec, 5828400 per/h, with 16 thread(s)
+Tasks: [Cassandra write map as key-value, 10000 fields], total executions 392 for 00:00:30.006, speed: 13 per/sec, 46800 per/h, with 1 thread(s)
+Tasks: [Cassandra write map as key-value, 10000 fields], total executions 474 for 00:00:30.003, speed: 15 per/sec, 54000 per/h, with 2 thread(s)
+Tasks: [Cassandra write map as key-value, 10000 fields], total executions 576 for 00:00:30.019, speed: 19 per/sec, 68400 per/h, with 4 thread(s)
+Tasks: [Cassandra write map as key-value, 10000 fields], total executions 575 for 00:00:30.053, speed: 19 per/sec, 68400 per/h, with 8 thread(s)
+Tasks: [Cassandra write map as key-value, 10000 fields], total executions 581 for 00:00:30.034, speed: 19 per/sec, 68400 per/h, with 10 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 1262 for 00:00:30.011, speed: 42 per/sec, 151200 per/h, with 1 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 1992 for 00:00:30.006, speed: 66 per/sec, 237600 per/h, with 2 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 2100 for 00:00:30.009, speed: 69 per/sec, 248400 per/h, with 4 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 3515 for 00:00:30.008, speed: 117 per/sec, 421200 per/h, with 8 thread(s)
+Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 4492 for 00:00:30.021, speed: 149 per/sec, 536400 per/h, with 10 thread(s)
+ 
