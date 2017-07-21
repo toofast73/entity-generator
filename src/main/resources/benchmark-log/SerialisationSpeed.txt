@@ -1,0 +1,25 @@
+
+
+
+Tasks: [Marshal POJO to JSON, 20 fields], total executions 3013320 for 00:00:10.005, speed:     301181  per/sec, 1084251600 per/h, with 1 thread(s)
+Tasks: [Marshal POJO to JSON, 100 fields], total executions 695956 for 00:00:10.000, speed:     69595   per/sec, 250542000 per/h, with 1 thread(s)
+Tasks: [Marshal POJO to JSON, 500 fields], total executions 142216 for 00:00:10.001, speed:     14220   per/sec, 51192000 per/h, with 1 thread(s)
+Tasks: [Marshal POJO to JSON, 10000 fields], total executions 5411 for 00:00:10.011, speed:     540     per/sec, 1944000 per/h, with 1 thread(s)
+
+Tasks: [Marshal JSON to POJO, 20 fields], total executions 2162220 for 00:00:10.000, speed:     216222  per/sec, 778399200 per/h, with 1 thread(s)
+Tasks: [Marshal JSON to POJO, 100 fields], total executions 501384 for 00:00:10.000, speed:     50138   per/sec, 180496800 per/h, with 1 thread(s)
+Tasks: [Marshal JSON to POJO, 500 fields], total executions 104180 for 00:00:10.000, speed:     10418   per/sec, 37504800 per/h, with 1 thread(s)
+Tasks: [Marshal JSON to POJO, 10000 fields], total executions 5074 for 00:00:10.000, speed:     507     per/sec, 1825200 per/h, with 1 thread(s)
+
+
+Tasks: [Marshal POJO to KeyValue, 20 fields], total executions 1013356 for 00:00:10.003, speed: 101305  per/sec, 364698000 per/h, with 1 thread(s)
+Tasks: [Marshal POJO to KeyValue, 100 fields], total executions 231484 for 00:00:10.000, speed: 23148   per/sec, 83332800 per/h, with 1 thread(s)
+Tasks: [Marshal POJO to KeyValue, 500 fields], total executions 46317 for 00:00:10.001, speed:  4631    per/sec, 16671600 per/h, with 1 thread(s)
+Tasks: [Marshal POJO to KeyValue, 10000 fields], total executions 1988 for 00:00:10.000, speed: 198     per/sec, 712800 per/h, with 1 thread(s)
+
+Tasks: [Marshal KeyValue to POJO, 20 fields], total executions 985912 for 00:00:10.001, speed:  98581   per/sec, 354891600 per/h, with 1 thread(s)
+Tasks: [Marshal KeyValue to POJO, 100 fields], total executions 242882 for 00:00:10.000, speed: 24288   per/sec, 87436800 per/h, with 1 thread(s)
+Tasks: [Marshal KeyValue to POJO, 500 fields], total executions 49270 for 00:00:10.000, speed:  4927    per/sec, 17737200 per/h, with 1 thread(s)
+Tasks: [Marshal KeyValue to POJO, 10000 fields], total executions 1920 for 00:00:10.001, speed: 191     per/sec, 687600 per/h, with 1 thread(s)
+
+

@@ -36,17 +36,15 @@ public class JacksonMarshaller implements JsonMarshaller {
 
     // Convert object to map
     <K, V> Map<K, V> toMap(Object object) {
-        return mapper.convertValue(object, new TypeReference<Map<K, V>>() {
-        });
+        return mapper.convertValue(object, new MapTypeReference());
+    }
+
+    private static class MapTypeReference extends TypeReference<Map<String, Object>> {
     }
 
     // Convert map to object
     <T> T map2Object(Map<? extends Object, ? extends Object> map, Class<T> valueType) {
-        try {
-            return mapper.readValue(mapper.writeValueAsString(map), valueType);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return mapper.convertValue(map, valueType);
     }
 
     // Convert map to JSON string
