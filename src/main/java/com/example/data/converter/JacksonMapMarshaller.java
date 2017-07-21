@@ -1,14 +1,13 @@
 package com.example.data.converter;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 /**
  *
  */
-@Service
+//@Service
 class JacksonMapMarshaller implements KeyValueToPojoMarshaller {
 
     @Autowired

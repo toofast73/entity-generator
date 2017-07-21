@@ -3,6 +3,7 @@ package com.example.data.converter;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.beanutils.expression.DefaultResolver;
 import org.apache.commons.beanutils.expression.Resolver;
+import org.springframework.stereotype.Service;
 
 import java.beans.PropertyEditor;
 import java.beans.PropertyEditorManager;
@@ -29,7 +30,7 @@ import static org.apache.commons.beanutils.PropertyUtils.getPropertyType;
 /**
  *
  */
-//@Service
+@Service
 class BeanutilsMarshaller implements KeyValueToPojoMarshaller {
 
     private Resolver resolver = new DefaultResolver();
