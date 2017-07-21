@@ -1,7 +1,7 @@
 package com.example.benchmark.postgres
 
 import com.example.Start
-import com.example.dao.ReadWrite
+import com.example.benchmark.ReadWriteEdit
 import com.example.dao.postgres.PostgresBenchmarkService
 import com.example.data.filereader.JsonLoader
 import com.example.data.filereader.KeyValueLoader
@@ -14,13 +14,12 @@ import org.springframework.test.context.junit4.SpringRunner
 import java.util.concurrent.Callable
 
 import static com.example.benchmark.Util.executeBenchmarks
-
 /**
  *
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
-class PostgresBenchmark extends ReadWrite {
+class PostgresBenchmark extends ReadWriteEdit {
 
     @Autowired
     private JsonLoader jsonLoader

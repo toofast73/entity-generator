@@ -1,8 +1,8 @@
 package com.example.benchmark.cassandra
 
 import com.example.Start
-import com.example.dao.ReadWrite
-import com.example.dao.cassandra.CassandraBenchmarkService
+import com.example.benchmark.BenchmarkSuite
+import com.example.benchmark.ReadWriteEdit
 import com.example.dao.oracle.IdGenerator
 import com.example.dao.oracle.ReaderService
 import com.example.dao.oracle.WriterService
@@ -26,7 +26,7 @@ import static com.example.benchmark.Util.executeBenchmarks
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
-class CassandraBenchmark extends ReadWrite {
+class CassandraBenchmark extends ReadWriteEdit {
     private static Log log = LogFactory.getLog(CassandraBenchmark.class)
 
     @Autowired
@@ -111,68 +111,40 @@ class CassandraBenchmark extends ReadWrite {
         }
     }
 
-
     @Test
     void testKeyValue() {
+        converter.cqlMode(true)
 
-        [20, 100, 500, 10_000].each { fieldsCount ->
-
-            cassandraBenchmarkService.create()
-
-            List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
-            executeBenchmarks("Cassandra write map as cassandra map, $fieldsCount fields", {
-                operations.collect {
-                    operation -> cassandraBenchmarkService.writeMapAsMap(operation)
-                }
-            } as Callable, [2, 4, 8])
-
-            long id = generator.counter.get()
-            executeBenchmarks("Cassandra read cassandra map, $fieldsCount fields", {
-
-                cassandraBenchmarkService.readMap(String.valueOf(random.nextInt((Integer) id)))
-
-            } as Callable, [2, 4, 8])
-            cassandraBenchmarkService.drop()
-        }
-
-
-        int i = 0
         [5, 10/*, 30, 50, 70, 90*/].each { percentsOfFieldsForEdit ->
             [20/*, 100, 500, 10_000*/].each { fieldsCount ->
 
-                cassandraBenchmarkService.create()
-
+                Map<String, String> pattern = keyValueLoader.load(fieldsCount).get(0)
+                cassandraBenchmarkService.create(pattern)
                 List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
-                executeBenchmarks("Cassandra write map as cassandra map, $fieldsCount fields", {
+                executeBenchmarks("Cassandra write map as key-value, $fieldsCount fields", {
                     operations.collect {
-                        operation -> cassandraBenchmarkService.writeMapAsMap(operation)
+                        operation -> cassandraBenchmarkService.writeMapAsKeyValue(operation)
                     }
                 } as Callable, [2, 4, 8])
 
-                long id = generator.counter.get()
-                executeBenchmarks("Cassandra read cassandra map, $fieldsCount fields", {
+                long index = generator.counter.get()
+                executeBenchmarks("Cassandra read cassandra key-value in map, $fieldsCount fields", {
 
-                    cassandraBenchmarkService.readMap(String.valueOf(random.nextInt((Integer) id)))
+                    cassandraBenchmarkService.read(String.valueOf(random.nextInt((Integer) index)), pattern)
 
                 } as Callable, [2, 4, 8])
 
+                BenchmarkSuite.executeBenchmark(prepareReport(),
+                        [("Edit $percentsOfFieldsForEdit% fields in KeyValue table, with $fieldsCount fields in doc" as String): {
+
+                            String id = String.valueOf(random.nextInt((Integer) index))
+                            Map<String, String> operation = cassandraBenchmarkService.read(id, pattern)
+                            def editInfo = determineKeysForEdit(operation, percentsOfFieldsForEdit)
+                            cassandraBenchmarkService.editMap(id, operation, editInfo)
+                        } as Callable])
 
 
                 cassandraBenchmarkService.drop()
-
-
-//                List<Long> ids = readerService.loadKeyValueOperationIds(fieldsCount)
-//                Assert.assertFalse("Operations not found in DB", ids.isEmpty())
-//
-//                BenchmarkSuite.executeBenchmark(prepareReport(),
-//                        [("Edit $percentsOfFieldsForEdit% fields in KeyValue table, with $fieldsCount fields in doc" as String): {
-//
-//                            Long id = ids[++i % 10]
-//                            Map<String, String> operation = readerService.readKeyValueOperation(id)
-//                            def editInfo = determineKeysForEdit(operation, percentsOfFieldsForEdit)
-//                            writerService.editKeyValueOperation(id, editInfo.keysToDelete, editInfo.keysToInsert, editInfo.keysToUpdate)
-//
-//                        } as Callable])
             }
         }
     }

@@ -1,8 +1,11 @@
-package com.example.dao.cassandra;
+package com.example.benchmark.cassandra;
 
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
+import com.example.benchmark.ReadWriteEdit;
+import com.example.dao.cassandra.CassandraDao;
+import com.example.dao.cassandra.CassandraService;
 import com.example.dao.oracle.IdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,15 +62,24 @@ public class CassandraBenchmarkService {
         return readMap(operationId.toString());
     }
 
+    //todo extract to CassandraDao
     public Map<String, String> readMap(String operationId) {
         Select.Where select = QueryBuilder.select().from(BENCHMARK_TABLE).where(eq(ID_NAME, operationId));
         Row one = cassandraService.execute(select).one();
         return one == null ? null : one.getMap(BENCHMARK_TABLE, String.class, String.class);
     }
 
+    //todo extract to CassandraDao
     public Map<String, String> read(String operationId, Map<String, String> pattern) {
         Select.Where select = QueryBuilder.select().from(BENCHMARK_TABLE).where(eq(ID_NAME, operationId));
         Row one = cassandraService.execute(select).one();
         return one == null ? null : pattern.keySet().stream().collect(toMap(key -> key, key -> one.get(key, String.class)));
+    }
+
+    //todo
+    public void editMap(String id, Map<String, String> operation, ReadWriteEdit.KeyValueEditInfo editInfo) {
+        editInfo.keysToDelete.entrySet().forEach(e -> operation.remove(e.getKey()));
+        operation.putAll(editInfo.keysToInsert);
+        operation.putAll(editInfo.keysToUpdate);
     }
 }

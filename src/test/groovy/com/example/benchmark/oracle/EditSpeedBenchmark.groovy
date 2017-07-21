@@ -1,8 +1,8 @@
 package com.example.benchmark.oracle
 
 import com.example.Start
-import com.example.benchmark.BenchmarkReport
 import com.example.benchmark.BenchmarkSuite
+import com.example.benchmark.ReadWriteEdit
 import com.example.dao.oracle.ReaderService
 import com.example.dao.oracle.WriterService
 import groovy.transform.CompileStatic
@@ -23,7 +23,7 @@ import java.util.concurrent.Callable
 @SpringBootTest(classes = Start.class)
 @CompileStatic
 @Slf4j
-class EditSpeedBenchmark {
+class EditSpeedBenchmark extends ReadWriteEdit {
 
     @Autowired
     private ReaderService readerService
@@ -74,40 +74,5 @@ class EditSpeedBenchmark {
 
                     } as Callable])
         }
-    }
-
-    private static BenchmarkReport prepareReport() {
-        new BenchmarkReport(
-                duration: 30_000,
-                threadCount: 1,
-                checkSpeedInterval: 10_000,
-                logInIntervalsEnabled: false)
-    }
-
-    private KeyValueEditInfo determineKeysForEdit(Map<String, String> operation, int percentsOfFieldsForEdit) {
-        def editFieldsCount = operation.size() / 100 * percentsOfFieldsForEdit
-        def deleteInsertFieldsCount = editFieldsCount / 3
-        def updateFieldsCount = editFieldsCount - deleteInsertFieldsCount
-
-        def keyValueEditInfo = new KeyValueEditInfo()
-        def iterator = operation.entrySet().iterator()
-
-        deleteInsertFieldsCount.times {
-            def entry = iterator.next()
-            keyValueEditInfo.keysToDelete[entry.key] = entry.value
-            keyValueEditInfo.keysToInsert[entry.key] = entry.value
-        }
-
-        updateFieldsCount.times {
-            def entry = iterator.next()
-            keyValueEditInfo.keysToUpdate[entry.key] = entry.value
-        }
-        keyValueEditInfo
-    }
-
-    private class KeyValueEditInfo {
-        Map<String, String> keysToDelete = [:]
-        Map<String, String> keysToInsert = [:]
-        Map<String, String> keysToUpdate = [:]
     }
 }

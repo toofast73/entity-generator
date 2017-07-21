@@ -1,7 +1,7 @@
 package com.example.dao.oracle;
 
 import com.example.Start;
-import com.example.dao.ReadWrite;
+import com.example.benchmark.ReadWriteEdit;
 import com.example.data.filereader.JsonLoader;
 import com.example.data.filereader.KeyValueLoader;
 import org.junit.Test;
@@ -19,7 +19,7 @@ import java.util.Map;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
 //@Transactional  // с анннотацией данные в БД откатываются после прогона
-public class ReadWriteTest extends ReadWrite {
+public class ReadWriteTest extends ReadWriteEdit {
 
     @Autowired
     private WriterService writerService;
