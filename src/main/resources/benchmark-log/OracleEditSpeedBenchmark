@@ -1,107 +1,31 @@
 
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::        (v1.5.4.RELEASE)
 
-2017-07-21 11:11:59.791  INFO 63427 --- [           main] c.e.benchmark.oracle.EditSpeedBenchmark  : Starting EditSpeedBenchmark on MacBook-Pro-alex.local with PID 63427 (started by home in /Users/home/Projects/entity-generator)
-2017-07-21 11:11:59.793  INFO 63427 --- [           main] c.e.benchmark.oracle.EditSpeedBenchmark  : No active profile set, falling back to default profiles: default
-2017-07-21 11:11:59.827  INFO 63427 --- [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@51891008: startup date [Fri Jul 21 11:11:59 MSK 2017]; root of context hierarchy
-2017-07-21 11:12:00.727  INFO 63427 --- [           main] c.d.driver.core.GuavaCompatibility       : Detected Guava >= 19 in the classpath, using modern compatibility layer
-2017-07-21 11:12:00.890  INFO 63427 --- [           main] com.datastax.driver.core.ClockFactory    : Using native clock to generate timestamps.
-2017-07-21 11:12:00.978  INFO 63427 --- [           main] com.datastax.driver.core.NettyUtil       : Did not find Netty's native epoll transport in the classpath, defaulting to NIO.
-2017-07-21 11:12:01.224  WARN 63427 --- [           main] com.datastax.driver.core.Cluster         : You listed localhost/127.0.0.1:9042 in your contact points, but it wasn't found in the control host's system.peers at startup
-2017-07-21 11:12:01.532  INFO 63427 --- [           main] c.d.d.c.p.DCAwareRoundRobinPolicy        : Using data-center name 'datacenter1' for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)
-2017-07-21 11:12:01.533  INFO 63427 --- [           main] com.datastax.driver.core.Cluster         : New Cassandra host localhost/0:0:0:0:0:0:0:1:9042 added
-2017-07-21 11:12:01.760  INFO 63427 --- [           main] com.datastax.driver.core.ClockFactory    : Using native clock to generate timestamps.
-2017-07-21 11:12:01.844  INFO 63427 --- [           main] c.e.benchmark.oracle.EditSpeedBenchmark  : Started EditSpeedBenchmark in 2.414 seconds (JVM running for 3.169)
-2017-07-21 11:12:02.840  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:12:02.841  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:12:32.865  INFO 63427 --- [pool-3-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 20 fields in doc], total executions 21791 for 00:00:30.012, speed: 726 per/sec, 2613600 per/h, with 1 thread(s)
-2017-07-21 11:12:35.650  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:12:35.650  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:13:05.654  INFO 63427 --- [pool-5-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 100 fields in doc], total executions 5335 for 00:00:30.005, speed: 177 per/sec, 637200 per/h, with 1 thread(s)
-2017-07-21 11:13:06.565  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:13:06.566  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:13:36.576  INFO 63427 --- [pool-7-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 500 fields in doc], total executions 1578 for 00:00:30.011, speed: 52 per/sec, 187200 per/h, with 1 thread(s)
-2017-07-21 11:13:37.114  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:13:37.114  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:14:07.125  INFO 63427 --- [pool-9-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 10000 fields in doc], total executions 98 for 00:00:30.011, speed: 3 per/sec, 10800 per/h, with 1 thread(s)
-2017-07-21 11:14:07.127  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:14:07.128  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:14:37.136  INFO 63427 --- [ool-11-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 20 fields in doc], total executions 13043 for 00:00:30.009, speed: 434 per/sec, 1562400 per/h, with 1 thread(s)
-2017-07-21 11:14:37.327  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:14:37.328  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:15:07.339  INFO 63427 --- [ool-13-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 100 fields in doc], total executions 4974 for 00:00:30.011, speed: 165 per/sec, 594000 per/h, with 1 thread(s)
-2017-07-21 11:15:07.631  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:15:07.631  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:15:37.641  INFO 63427 --- [ool-15-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 500 fields in doc], total executions 1587 for 00:00:30.010, speed: 52 per/sec, 187200 per/h, with 1 thread(s)
-2017-07-21 11:15:37.913  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:15:37.914  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:16:07.924  INFO 63427 --- [ool-17-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 10000 fields in doc], total executions 93 for 00:00:30.011, speed: 3 per/sec, 10800 per/h, with 1 thread(s)
-2017-07-21 11:16:07.926  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:16:07.926  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:16:37.932  INFO 63427 --- [ool-19-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 20 fields in doc], total executions 9325 for 00:00:30.007, speed: 310 per/sec, 1116000 per/h, with 1 thread(s)
-2017-07-21 11:16:38.132  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:16:38.132  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:17:08.138  INFO 63427 --- [ool-21-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 100 fields in doc], total executions 4911 for 00:00:30.006, speed: 163 per/sec, 586800 per/h, with 1 thread(s)
-2017-07-21 11:17:08.402  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:17:08.403  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:17:38.406  INFO 63427 --- [ool-23-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 500 fields in doc], total executions 1277 for 00:00:30.004, speed: 42 per/sec, 151200 per/h, with 1 thread(s)
-2017-07-21 11:17:38.688  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:17:38.688  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:18:08.701  INFO 63427 --- [ool-25-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 10000 fields in doc], total executions 72 for 00:00:30.014, speed: 2 per/sec, 7200 per/h, with 1 thread(s)
-2017-07-21 11:18:08.704  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:18:08.704  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:18:38.714  INFO 63427 --- [ool-27-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 20 fields in doc], total executions 9105 for 00:00:30.011, speed: 303 per/sec, 1090800 per/h, with 1 thread(s)
-2017-07-21 11:18:38.907  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:18:38.907  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:19:08.913  INFO 63427 --- [ool-29-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 100 fields in doc], total executions 4262 for 00:00:30.007, speed: 142 per/sec, 511200 per/h, with 1 thread(s)
-2017-07-21 11:19:09.189  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:19:09.189  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:19:39.192  INFO 63427 --- [ool-31-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 500 fields in doc], total executions 1022 for 00:00:30.003, speed: 34 per/sec, 122400 per/h, with 1 thread(s)
-2017-07-21 11:19:39.488  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:19:39.488  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:20:09.498  INFO 63427 --- [ool-33-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 10000 fields in doc], total executions 63 for 00:00:30.011, speed: 2 per/sec, 7200 per/h, with 1 thread(s)
-2017-07-21 11:20:09.501  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:20:09.502  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:20:39.510  INFO 63427 --- [ool-35-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 20 fields in doc], total executions 7920 for 00:00:30.009, speed: 263 per/sec, 946800 per/h, with 1 thread(s)
-2017-07-21 11:20:39.705  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:20:39.705  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:21:09.715  INFO 63427 --- [ool-37-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 100 fields in doc], total executions 3668 for 00:00:30.011, speed: 122 per/sec, 439200 per/h, with 1 thread(s)
-2017-07-21 11:21:10.000  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:21:10.001  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:21:40.008  INFO 63427 --- [ool-39-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 500 fields in doc], total executions 1006 for 00:00:30.008, speed: 33 per/sec, 118800 per/h, with 1 thread(s)
-2017-07-21 11:21:40.313  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:21:40.313  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:22:10.323  INFO 63427 --- [ool-41-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 10000 fields in doc], total executions 58 for 00:00:30.011, speed: 1 per/sec, 3600 per/h, with 1 thread(s)
-2017-07-21 11:22:10.328  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:22:10.328  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:22:40.339  INFO 63427 --- [ool-43-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 20 fields in doc], total executions 7909 for 00:00:30.011, speed: 263 per/sec, 946800 per/h, with 1 thread(s)
-2017-07-21 11:22:40.550  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:22:40.550  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:23:10.561  INFO 63427 --- [ool-45-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 100 fields in doc], total executions 3568 for 00:00:30.011, speed: 118 per/sec, 424800 per/h, with 1 thread(s)
-2017-07-21 11:23:10.842  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:23:10.842  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:23:40.849  INFO 63427 --- [ool-47-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 500 fields in doc], total executions 915 for 00:00:30.007, speed: 30 per/sec, 108000 per/h, with 1 thread(s)
-2017-07-21 11:23:41.198  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:23:41.198  INFO 63427 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:24:11.210  INFO 63427 --- [ool-49-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 10000 fields in doc], total executions 53 for 00:00:30.012, speed: 1 per/sec, 3600 per/h, with 1 thread(s)
-2017-07-21 11:39:42.723  INFO 63570 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit in Chunk table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:39:42.725  INFO 63570 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:40:12.743  INFO 63570 --- [pool-3-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit in Chunk table, with 20 fields in doc], total executions 14848 for 00:00:30.009, speed: 494 per/sec, 1778400 per/h, with 1 thread(s)
-2017-07-21 11:40:12.768  INFO 63570 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit in Chunk table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:40:12.768  INFO 63570 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:40:42.774  INFO 63570 --- [pool-5-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit in Chunk table, with 100 fields in doc], total executions 13768 for 00:00:30.006, speed: 458 per/sec, 1648800 per/h, with 1 thread(s)
-2017-07-21 11:40:42.805  INFO 63570 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit in Chunk table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:40:42.805  INFO 63570 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:41:12.814  INFO 63570 --- [pool-7-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit in Chunk table, with 500 fields in doc], total executions 9064 for 00:00:30.010, speed: 302 per/sec, 1087200 per/h, with 1 thread(s)
-2017-07-21 11:41:13.062  INFO 63570 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit in Chunk table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-21 11:41:13.062  INFO 63570 --- [           main] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-21 11:41:43.072  INFO 63570 --- [pool-9-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit in Chunk table, with 10000 fields in doc], total executions 632 for 00:00:30.011, speed: 21 per/sec, 75600 per/h, with 1 thread(s)
-2017-07-21 11:41:43.076  INFO 63570 --- [       Thread-3] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@465232e9: startup date [Fri Jul 21 11:39:39 MSK 2017]; root of context hierarchy
+Tasks: [Edit 5% fields in KeyValue table, with 20 fields in doc], total executions 21791 for 00:00:30.012, speed: 726 per/sec, 2613600 per/h, with 1 thread(s)
+Tasks: [Edit 5% fields in KeyValue table, with 100 fields in doc], total executions 5335 for 00:00:30.005, speed: 177 per/sec, 637200 per/h, with 1 thread(s)
+Tasks: [Edit 5% fields in KeyValue table, with 500 fields in doc], total executions 1578 for 00:00:30.011, speed: 52 per/sec, 187200 per/h, with 1 thread(s)
+Tasks: [Edit 5% fields in KeyValue table, with 10000 fields in doc], total executions 98 for 00:00:30.011, speed: 3 per/sec, 10800 per/h, with 1 thread(s)
+Tasks: [Edit 10% fields in KeyValue table, with 20 fields in doc], total executions 13043 for 00:00:30.009, speed: 434 per/sec, 1562400 per/h, with 1 thread(s)
+Tasks: [Edit 10% fields in KeyValue table, with 100 fields in doc], total executions 4974 for 00:00:30.011, speed: 165 per/sec, 594000 per/h, with 1 thread(s)
+Tasks: [Edit 10% fields in KeyValue table, with 500 fields in doc], total executions 1587 for 00:00:30.010, speed: 52 per/sec, 187200 per/h, with 1 thread(s)
+Tasks: [Edit 10% fields in KeyValue table, with 10000 fields in doc], total executions 93 for 00:00:30.011, speed: 3 per/sec, 10800 per/h, with 1 thread(s)
+Tasks: [Edit 30% fields in KeyValue table, with 20 fields in doc], total executions 9325 for 00:00:30.007, speed: 310 per/sec, 1116000 per/h, with 1 thread(s)
+Tasks: [Edit 30% fields in KeyValue table, with 100 fields in doc], total executions 4911 for 00:00:30.006, speed: 163 per/sec, 586800 per/h, with 1 thread(s)
+Tasks: [Edit 30% fields in KeyValue table, with 500 fields in doc], total executions 1277 for 00:00:30.004, speed: 42 per/sec, 151200 per/h, with 1 thread(s)
+Tasks: [Edit 30% fields in KeyValue table, with 10000 fields in doc], total executions 72 for 00:00:30.014, speed: 2 per/sec, 7200 per/h, with 1 thread(s)
+Tasks: [Edit 50% fields in KeyValue table, with 20 fields in doc], total executions 9105 for 00:00:30.011, speed: 303 per/sec, 1090800 per/h, with 1 thread(s)
+Tasks: [Edit 50% fields in KeyValue table, with 100 fields in doc], total executions 4262 for 00:00:30.007, speed: 142 per/sec, 511200 per/h, with 1 thread(s)
+Tasks: [Edit 50% fields in KeyValue table, with 500 fields in doc], total executions 1022 for 00:00:30.003, speed: 34 per/sec, 122400 per/h, with 1 thread(s)
+Tasks: [Edit 50% fields in KeyValue table, with 10000 fields in doc], total executions 63 for 00:00:30.011, speed: 2 per/sec, 7200 per/h, with 1 thread(s)
+Tasks: [Edit 70% fields in KeyValue table, with 20 fields in doc], total executions 7920 for 00:00:30.009, speed: 263 per/sec, 946800 per/h, with 1 thread(s)
+Tasks: [Edit 70% fields in KeyValue table, with 100 fields in doc], total executions 3668 for 00:00:30.011, speed: 122 per/sec, 439200 per/h, with 1 thread(s)
+Tasks: [Edit 70% fields in KeyValue table, with 500 fields in doc], total executions 1006 for 00:00:30.008, speed: 33 per/sec, 118800 per/h, with 1 thread(s)
+Tasks: [Edit 70% fields in KeyValue table, with 10000 fields in doc], total executions 58 for 00:00:30.011, speed: 1 per/sec, 3600 per/h, with 1 thread(s)
+Tasks: [Edit 90% fields in KeyValue table, with 20 fields in doc], total executions 7909 for 00:00:30.011, speed: 263 per/sec, 946800 per/h, with 1 thread(s)
+Tasks: [Edit 90% fields in KeyValue table, with 100 fields in doc], total executions 3568 for 00:00:30.011, speed: 118 per/sec, 424800 per/h, with 1 thread(s)
+Tasks: [Edit 90% fields in KeyValue table, with 500 fields in doc], total executions 915 for 00:00:30.007, speed: 30 per/sec, 108000 per/h, with 1 thread(s)
+Tasks: [Edit 90% fields in KeyValue table, with 10000 fields in doc], total executions 53 for 00:00:30.012, speed: 1 per/sec, 3600 per/h, with 1 thread(s)
 
-Process finished with exit code 0
+Tasks: [Edit in Chunk table, with 20 fields in doc], total executions 14848 for 00:00:30.009, speed: 494 per/sec, 1778400 per/h, with 1 thread(s)
+Tasks: [Edit in Chunk table, with 100 fields in doc], total executions 13768 for 00:00:30.006, speed: 458 per/sec, 1648800 per/h, with 1 thread(s)
+Tasks: [Edit in Chunk table, with 500 fields in doc], total executions 9064 for 00:00:30.010, speed: 302 per/sec, 1087200 per/h, with 1 thread(s)
+Tasks: [Edit in Chunk table, with 10000 fields in doc], total executions 632 for 00:00:30.011, speed: 21 per/sec, 75600 per/h, with 1 tread(s)
