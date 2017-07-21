@@ -41,7 +41,7 @@ public class JacksonMarshaller implements JsonMarshaller {
     }
 
     // Convert map to object
-    Object map2Object(Map<Object, Object> map, Class<?> valueType) {
+    <T> T map2Object(Map<? extends Object, ? extends Object> map, Class<T> valueType) {
         try {
             return mapper.readValue(mapper.writeValueAsString(map), valueType);
         } catch (IOException e) {
@@ -50,7 +50,7 @@ public class JacksonMarshaller implements JsonMarshaller {
     }
 
     // Convert map to JSON string
-    String fromMap(Map<Object, Object> map) {
+    String fromMap(Map<? extends Object, ? extends Object> map) {
         try {
             return mapper.writeValueAsString(map);
         } catch (JsonProcessingException e) {

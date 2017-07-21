@@ -15,7 +15,7 @@ public class PojoConverter {
     @Autowired
     private JsonMarshaller jacksonMarshaller;
     @Autowired
-    private BeanutilsMarshaller keyValueToPojoMarshaller;
+    private JacksonMapMarshaller keyValueToPojoMarshaller;
     @Autowired
     private JacksonTreeMarshaller pojoToKeyValueMarshaller;
 

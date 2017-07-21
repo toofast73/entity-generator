@@ -7,8 +7,8 @@ import static org.junit.Assert.assertEquals;
 
 public class JacksonMarshallerTest {
 
-    String JSON_STRING = "{\"id\":null,\"name\":\"example\",\"age\":33,\"position\":\"Developer\",\"salary\":7500,\"department\":{\"name\":\"\",\"boss\":\"\"},\"skills\":[\"java\",\"python\"],\"test\":[\"+\",\"-\"]}";
-    String MAP_TO_STRING = "{id=null, name=example, age=33, position=Developer, salary=7500, department={name=, boss=}, skills=[java, python], test=[+, -]}";
+    String JSON_STRING = "{\"id\":null,\"name\":\"example\",\"age\":33,\"position\":\"Developer\",\"salary\":7500,\"department\":{\"testJacksonMapConvertion\":\"\",\"boss\":\"\"},\"skills\":[\"java\",\"python\"],\"test\":[\"+\",\"-\"]}";
+    String MAP_TO_STRING = "{id=null, name=example, age=33, position=Developer, salary=7500, department={testJacksonMapConvertion=, boss=}, skills=[java, python], test=[+, -]}";
 
     private JacksonMarshaller jacksonMarshaller;
     private Staff staff;
