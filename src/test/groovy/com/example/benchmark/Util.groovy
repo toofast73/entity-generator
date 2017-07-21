@@ -11,8 +11,15 @@ import java.util.concurrent.Callable
 class Util {
 
     static executeBenchmarks(String testName, Callable task) {
+        execute(testName, task, [1, 2, 4, 8, 10, 16])
+    }
 
-        [1, 2, 4, 8, 10, 16].collect { threadCount ->
+    static executeBenchmarks(String testName, Callable task, List<Integer> multiThreadCase) {
+        execute(testName, task, multiThreadCase)
+    }
+
+    private static List<BenchmarkReport> execute(String testName, Callable task, List<Integer> multiThreadCase) {
+        multiThreadCase.collect { threadCount ->
             new BenchmarkReport(
                     duration: 30_000,
                     threadCount: threadCount,

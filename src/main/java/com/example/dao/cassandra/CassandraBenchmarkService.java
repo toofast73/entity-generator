@@ -7,7 +7,6 @@ import com.example.dao.oracle.IdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
@@ -67,7 +66,6 @@ public class CassandraBenchmarkService {
     }
 
     public Map<String, String> read(String operationId, Map<String, String> pattern) {
-        Map<String, String> map = new HashMap<>(pattern.size());
         Select.Where select = QueryBuilder.select().from(BENCHMARK_TABLE).where(eq(ID_NAME, operationId));
         Row one = cassandraService.execute(select).one();
         return one == null ? null : pattern.keySet().stream().collect(toMap(key -> key, key -> one.get(key, String.class)));
