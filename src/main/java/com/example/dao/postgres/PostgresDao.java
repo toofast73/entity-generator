@@ -1,5 +1,6 @@
 package com.example.dao.postgres;
 
+import org.postgresql.util.PGobject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -30,6 +31,8 @@ public class PostgresDao {
     private static final String SELECT_KEY_VALUE_IDS = "SELECT main_id FROM key_val_child group by 1 having count(main_id) = ?";
 
     private static final String SELECT_CHUNK_IDS = "SELECT main_id FROM chunk_child group by 1 having count(main_id) = ?";
+
+    private static final String INSERT_JSON_RECORD_SQL = "INSERT INTO JSON_TABLE(edit_date, as_name, operation_type, operation_id, data_json) VALUES (?, ?, ?, ?, ?)";
 
     private final JdbcTemplate template;
 
@@ -117,5 +120,27 @@ public class PostgresDao {
 
     public List<Long> loadChunkOperationIds(int chunksCount) {
         return template.queryForList(SELECT_CHUNK_IDS, new Object[]{chunksCount}, Long.class);
+    }
+
+    public Long insertJson(String operation_name, String operation_type, Long operationId, String jsonText) {
+        GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+        template.update(con -> {
+                    PreparedStatement ps = con.prepareStatement(INSERT_JSON_RECORD_SQL, new String[]{"id"});
+
+                    ps.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
+                    ps.setString(2, operation_name);
+                    ps.setString(3, operation_type);
+                    ps.setLong(4, operationId);
+
+                    PGobject json = new PGobject();
+                    json.setType("json");
+                    json.setValue(jsonText);
+                    ps.setObject(5, json);
+
+                    return ps;
+                },
+                keyHolder
+        );
+        return keyHolder.getKey().longValue();
     }
 }

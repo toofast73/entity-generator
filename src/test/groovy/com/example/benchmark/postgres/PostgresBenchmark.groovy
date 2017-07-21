@@ -57,6 +57,20 @@ class PostgresBenchmark extends ReadWriteEdit {
     }
 
     @Test
+    void testWriteJson() {
+
+        [20, 100, 500, 10_000].each { fieldsCount ->
+
+            List<String> operations = jsonLoader.load(fieldsCount)
+            executeBenchmarks("Write in chunks, $fieldsCount fields", {
+                operations.collect {
+                    operation -> postgresBenchmarkService.writeJsonb(operation)
+                }
+            } as Callable)
+        }
+    }
+
+    @Test
     void testReadKeyValue() {
         int i = 0
         [20, 100, 500, 10_000].each { fieldsCount ->

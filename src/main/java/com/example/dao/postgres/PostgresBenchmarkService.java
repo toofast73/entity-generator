@@ -67,4 +67,8 @@ public class PostgresBenchmarkService {
     public List<Long> loadChunkOperationIds(int chunksCount) {
         return postgresDao.loadChunkOperationIds(chunksCount);
     }
+
+    public Long writeJsonb(String jsonText) {
+        return postgresDao.insertJson("SomeSystem", "Some operation", getRandomLong(), jsonText);
+    }
 }
