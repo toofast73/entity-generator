@@ -1,4 +1,4 @@
-package com.example.dao.oracle;
+package com.example.dao;
 
 import org.springframework.stereotype.Service;
 

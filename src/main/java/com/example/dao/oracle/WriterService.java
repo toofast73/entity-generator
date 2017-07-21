@@ -1,5 +1,6 @@
 package com.example.dao.oracle;
 
+import com.example.dao.IdGenerator;
 import com.google.common.base.Splitter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

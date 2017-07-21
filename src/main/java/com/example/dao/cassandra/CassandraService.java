@@ -24,7 +24,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static com.datastax.driver.core.schemabuilder.SchemaBuilder.udtLiteral;
-import static com.sun.org.apache.xml.internal.utils.LocaleUtility.EMPTY_STRING;
+import static java.lang.Thread.sleep;
 import static org.springframework.util.Assert.notNull;
 import static org.springframework.util.CollectionUtils.isEmpty;
 import static org.springframework.util.ReflectionUtils.doWithFields;
@@ -34,6 +34,7 @@ public class CassandraService {
 
     // TODO: 14/07/2017
     public static final String ID_NAME = "id";
+    public static final int RETRY_ATTEMPT = 10;
 
     private Session session;
     private Cluster cluster;
@@ -58,7 +59,7 @@ public class CassandraService {
             // TODO: 17/07/2017
         }
         // TODO: 17/07/2017 single time in keyspace
-        if (isEmpty(types) && session != null){
+        if (isEmpty(types) && session != null) {
             createType();
         }
     }
@@ -88,13 +89,32 @@ public class CassandraService {
         createTableByTemplate(name, fc);
     }
 
-    public void createTableByTemplate(String name, String id, Map<String, String> map) {
-        map.put(id, EMPTY_STRING);
-        createTableByTemplate(name, map);
-    }
-
+    /**
+     * write_request_timeout_in_ms: 2000
+     */
     public ResultSet execute(Statement stmt) {
-        return getSession().execute(stmt);
+        Exception exception;
+        int attempt = RETRY_ATTEMPT;
+        do {
+            try {
+                return getSession().execute(stmt);
+            } catch (Exception e) {
+            }
+        } while (attempt-- > 0);
+        try {
+            sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        attempt = RETRY_ATTEMPT;
+        do {
+            try {
+                return getSession().execute(stmt);
+            } catch (Exception e) {
+                exception = e;
+            }
+        } while (attempt-- > 0);
+        throw new RuntimeException(exception);
     }
 
     public void dropTable(String name) {
@@ -103,6 +123,8 @@ public class CassandraService {
 
     private void createTableByTemplate(String name, FieldCollector fc) {
         Create createStmt = SchemaBuilder.createTable(name);
+        createStmt.addPartitionKey(ID_NAME, DataType.text());
+
         Consumer<? super Map.Entry<String, Class>> addColumn = entry -> createColumn(entry, createStmt);
 
         fc.getFields().entrySet().forEach(addColumn);
@@ -112,6 +134,7 @@ public class CassandraService {
     public void createTableOfMap(String name) {
         Create createStmt = SchemaBuilder.createTable(name);
         createStmt.addPartitionKey(ID_NAME, DataType.text());
+
         createStmt.addUDTColumn(name, udtLiteral("map<text,text>"));
         execute(createStmt);
     }

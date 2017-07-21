@@ -25,6 +25,7 @@ class ReadWriteEdit {
         deleteInsertFieldsCount.times {
             def entry = iterator.next()
             keyValueEditInfo.keysToDelete[entry.key] = entry.value
+            entry = iterator.next()
             keyValueEditInfo.keysToInsert[entry.key] = entry.value
         }
 

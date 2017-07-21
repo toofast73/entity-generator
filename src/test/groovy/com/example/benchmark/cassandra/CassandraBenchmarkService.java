@@ -3,17 +3,20 @@ package com.example.benchmark.cassandra;
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
+import com.datastax.driver.core.querybuilder.Update;
 import com.example.benchmark.ReadWriteEdit;
+import com.example.dao.IdGenerator;
 import com.example.dao.cassandra.CassandraDao;
 import com.example.dao.cassandra.CassandraService;
-import com.example.dao.oracle.IdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
+import static com.datastax.driver.core.querybuilder.QueryBuilder.set;
 import static com.example.dao.cassandra.CassandraService.ID_NAME;
+import static com.sun.org.apache.xml.internal.utils.LocaleUtility.EMPTY_STRING;
 import static java.util.stream.Collectors.toMap;
 
 @Service
@@ -27,13 +30,13 @@ public class CassandraBenchmarkService {
     @Autowired
     private IdGenerator idGenerator;
 
-
     public void create() {
         cassandraService.createTableOfMap(BENCHMARK_TABLE);
     }
 
     public void create(Map<String, String> map) {
-        cassandraService.createTableByTemplate(BENCHMARK_TABLE, ID_NAME, map);
+        cassandraService.createTableByTemplate(BENCHMARK_TABLE, map);
+        ;
     }
 
     public long writeMapAsMap(Map<String, String> operationData) {
@@ -71,15 +74,26 @@ public class CassandraBenchmarkService {
 
     //todo extract to CassandraDao
     public Map<String, String> read(String operationId, Map<String, String> pattern) {
-        Select.Where select = QueryBuilder.select().from(BENCHMARK_TABLE).where(eq(ID_NAME, operationId));
-        Row one = cassandraService.execute(select).one();
+        Select.Where where = QueryBuilder.select().from(BENCHMARK_TABLE).where(eq(ID_NAME, operationId));
+        Row one = cassandraService.execute(where).one();
         return one == null ? null : pattern.keySet().stream().collect(toMap(key -> key, key -> one.get(key, String.class)));
     }
 
-    //todo
-    public void editMap(String id, Map<String, String> operation, ReadWriteEdit.KeyValueEditInfo editInfo) {
-        editInfo.keysToDelete.entrySet().forEach(e -> operation.remove(e.getKey()));
-        operation.putAll(editInfo.keysToInsert);
-        operation.putAll(editInfo.keysToUpdate);
+    //todo extract to CassandraDao
+    public void editKeyValue(String id, ReadWriteEdit.KeyValueEditInfo editInfo) {
+        final Assign assign = new Assign();
+
+        Update update = QueryBuilder.update(BENCHMARK_TABLE);
+        editInfo.keysToDelete.forEach((key, value) -> assign.assign = update.with(set(key, EMPTY_STRING)));
+        editInfo.keysToInsert.forEach((key, value) -> assign.assign = update.with(set(key, value)));
+        editInfo.keysToUpdate.forEach((key, value) -> assign.assign = update.with(set(key, value)));
+
+        if (assign.assign == null) return;
+        Update.Where where = assign.assign.where(eq(ID_NAME, id));
+        cassandraService.execute(where);
+    }
+
+    class Assign {
+        Update.Assignments assign;
     }
 }

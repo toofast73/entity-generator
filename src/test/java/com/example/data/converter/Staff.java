@@ -9,7 +9,6 @@ import java.util.UUID;
 
 public class Staff {
 
-    private String id;
     private String name;
     private Integer age;
     private String position;
@@ -17,14 +16,6 @@ public class Staff {
     private Department department;
     private List<String> skills;
     private String[] test = new String[]{"+", "-"};
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -124,7 +115,6 @@ public class Staff {
 
     public static Staff createDummyObject(String id) {
         Staff staff = new Staff();
-        staff.setId(id);
         staff.setDepartment(new Department());
         staff.setName("example");
         staff.setAge(33);

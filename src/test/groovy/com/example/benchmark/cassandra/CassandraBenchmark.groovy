@@ -3,7 +3,7 @@ package com.example.benchmark.cassandra
 import com.example.Start
 import com.example.benchmark.BenchmarkSuite
 import com.example.benchmark.ReadWriteEdit
-import com.example.dao.oracle.IdGenerator
+import com.example.dao.IdGenerator
 import com.example.dao.oracle.ReaderService
 import com.example.dao.oracle.WriterService
 import com.example.data.converter.PojoConverter
@@ -21,9 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner
 import java.util.concurrent.Callable
 
 import static com.example.benchmark.Util.executeBenchmarks
-/**
- *
- */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
 class CassandraBenchmark extends ReadWriteEdit {
@@ -46,6 +44,8 @@ class CassandraBenchmark extends ReadWriteEdit {
 
 
     private static final Random random = new Random()
+    private static final List<Integer> SHORT_THREAD_TEST = [4, 8, 10]
+    public static final List<Integer> ONE_OPTIMAL = [8]
 
     @Test
     void testReadWriteMapEquals() throws Exception {
@@ -59,7 +59,32 @@ class CassandraBenchmark extends ReadWriteEdit {
                 { operationId -> cassandraBenchmarkService.readMap(operationId) }
         )
 
-        cassandraBenchmarkService.drop();
+        cassandraBenchmarkService.drop()
+    }
+
+    @Test
+    void testEdit() throws Exception {
+        converter.cqlMode(true)
+
+        List<Map<String, String>> initialOperationsData = keyValueLoader.load(20)
+
+        def pattern = initialOperationsData.get(0)
+
+        try {
+            cassandraBenchmarkService.create(pattern)
+
+            def nextInt = new Random().nextInt(initialOperationsData.size())
+            def operationData = initialOperationsData.get(nextInt)
+            def id = cassandraBenchmarkService.writeMapAsKeyValue(operationData)
+
+            def editInfo = determineKeysForEdit(operationData, 50)
+            cassandraBenchmarkService.editKeyValue(String.valueOf(id), editInfo)
+
+        } catch (Exception e) {
+            throw new RuntimeException(e)
+        } finally {
+            cassandraBenchmarkService.drop()
+        }
     }
 
     @Test
@@ -74,49 +99,24 @@ class CassandraBenchmark extends ReadWriteEdit {
                 operations.collect {
                     operation -> cassandraBenchmarkService.writeMapAsMap(operation)
                 }
-            } as Callable, [2, 4, 8])
+            } as Callable, SHORT_THREAD_TEST)
 
             long id = generator.counter.get()
             executeBenchmarks("Cassandra read cassandra map, $fieldsCount fields", {
 
                 cassandraBenchmarkService.readMap(String.valueOf(random.nextInt((Integer) id)))
 
-            } as Callable, [2, 4, 8])
+            } as Callable, SHORT_THREAD_TEST)
             cassandraBenchmarkService.drop()
         }
     }
 
     @Test
-    void testWriteReadKeyValue() {
+    void testReadWriteEditKeyValue() {
         converter.cqlMode(true)
 
-        [20, 100, 500, 10_000].each { fieldsCount ->
-            Map<String, String> pattern = keyValueLoader.load(fieldsCount).get(0)
-            cassandraBenchmarkService.create(pattern)
-            List<Map<String, String>> operations = keyValueLoader.load(fieldsCount)
-            executeBenchmarks("Cassandra write map as key-value, $fieldsCount fields", {
-                operations.collect {
-                    operation -> cassandraBenchmarkService.writeMapAsKeyValue(operation)
-                }
-            } as Callable, [2, 4, 8])
-
-            long id = generator.counter.get()
-            executeBenchmarks("Cassandra read cassandra key-value in map, $fieldsCount fields", {
-
-                cassandraBenchmarkService.read(String.valueOf(random.nextInt((Integer) id)), pattern)
-
-            } as Callable, [2, 4, 8])
-
-            cassandraBenchmarkService.drop()
-        }
-    }
-
-    @Test
-    void testKeyValue() {
-        converter.cqlMode(true)
-
-        [5, 10/*, 30, 50, 70, 90*/].each { percentsOfFieldsForEdit ->
-            [20/*, 100, 500, 10_000*/].each { fieldsCount ->
+        [5, 10, 30, 50, 70, 90].each { percentsOfFieldsForEdit ->
+            [20, 100, 500, 10_000].each { fieldsCount ->
 
                 Map<String, String> pattern = keyValueLoader.load(fieldsCount).get(0)
                 cassandraBenchmarkService.create(pattern)
@@ -125,47 +125,41 @@ class CassandraBenchmark extends ReadWriteEdit {
                     operations.collect {
                         operation -> cassandraBenchmarkService.writeMapAsKeyValue(operation)
                     }
-                } as Callable, [2, 4, 8])
+                } as Callable, ONE_OPTIMAL)
 
                 long index = generator.counter.get()
                 executeBenchmarks("Cassandra read cassandra key-value in map, $fieldsCount fields", {
 
                     cassandraBenchmarkService.read(String.valueOf(random.nextInt((Integer) index)), pattern)
 
-                } as Callable, [2, 4, 8])
+                } as Callable, ONE_OPTIMAL)
 
                 BenchmarkSuite.executeBenchmark(prepareReport(),
                         [("Edit $percentsOfFieldsForEdit% fields in KeyValue table, with $fieldsCount fields in doc" as String): {
 
                             String id = String.valueOf(random.nextInt((Integer) index))
                             Map<String, String> operation = cassandraBenchmarkService.read(id, pattern)
-                            def editInfo = determineKeysForEdit(operation, percentsOfFieldsForEdit)
-                            cassandraBenchmarkService.editMap(id, operation, editInfo)
+                            if (operation != null) {
+                                def editInfo = determineKeysForEdit(operation, percentsOfFieldsForEdit)
+                                cassandraBenchmarkService.editKeyValue(id, editInfo)
+                            }
                         } as Callable])
-
 
                 cassandraBenchmarkService.drop()
             }
         }
     }
 
-
-    //todo - тест не работает: не правильно создается таблица под JSON и не маппится наш JSON в нее
+     //todo - тест не работает: не правильно создается таблица под JSON и не маппится наш JSON в нее
     @Ignore
     @Test
     void testWriteJson() {
         converter.cqlMode(true)
-
         [20/*, 100, 500, 10_000*/].each { fieldsCount ->
-
             List<String> operations = jsonLoader.load(fieldsCount)
-
             String jsonPattern = "{\"id\":\"\",\"array\":" + operations.get(0) + "}"
-
             Map<String, String> pattern = converter.convertJsonToKeyValue(jsonPattern)
-
             cassandraBenchmarkService.create(pattern)
-
             executeBenchmarks("Write in key value, $fieldsCount fields", {
                 operations.collect {
                     operation ->

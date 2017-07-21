@@ -6,6 +6,7 @@ import com.example.data.converter.JacksonMarshaller;
 import com.example.data.converter.PojoConverter;
 import com.example.data.converter.Staff;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,7 @@ public class CassandraServiceTest {
         assertNotNull(session);
     }
 
+    @Ignore("TODO")
     @Test
     public void testInsertJsonIntoTable() throws Exception {
         // createTable
