@@ -4,26 +4,32 @@ Tasks: [Edit 5% fields in KeyValue table, with 20 fields in doc], total executio
 Tasks: [Edit 5% fields in KeyValue table, with 100 fields in doc], total executions 5335 for 00:00:30.005, speed: 177 per/sec, 637200 per/h, with 1 thread(s)
 Tasks: [Edit 5% fields in KeyValue table, with 500 fields in doc], total executions 1578 for 00:00:30.011, speed: 52 per/sec, 187200 per/h, with 1 thread(s)
 Tasks: [Edit 5% fields in KeyValue table, with 10000 fields in doc], total executions 98 for 00:00:30.011, speed: 3 per/sec, 10800 per/h, with 1 thread(s)
+
 Tasks: [Edit 10% fields in KeyValue table, with 20 fields in doc], total executions 13043 for 00:00:30.009, speed: 434 per/sec, 1562400 per/h, with 1 thread(s)
 Tasks: [Edit 10% fields in KeyValue table, with 100 fields in doc], total executions 4974 for 00:00:30.011, speed: 165 per/sec, 594000 per/h, with 1 thread(s)
 Tasks: [Edit 10% fields in KeyValue table, with 500 fields in doc], total executions 1587 for 00:00:30.010, speed: 52 per/sec, 187200 per/h, with 1 thread(s)
 Tasks: [Edit 10% fields in KeyValue table, with 10000 fields in doc], total executions 93 for 00:00:30.011, speed: 3 per/sec, 10800 per/h, with 1 thread(s)
+
 Tasks: [Edit 30% fields in KeyValue table, with 20 fields in doc], total executions 9325 for 00:00:30.007, speed: 310 per/sec, 1116000 per/h, with 1 thread(s)
 Tasks: [Edit 30% fields in KeyValue table, with 100 fields in doc], total executions 4911 for 00:00:30.006, speed: 163 per/sec, 586800 per/h, with 1 thread(s)
 Tasks: [Edit 30% fields in KeyValue table, with 500 fields in doc], total executions 1277 for 00:00:30.004, speed: 42 per/sec, 151200 per/h, with 1 thread(s)
 Tasks: [Edit 30% fields in KeyValue table, with 10000 fields in doc], total executions 72 for 00:00:30.014, speed: 2 per/sec, 7200 per/h, with 1 thread(s)
+
 Tasks: [Edit 50% fields in KeyValue table, with 20 fields in doc], total executions 9105 for 00:00:30.011, speed: 303 per/sec, 1090800 per/h, with 1 thread(s)
 Tasks: [Edit 50% fields in KeyValue table, with 100 fields in doc], total executions 4262 for 00:00:30.007, speed: 142 per/sec, 511200 per/h, with 1 thread(s)
 Tasks: [Edit 50% fields in KeyValue table, with 500 fields in doc], total executions 1022 for 00:00:30.003, speed: 34 per/sec, 122400 per/h, with 1 thread(s)
 Tasks: [Edit 50% fields in KeyValue table, with 10000 fields in doc], total executions 63 for 00:00:30.011, speed: 2 per/sec, 7200 per/h, with 1 thread(s)
+
 Tasks: [Edit 70% fields in KeyValue table, with 20 fields in doc], total executions 7920 for 00:00:30.009, speed: 263 per/sec, 946800 per/h, with 1 thread(s)
 Tasks: [Edit 70% fields in KeyValue table, with 100 fields in doc], total executions 3668 for 00:00:30.011, speed: 122 per/sec, 439200 per/h, with 1 thread(s)
 Tasks: [Edit 70% fields in KeyValue table, with 500 fields in doc], total executions 1006 for 00:00:30.008, speed: 33 per/sec, 118800 per/h, with 1 thread(s)
 Tasks: [Edit 70% fields in KeyValue table, with 10000 fields in doc], total executions 58 for 00:00:30.011, speed: 1 per/sec, 3600 per/h, with 1 thread(s)
+
 Tasks: [Edit 90% fields in KeyValue table, with 20 fields in doc], total executions 7909 for 00:00:30.011, speed: 263 per/sec, 946800 per/h, with 1 thread(s)
 Tasks: [Edit 90% fields in KeyValue table, with 100 fields in doc], total executions 3568 for 00:00:30.011, speed: 118 per/sec, 424800 per/h, with 1 thread(s)
 Tasks: [Edit 90% fields in KeyValue table, with 500 fields in doc], total executions 915 for 00:00:30.007, speed: 30 per/sec, 108000 per/h, with 1 thread(s)
 Tasks: [Edit 90% fields in KeyValue table, with 10000 fields in doc], total executions 53 for 00:00:30.012, speed: 1 per/sec, 3600 per/h, with 1 thread(s)
+
 
 Tasks: [Edit in Chunk table, with 20 fields in doc], total executions 14848 for 00:00:30.009, speed: 494 per/sec, 1778400 per/h, with 1 thread(s)
 Tasks: [Edit in Chunk table, with 100 fields in doc], total executions 13768 for 00:00:30.006, speed: 458 per/sec, 1648800 per/h, with 1 thread(s)

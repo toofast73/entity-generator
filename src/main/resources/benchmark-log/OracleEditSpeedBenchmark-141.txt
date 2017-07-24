@@ -1,165 +1,43 @@
-Testing started at 14:39 ...
-14:39:56: Executing external tasks ':cleanTest :test --tests com.example.benchmark.oracle.EditSpeedBenchmark'...
-:cleanTest
-Note: Some input files use unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-:compileJava
-:compileGroovy UP-TO-DATE
-:processResources UP-TO-DATE
-:classes
-:compileTestJava
-/Users/home/Projects/entity-generator/src/test/groovy/com/example/benchmark/cassandra/CassandraBenchmarkService.java:19: warning: LocaleUtility is internal proprietary API and may be removed in a future release
-import static com.sun.org.apache.xml.internal.utils.LocaleUtility.EMPTY_STRING;
-                                                   ^
-1 warning
-:compileTestGroovy
-:processTestResources NO-SOURCE
-:testClasses
-:test
-14:40:01.808 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.example.benchmark.oracle.EditSpeedBenchmark]
-14:40:01.809 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-14:40:01.809 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-14:40:01.809 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.example.benchmark.oracle.EditSpeedBenchmark] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-14:40:01.810 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.benchmark.oracle.EditSpeedBenchmark], using SpringBootContextLoader
-14:40:01.810 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.benchmark.oracle.EditSpeedBenchmark]: class path resource [com/example/benchmark/oracle/EditSpeedBenchmark-context.xml] does not exist
-14:40:01.811 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.benchmark.oracle.EditSpeedBenchmark]: class path resource [com/example/benchmark/oracle/EditSpeedBenchmarkContext.groovy] does not exist
-14:40:01.811 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.benchmark.oracle.EditSpeedBenchmark]: no resource found for suffixes {-context.xml, Context.groovy}.
-14:40:01.815 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.example.benchmark.oracle.EditSpeedBenchmark]
-14:40:01.816 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.example.benchmark.oracle.EditSpeedBenchmark]: using defaults.
-14:40:01.818 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-14:40:01.821 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
-14:40:01.822 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4d7d7d6f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3c9b80f2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6eb65fe9, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1b3cda38, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3d8c5a35, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5df0c166, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1659426, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7cf57328, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2377c371, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7857cd88, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@553eb200]
-14:40:01.822 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.example.benchmark.oracle.EditSpeedBenchmark]
-14:40:01.822 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.example.benchmark.oracle.EditSpeedBenchmark]
-14:40:01.824 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.example.benchmark.oracle.EditSpeedBenchmark]
-14:40:01.824 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.example.benchmark.oracle.EditSpeedBenchmark]
-14:40:01.824 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.example.benchmark.oracle.EditSpeedBenchmark]
-14:40:01.824 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.example.benchmark.oracle.EditSpeedBenchmark]
-14:40:01.827 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@791bb7a1 testClass = EditSpeedBenchmark, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@a387932 testClass = EditSpeedBenchmark, locations = '{}', classes = '{class com.example.Start, class com.example.Start}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@56b51a88, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@123f3108, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@3851cda0, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@70694c4f], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
-14:40:01.828 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.example.benchmark.oracle.EditSpeedBenchmark]
-14:40:01.828 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.example.benchmark.oracle.EditSpeedBenchmark]
-14:40:01.986 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@791bb7a1 testClass = EditSpeedBenchmark, testInstance = com.example.benchmark.oracle.EditSpeedBenchmark@5274b09a, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@a387932 testClass = EditSpeedBenchmark, locations = '{}', classes = '{class com.example.Start, class com.example.Start}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@56b51a88, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@123f3108, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@3851cda0, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@70694c4f], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]].
-14:40:02.031 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-14:40:02.031 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-14:40:02.031 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-14:40:02.033 [Test worker] DEBUG org.springframework.core.env.MutablePropertySources - Adding [inline] PropertySource with highest search precedence
-14:40:02.037 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
-14:40:02.037 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [Inlined Test Properties] PropertySource with highest search precedence
 
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::        (v1.5.4.RELEASE)
 
-2017-07-24 14:40:02.224  INFO 2642 --- [    Test worker] c.e.benchmark.oracle.EditSpeedBenchmark  : Starting EditSpeedBenchmark on MacBook-Pro-alex.local with PID 2642 (started by home in /Users/home/Projects/entity-generator)
-2017-07-24 14:40:02.225  INFO 2642 --- [    Test worker] c.e.benchmark.oracle.EditSpeedBenchmark  : No active profile set, falling back to default profiles: default
-2017-07-24 14:40:02.249  INFO 2642 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@762acee6: startup date [Mon Jul 24 14:40:02 MSK 2017]; root of context hierarchy
-2017-07-24 14:40:02.815  INFO 2642 --- [    Test worker] c.d.driver.core.GuavaCompatibility       : Detected Guava >= 19 in the classpath, using modern compatibility layer
-2017-07-24 14:40:02.949  INFO 2642 --- [    Test worker] com.datastax.driver.core.ClockFactory    : Using native clock to generate timestamps.
-2017-07-24 14:40:03.026  INFO 2642 --- [    Test worker] com.datastax.driver.core.NettyUtil       : Did not find Netty's native epoll transport in the classpath, defaulting to NIO.
-2017-07-24 14:40:03.487  INFO 2642 --- [    Test worker] com.datastax.driver.core.ClockFactory    : Using native clock to generate timestamps.
-2017-07-24 14:40:03.572  INFO 2642 --- [    Test worker] c.e.benchmark.oracle.EditSpeedBenchmark  : Started EditSpeedBenchmark in 1.532 seconds (JVM running for 2.463)
-2017-07-24 14:40:04.771  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:40:04.773  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:40:34.786  INFO 2642 --- [pool-3-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 20 fields in doc], total executions 11872 for 00:00:30.009, speed: 395 per/sec, 1422000 per/h, with 1 thread(s)
-2017-07-24 14:40:37.245  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:40:37.245  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:41:07.250  INFO 2642 --- [pool-5-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 100 fields in doc], total executions 5111 for 00:00:30.005, speed: 170 per/sec, 612000 per/h, with 1 thread(s)
-2017-07-24 14:41:10.753  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:41:10.753  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:41:40.759  INFO 2642 --- [pool-7-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 500 fields in doc], total executions 1818 for 00:00:30.006, speed: 60 per/sec, 216000 per/h, with 1 thread(s)
-2017-07-24 14:41:43.293  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:41:43.293  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:42:13.300  INFO 2642 --- [pool-9-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 10000 fields in doc], total executions 101 for 00:00:30.007, speed: 3 per/sec, 10800 per/h, with 1 thread(s)
-2017-07-24 14:42:13.304  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:42:13.304  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:42:43.310  INFO 2642 --- [ool-11-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 20 fields in doc], total executions 13010 for 00:00:30.006, speed: 433 per/sec, 1558800 per/h, with 1 thread(s)
-2017-07-24 14:42:43.446  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:42:43.446  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:43:13.451  INFO 2642 --- [ool-13-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 100 fields in doc], total executions 5128 for 00:00:30.005, speed: 170 per/sec, 612000 per/h, with 1 thread(s)
-2017-07-24 14:43:13.791  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:43:13.791  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:43:43.794  INFO 2642 --- [ool-15-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 500 fields in doc], total executions 1476 for 00:00:30.003, speed: 49 per/sec, 176400 per/h, with 1 thread(s)
-2017-07-24 14:43:44.254  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:43:44.255  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:44:14.262  INFO 2642 --- [ool-17-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 10000 fields in doc], total executions 97 for 00:00:30.008, speed: 3 per/sec, 10800 per/h, with 1 thread(s)
-2017-07-24 14:44:14.266  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:44:14.266  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:44:44.272  INFO 2642 --- [ool-19-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 20 fields in doc], total executions 9392 for 00:00:30.006, speed: 313 per/sec, 1126800 per/h, with 1 thread(s)
-2017-07-24 14:44:44.408  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:44:44.409  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:45:14.412  INFO 2642 --- [ool-21-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 100 fields in doc], total executions 5095 for 00:00:30.004, speed: 169 per/sec, 608400 per/h, with 1 thread(s)
-2017-07-24 14:45:14.747  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:45:14.747  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:45:44.751  INFO 2642 --- [ool-23-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 500 fields in doc], total executions 1258 for 00:00:30.004, speed: 41 per/sec, 147600 per/h, with 1 thread(s)
-2017-07-24 14:45:45.174  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:45:45.175  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:46:15.187  INFO 2642 --- [ool-25-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 10000 fields in doc], total executions 83 for 00:00:30.012, speed: 2 per/sec, 7200 per/h, with 1 thread(s)
-2017-07-24 14:46:15.190  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:46:15.191  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:46:45.198  INFO 2642 --- [ool-27-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 20 fields in doc], total executions 8830 for 00:00:30.008, speed: 294 per/sec, 1058400 per/h, with 1 thread(s)
-2017-07-24 14:46:45.329  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:46:45.329  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:47:15.336  INFO 2642 --- [ool-29-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 100 fields in doc], total executions 4463 for 00:00:30.007, speed: 148 per/sec, 532800 per/h, with 1 thread(s)
-2017-07-24 14:47:15.658  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:47:15.659  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:47:45.680  INFO 2642 --- [ool-31-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 500 fields in doc], total executions 1128 for 00:00:30.022, speed: 37 per/sec, 133200 per/h, with 1 thread(s)
-2017-07-24 14:47:46.109  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:47:46.109  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:48:16.130  INFO 2642 --- [ool-33-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 10000 fields in doc], total executions 66 for 00:00:30.021, speed: 2 per/sec, 7200 per/h, with 1 thread(s)
-2017-07-24 14:48:16.133  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:48:16.134  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:48:46.144  INFO 2642 --- [ool-35-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 20 fields in doc], total executions 8930 for 00:00:30.011, speed: 297 per/sec, 1069200 per/h, with 1 thread(s)
-2017-07-24 14:48:46.278  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:48:46.279  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:49:16.286  INFO 2642 --- [ool-37-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 100 fields in doc], total executions 4008 for 00:00:30.007, speed: 133 per/sec, 478800 per/h, with 1 thread(s)
-2017-07-24 14:49:16.633  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:49:16.634  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:49:46.643  INFO 2642 --- [ool-39-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 500 fields in doc], total executions 984 for 00:00:30.010, speed: 32 per/sec, 115200 per/h, with 1 thread(s)
-2017-07-24 14:49:47.074  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:49:47.075  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:50:17.084  INFO 2642 --- [ool-41-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 10000 fields in doc], total executions 58 for 00:00:30.010, speed: 1 per/sec, 3600 per/h, with 1 thread(s)
-2017-07-24 14:50:17.088  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:50:17.088  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:50:47.098  INFO 2642 --- [ool-43-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 20 fields in doc], total executions 8667 for 00:00:30.010, speed: 288 per/sec, 1036800 per/h, with 1 thread(s)
-2017-07-24 14:50:47.230  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:50:47.230  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 14:51:17.238  INFO 2642 --- [ool-45-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 100 fields in doc], total executions 3589 for 00:00:30.008, speed: 119 per/sec, 428400 per/h, with 1 thread(s)
-2017-07-24 14:51:17.568  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 14:51:17.569  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 15:17:36.941  INFO 2642 --- [ool-47-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 500 fields in doc], total executions 196 for 00:00:30.019, speed: 6 per/sec, 21600 per/h, with 1 thread(s)
-2017-07-24 15:17:37.624  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 15:17:37.624  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 15:18:07.630  INFO 2642 --- [ool-49-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 10000 fields in doc], total executions 51 for 00:00:30.006, speed: 1 per/sec, 3600 per/h, with 1 thread(s)
-2017-07-24 15:18:08.201  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit in Chunk table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 15:18:08.201  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 15:18:38.207  INFO 2642 --- [ool-51-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit in Chunk table, with 20 fields in doc], total executions 16342 for 00:00:30.006, speed: 544 per/sec, 1958400 per/h, with 1 thread(s)
-2017-07-24 15:18:38.389  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit in Chunk table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 15:18:38.389  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 15:19:08.395  INFO 2642 --- [ool-53-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit in Chunk table, with 100 fields in doc], total executions 15128 for 00:00:30.006, speed: 504 per/sec, 1814400 per/h, with 1 thread(s)
-2017-07-24 15:19:08.821  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit in Chunk table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 15:19:08.821  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 15:19:38.828  INFO 2642 --- [ool-55-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit in Chunk table, with 500 fields in doc], total executions 9231 for 00:00:30.007, speed: 307 per/sec, 1105200 per/h, with 1 thread(s)
-2017-07-24 15:19:39.734  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit in Chunk table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 15:19:39.734  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 15:20:09.739  INFO 2642 --- [ool-57-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit in Chunk table, with 10000 fields in doc], total executions 1113 for 00:00:30.005, speed: 37 per/sec, 133200 per/h, with 1 thread(s)
-2017-07-24 15:20:09.792  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit all fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 15:20:09.792  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 15:20:39.797  INFO 2642 --- [ool-59-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit all fields in KeyValue table, with 20 fields in doc], total executions 11479 for 00:00:30.005, speed: 382 per/sec, 1375200 per/h, with 1 thread(s)
-2017-07-24 15:20:40.024  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit all fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 15:20:40.025  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 15:21:10.033  INFO 2642 --- [ool-61-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit all fields in KeyValue table, with 100 fields in doc], total executions 4354 for 00:00:30.009, speed: 145 per/sec, 522000 per/h, with 1 thread(s)
-2017-07-24 15:21:10.618  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit all fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 15:21:10.618  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 15:21:40.626  INFO 2642 --- [ool-63-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit all fields in KeyValue table, with 500 fields in doc], total executions 1075 for 00:00:30.009, speed: 35 per/sec, 126000 per/h, with 1 thread(s)
-2017-07-24 15:21:43.757  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit all fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
-2017-07-24 15:21:43.757  INFO 2642 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
-2017-07-24 15:22:13.767  INFO 2642 --- [ool-65-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit all fields in KeyValue table, with 10000 fields in doc], total executions 63 for 00:00:30.010, speed: 2 per/sec, 7200 per/h, with 1 thread(s)
-2017-07-24 15:22:13.856  INFO 2642 --- [       Thread-5] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@762acee6: startup date [Mon Jul 24 14:40:02 MSK 2017]; root of context hierarchy
-:buildDashboard UP-TO-DATE
-BUILD SUCCESSFUL
-Total time: 16 mins 27.876 secs
-15:22:14: External tasks execution finished ':cleanTest :test --tests com.example.benchmark.oracle.EditSpeedBenchmark'.
+Tasks: [Edit 5% fields in KeyValue table, with 20 fields in doc], total executions 11872 for 00:00:30.009, speed:   395 per/sec, 1422000 per/h, with 1 thread(s)
+Tasks: [Edit 5% fields in KeyValue table, with 100 fields in doc], total executions 5111 for 00:00:30.005, speed:   170 per/sec, 612000 per/h, with 1 thread(s)
+Tasks: [Edit 5% fields in KeyValue table, with 500 fields in doc], total executions 1818 for 00:00:30.006, speed:   60 per/sec, 216000 per/h, with 1 thread(s)
+Tasks: [Edit 5% fields in KeyValue table, with 10000 fields in doc], total executions 101 for 00:00:30.007, speed:  3 per/sec, 10800 per/h, with 1 thread(s)
+
+Tasks: [Edit 10% fields in KeyValue table, with 20 fields in doc], total executions 13010 for 00:00:30.006, speed:  433 per/sec, 1558800 per/h, with 1 thread(s)
+Tasks: [Edit 10% fields in KeyValue table, with 100 fields in doc], total executions 5128 for 00:00:30.005, speed:  170 per/sec, 612000 per/h, with 1 thread(s)
+Tasks: [Edit 10% fields in KeyValue table, with 500 fields in doc], total executions 1476 for 00:00:30.003, speed:  49 per/sec, 176400 per/h, with 1 thread(s)
+Tasks: [Edit 10% fields in KeyValue table, with 10000 fields in doc], total executions 97 for 00:00:30.008, speed:  3 per/sec, 10800 per/h, with 1 thread(s)
+
+Tasks: [Edit 30% fields in KeyValue table, with 20 fields in doc], total executions 9392 for 00:00:30.006, speed:   313 per/sec, 1126800 per/h, with 1 thread(s)
+Tasks: [Edit 30% fields in KeyValue table, with 100 fields in doc], total executions 5095 for 00:00:30.004, speed:  169 per/sec, 608400 per/h, with 1 thread(s)
+Tasks: [Edit 30% fields in KeyValue table, with 500 fields in doc], total executions 1258 for 00:00:30.004, speed:  41 per/sec, 147600 per/h, with 1 thread(s)
+Tasks: [Edit 30% fields in KeyValue table, with 10000 fields in doc], total executions 83 for 00:00:30.012, speed:  2 per/sec, 7200 per/h, with 1 thread(s)
+
+Tasks: [Edit 50% fields in KeyValue table, with 20 fields in doc], total executions 8830 for 00:00:30.008, speed:   294 per/sec, 1058400 per/h, with 1 thread(s)
+Tasks: [Edit 50% fields in KeyValue table, with 100 fields in doc], total executions 4463 for 00:00:30.007, speed:  148 per/sec, 532800 per/h, with 1 thread(s)
+Tasks: [Edit 50% fields in KeyValue table, with 500 fields in doc], total executions 1128 for 00:00:30.022, speed:  37 per/sec, 133200 per/h, with 1 thread(s)
+Tasks: [Edit 50% fields in KeyValue table, with 10000 fields in doc], total executions 66 for 00:00:30.021, speed:  2 per/sec, 7200 per/h, with 1 thread(s)
+
+Tasks: [Edit 70% fields in KeyValue table, with 20 fields in doc], total executions 8930 for 00:00:30.011, speed:   297 per/sec, 1069200 per/h, with 1 thread(s)
+Tasks: [Edit 70% fields in KeyValue table, with 100 fields in doc], total executions 4008 for 00:00:30.007, speed:  133 per/sec, 478800 per/h, with 1 thread(s)
+Tasks: [Edit 70% fields in KeyValue table, with 500 fields in doc], total executions 984 for 00:00:30.010, speed:   32 per/sec, 115200 per/h, with 1 thread(s)
+Tasks: [Edit 70% fields in KeyValue table, with 10000 fields in doc], total executions 58 for 00:00:30.010, speed:  1 per/sec, 3600 per/h, with 1 thread(s)
+
+Tasks: [Edit 90% fields in KeyValue table, with 20 fields in doc], total executions 8667 for 00:00:30.010, speed:   288 per/sec, 1036800 per/h, with 1 thread(s)
+Tasks: [Edit 90% fields in KeyValue table, with 100 fields in doc], total executions 3589 for 00:00:30.008, speed:  119 per/sec, 428400 per/h, with 1 thread(s)
+Tasks: [Edit 90% fields in KeyValue table, with 500 fields in doc], total executions 196 for 00:00:30.019, speed:   6 per/sec, 21600 per/h, with 1 thread(s)
+Tasks: [Edit 90% fields in KeyValue table, with 10000 fields in doc], total executions 51 for 00:00:30.006, speed:  1 per/sec, 3600 per/h, with 1 thread(s)
+
+Tasks: [Edit all fields in KeyValue table, with 20 fields in doc], total executions 11479 for 00:00:30.005, speed:  382 per/sec, 1375200 per/h, with 1 thread(s)
+Tasks: [Edit all fields in KeyValue table, with 100 fields in doc], total executions 4354 for 00:00:30.009, speed:  145 per/sec, 522000 per/h, with 1 thread(s)
+Tasks: [Edit all fields in KeyValue table, with 500 fields in doc], total executions 1075 for 00:00:30.009, speed:  35 per/sec, 126000 per/h, with 1 thread(s)
+Tasks: [Edit all fields in KeyValue table, with 10000 fields in doc], total executions 63 for 00:00:30.010, speed:  2 per/sec, 7200 per/h, with 1 thread(s)
+
+
+Tasks: [Edit in Chunk table, with 20 fields in doc], total executions 16342 for 00:00:30.006, speed:    544 per/sec, 1958400 per/h, with 1 thread(s)
+Tasks: [Edit in Chunk table, with 100 fields in doc], total executions 15128 for 00:00:30.006, speed:   504 per/sec, 1814400 per/h, with 1 thread(s)
+Tasks: [Edit in Chunk table, with 500 fields in doc], total executions 9231 for 00:00:30.007, speed:    307 per/sec, 1105200 per/h, with 1 thread(s)
+Tasks: [Edit in Chunk table, with 10000 fields in doc], total executions 1113 for 00:00:30.005, speed:  37 per/sec, 133200 per/h, with 1 thread(s)
+
