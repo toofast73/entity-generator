@@ -1,7 +1,8 @@
-package com.example.dao.oracle;
+package com.example.benchmark;
 
 import com.example.Start;
-import com.example.benchmark.ReadWriteEdit;
+import com.example.dao.oracle.ReaderService;
+import com.example.dao.oracle.WriterService;
 import com.example.data.filereader.JsonLoader;
 import com.example.data.filereader.KeyValueLoader;
 import org.junit.Test;
