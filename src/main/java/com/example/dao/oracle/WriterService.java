@@ -55,7 +55,7 @@ public class WriterService {
     }
 
     public void editKeyValueOperation(long id, Map<String, String> keyValue) {
-        keyValueDao.deleteChildren(id, keyValue);
+        keyValueDao.deleteChildren(id);
         keyValueDao.insertChildren(id, keyValue);
     }
 

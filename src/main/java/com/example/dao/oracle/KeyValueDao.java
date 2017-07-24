@@ -43,6 +43,9 @@ class KeyValueDao {
     private static final String SQL_DELETE_CHILD_KEY =
             "DELETE KEY_VAL_CHILD WHERE MAIN_ID = ? AND KEY = ?";
 
+    private static final String SQL_DELETE_ALL_CHILDREN =
+            "DELETE KEY_VAL_CHILD WHERE MAIN_ID = ?";
+
     private final JdbcTemplate jt;
 
     @Autowired
@@ -89,6 +92,10 @@ class KeyValueDao {
                         )
                         .collect(Collectors.toList()),
                 new int[]{Types.NUMERIC, Types.VARCHAR});
+    }
+
+    void deleteChildren(long recordId) {
+        jt.update(SQL_DELETE_ALL_CHILDREN, recordId);
     }
 
     void updateChildren(long recordId, Map<String, String> keyValues) {
