@@ -15,9 +15,9 @@ class ReadWriteEdit {
     }
 
     protected KeyValueEditInfo determineKeysForEdit(Map<String, String> operation, int percentsOfFieldsForEdit) {
-        def editFieldsCount = operation.size() / 100 * percentsOfFieldsForEdit
-        def deleteInsertFieldsCount = editFieldsCount / 3
-        def updateFieldsCount = editFieldsCount - deleteInsertFieldsCount
+        int editFieldsCount = operation.size() / 100 * percentsOfFieldsForEdit
+        int deleteInsertFieldsCount = editFieldsCount / 3
+        int updateFieldsCount = editFieldsCount - deleteInsertFieldsCount
 
         def keyValueEditInfo = new KeyValueEditInfo()
         def iterator = operation.entrySet().iterator()
@@ -25,9 +25,8 @@ class ReadWriteEdit {
         deleteInsertFieldsCount.times {
             def entry = iterator.next()
             keyValueEditInfo.keysToDelete[entry.key] = entry.value
-            entry = iterator.next()
-            keyValueEditInfo.keysToInsert[entry.key] = entry.value
         }
+        keyValueEditInfo.keysToInsert = keyValueEditInfo.keysToDelete
 
         updateFieldsCount.times {
             def entry = iterator.next()
@@ -52,7 +51,7 @@ class ReadWriteEdit {
         List<T> dbOperationsData = ids
                 .stream()
                 .map(readOperation)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList())
 
         Assert.assertEquals(initialOperationsData, dbOperationsData);
     }
