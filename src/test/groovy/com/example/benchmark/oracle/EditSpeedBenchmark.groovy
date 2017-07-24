@@ -2,7 +2,8 @@ package com.example.benchmark.oracle
 
 import com.example.Start
 import com.example.benchmark.BenchmarkSuite
-import com.example.benchmark.ReadWriteEdit
+
+import com.example.benchmark.Util
 import com.example.dao.oracle.ReaderService
 import com.example.dao.oracle.WriterService
 import groovy.transform.CompileStatic
@@ -23,7 +24,7 @@ import java.util.concurrent.Callable
 @SpringBootTest(classes = Start.class)
 @CompileStatic
 @Slf4j
-class EditSpeedBenchmark extends ReadWriteEdit {
+class EditSpeedBenchmark {
 
     @Autowired
     private ReaderService readerService
@@ -40,12 +41,12 @@ class EditSpeedBenchmark extends ReadWriteEdit {
                 List<Long> ids = readerService.loadKeyValueOperationIds(fieldsCount)
                 Assert.assertFalse("Operations not found in DB", ids.isEmpty())
 
-                BenchmarkSuite.executeBenchmark(prepareReport(),
+                BenchmarkSuite.executeBenchmark(Util.prepareReport(),
                         [("Edit $percentsOfFieldsForEdit% fields in KeyValue table, with $fieldsCount fields in doc" as String): {
 
                             Long id = ids[++i % 10]
                             Map<String, String> operation = readerService.readKeyValueOperation(id)
-                            def editInfo = determineKeysForEdit(operation, percentsOfFieldsForEdit)
+                            def editInfo = Util.determineKeysForEdit(operation, percentsOfFieldsForEdit)
                             writerService.editKeyValueOperation(id, editInfo.keysToDelete, editInfo.keysToInsert, editInfo.keysToUpdate)
 
                         } as Callable])
@@ -67,7 +68,7 @@ class EditSpeedBenchmark extends ReadWriteEdit {
                 [(id as Long): readerService.readKeyValueOperation(id)]
             }
 
-            BenchmarkSuite.executeBenchmark(prepareReport(),
+            BenchmarkSuite.executeBenchmark(Util.prepareReport(),
                     [("Edit all fields in KeyValue table, with $fieldsCount fields in doc" as String): {
 
                         long id = ids[++i % 10]
@@ -81,7 +82,7 @@ class EditSpeedBenchmark extends ReadWriteEdit {
     void testChunks_full() {
 
         int i = 0
-        [20: 1, 100: 2, 500: 7, /*10_000: 134*/ 10_000: 137].each { fieldsCount, chunksCount ->
+        [20: 1, 100: 2, 500: 7, 10_000: 134 /*10_000: 137*/].each { fieldsCount, chunksCount ->
 
             List<Long> ids = readerService.loadChunkOperationIds(chunksCount)
             Assert.assertFalse("Operations not found in DB", ids.isEmpty())
@@ -90,7 +91,7 @@ class EditSpeedBenchmark extends ReadWriteEdit {
                 [(id as Long): readerService.readChunkOperation(id)]
             }
 
-            BenchmarkSuite.executeBenchmark(prepareReport(),
+            BenchmarkSuite.executeBenchmark(Util.prepareReport(),
                     [("Edit in Chunk table, with $fieldsCount fields in doc" as String): {
 
                         long id = ids[++i % 10]

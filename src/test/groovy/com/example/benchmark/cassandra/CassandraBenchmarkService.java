@@ -4,7 +4,7 @@ import com.datastax.driver.core.Row;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
 import com.datastax.driver.core.querybuilder.Update;
-import com.example.benchmark.ReadWriteEdit;
+import com.example.benchmark.Util;
 import com.example.dao.IdGenerator;
 import com.example.dao.cassandra.CassandraDao;
 import com.example.dao.cassandra.CassandraService;
@@ -16,12 +16,12 @@ import java.util.Map;
 import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
 import static com.datastax.driver.core.querybuilder.QueryBuilder.set;
 import static com.example.dao.cassandra.CassandraService.ID_NAME;
-import static com.sun.org.apache.xml.internal.utils.LocaleUtility.EMPTY_STRING;
 import static java.util.stream.Collectors.toMap;
 
 @Service
 public class CassandraBenchmarkService {
     private static final String BENCHMARK_TABLE = "benchmark";
+    private static final String EMPTY_STRING = "";
 
     @Autowired
     private CassandraService cassandraService;
@@ -80,7 +80,7 @@ public class CassandraBenchmarkService {
     }
 
     //todo extract to CassandraDao
-    public void editKeyValue(String id, ReadWriteEdit.KeyValueEditInfo editInfo) {
+    public void editKeyValue(String id, Util.KeyValueEditInfo editInfo) {
         final Assign assign = new Assign();
 
         Update update = QueryBuilder.update(BENCHMARK_TABLE);

@@ -20,7 +20,7 @@ import java.util.Map;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
 //@Transactional  // с анннотацией данные в БД откатываются после прогона
-public class ReadWriteTest extends ReadWriteEdit {
+public class ReadWriteTest {
 
     @Autowired
     private WriterService writerService;
@@ -36,7 +36,7 @@ public class ReadWriteTest extends ReadWriteEdit {
 
         List<Map<String, String>> initialOperationsData = keyValueLoader.loadAll();
 
-        testReadWrite(initialOperationsData,
+        Util.testReadWrite(initialOperationsData,
                 operationData -> writerService.createKeyValueOperation(operationData),
                 operationId -> readerService.readKeyValueOperation(operationId)
         );
@@ -47,7 +47,7 @@ public class ReadWriteTest extends ReadWriteEdit {
 
         List<String> initialOperationsData = jsonLoader.loadAll();
 
-        testReadWrite(initialOperationsData,
+        Util.testReadWrite(initialOperationsData,
                 operationData -> writerService.createChunkedOperation(operationData),
                 operationId -> readerService.readChunkOperation(operationId)
         );

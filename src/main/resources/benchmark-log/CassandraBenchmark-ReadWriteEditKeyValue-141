@@ -1,0 +1,360 @@
+Testing started at 17:05 ...
+17:05:26: Executing external tasks ':cleanTest :test --tests "com.example.benchmark.cassandra.CassandraBenchmark.testReadWriteEditKeyValue"'...
+:cleanTest
+:compileJava UP-TO-DATE
+:compileGroovy UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:compileTestJava UP-TO-DATE
+:compileTestGroovy UP-TO-DATE
+:processTestResources NO-SOURCE
+:testClasses UP-TO-DATE
+:test
+17:05:31.320 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.example.benchmark.cassandra.CassandraBenchmark]
+17:05:31.325 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:05:31.330 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:05:31.343 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.example.benchmark.cassandra.CassandraBenchmark] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+17:05:31.351 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.benchmark.cassandra.CassandraBenchmark], using SpringBootContextLoader
+17:05:31.354 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.benchmark.cassandra.CassandraBenchmark]: class path resource [com/example/benchmark/cassandra/CassandraBenchmark-context.xml] does not exist
+17:05:31.355 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.benchmark.cassandra.CassandraBenchmark]: class path resource [com/example/benchmark/cassandra/CassandraBenchmarkContext.groovy] does not exist
+17:05:31.355 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.benchmark.cassandra.CassandraBenchmark]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:05:31.384 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.example.benchmark.cassandra.CassandraBenchmark]
+17:05:31.404 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.example.benchmark.cassandra.CassandraBenchmark]: using defaults.
+17:05:31.408 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:05:31.422 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+17:05:31.422 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@64efed79, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1a18c345, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5a33afc5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@30db11a1, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2b44a6e6, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@779a5a20, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@30109e91, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@582ec72b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@56d3395e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@733d22fe, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@47edce1e]
+17:05:31.431 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.example.benchmark.cassandra.CassandraBenchmark]
+17:05:31.432 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.example.benchmark.cassandra.CassandraBenchmark]
+17:05:31.436 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.example.benchmark.cassandra.CassandraBenchmark]
+17:05:31.436 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.example.benchmark.cassandra.CassandraBenchmark]
+17:05:31.437 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.example.benchmark.cassandra.CassandraBenchmark]
+17:05:31.437 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.example.benchmark.cassandra.CassandraBenchmark]
+17:05:31.440 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@334c77f1 testClass = CassandraBenchmark, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@39177dc testClass = CassandraBenchmark, locations = '{}', classes = '{class com.example.Start, class com.example.Start}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@56dbfc6b, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1b8ebeb6, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@56c4a2c0, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7cc6adf5], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+17:05:31.441 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.example.benchmark.cassandra.CassandraBenchmark]
+17:05:31.441 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.example.benchmark.cassandra.CassandraBenchmark]
+17:05:31.650 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@334c77f1 testClass = CassandraBenchmark, testInstance = com.example.benchmark.cassandra.CassandraBenchmark@2f33c303, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@39177dc testClass = CassandraBenchmark, locations = '{}', classes = '{class com.example.Start, class com.example.Start}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@56dbfc6b, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1b8ebeb6, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@56c4a2c0, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7cc6adf5], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]].
+17:05:31.695 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+17:05:31.695 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+17:05:31.695 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+17:05:31.697 [Test worker] DEBUG org.springframework.core.env.MutablePropertySources - Adding [inline] PropertySource with highest search precedence
+17:05:31.700 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+17:05:31.701 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [Inlined Test Properties] PropertySource with highest search precedence
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.4.RELEASE)
+
+2017-07-24 17:05:31.883  INFO 2857 --- [    Test worker] c.e.b.cassandra.CassandraBenchmark       : Starting CassandraBenchmark on MacBook-Pro-alex.local with PID 2857 (started by home in /Users/home/Projects/entity-generator)
+2017-07-24 17:05:31.884  INFO 2857 --- [    Test worker] c.e.b.cassandra.CassandraBenchmark       : No active profile set, falling back to default profiles: default
+2017-07-24 17:05:31.909  INFO 2857 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2fc093bf: startup date [Mon Jul 24 17:05:31 MSK 2017]; root of context hierarchy
+2017-07-24 17:05:32.539  INFO 2857 --- [    Test worker] c.d.driver.core.GuavaCompatibility       : Detected Guava >= 19 in the classpath, using modern compatibility layer
+2017-07-24 17:05:32.677  INFO 2857 --- [    Test worker] com.datastax.driver.core.ClockFactory    : Using native clock to generate timestamps.
+2017-07-24 17:05:32.760  INFO 2857 --- [    Test worker] com.datastax.driver.core.NettyUtil       : Did not find Netty's native epoll transport in the classpath, defaulting to NIO.
+2017-07-24 17:05:32.989  WARN 2857 --- [    Test worker] com.datastax.driver.core.Cluster         : You listed localhost/0:0:0:0:0:0:0:1:9042 in your contact points, but it wasn't found in the control host's system.peers at startup
+2017-07-24 17:05:33.073  INFO 2857 --- [    Test worker] c.d.d.c.p.DCAwareRoundRobinPolicy        : Using data-center name 'datacenter1' for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)
+2017-07-24 17:05:33.075  INFO 2857 --- [    Test worker] com.datastax.driver.core.Cluster         : New Cassandra host localhost/127.0.0.1:9042 added
+2017-07-24 17:05:33.440  INFO 2857 --- [    Test worker] com.datastax.driver.core.ClockFactory    : Using native clock to generate timestamps.
+2017-07-24 17:05:33.536  INFO 2857 --- [    Test worker] c.e.b.cassandra.CassandraBenchmark       : Started CassandraBenchmark in 1.833 seconds (JVM running for 2.748)
+2017-07-24 17:05:33.899  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:05:33.901  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:06:03.925  INFO 2857 --- [pool-2-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 157977 for 00:00:30.005, speed: 5265 per/sec, 18954000 per/h, with 8 thread(s)
+2017-07-24 17:06:03.933  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:06:03.935  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:06:33.937  INFO 2857 --- [pool-4-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 161365 for 00:00:30.004, speed: 5378 per/sec, 19360800 per/h, with 8 thread(s)
+2017-07-24 17:06:33.941  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:06:33.942  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:07:03.944  INFO 2857 --- [pool-6-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 20 fields in doc], total executions 18398 for 00:00:30.002, speed: 613 per/sec, 2206800 per/h, with 1 thread(s)
+2017-07-24 17:07:05.041  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:07:05.044  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:07:35.048  INFO 2857 --- [pool-8-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 74178 for 00:00:30.007, speed: 2472 per/sec, 8899200 per/h, with 8 thread(s)
+2017-07-24 17:07:35.049  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:07:35.052  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:08:05.054  INFO 2857 --- [ool-10-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 139676 for 00:00:30.005, speed: 4655 per/sec, 16758000 per/h, with 8 thread(s)
+2017-07-24 17:08:05.055  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:08:05.056  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:08:35.060  INFO 2857 --- [ool-12-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 100 fields in doc], total executions 27321 for 00:00:30.005, speed: 910 per/sec, 3276000 per/h, with 1 thread(s)
+2017-07-24 17:08:36.260  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:08:36.263  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:09:06.266  INFO 2857 --- [ool-14-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 22539 for 00:00:30.006, speed: 751 per/sec, 2703600 per/h, with 8 thread(s)
+2017-07-24 17:09:06.266  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:09:06.268  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:09:36.275  INFO 2857 --- [ool-16-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 66065 for 00:00:30.009, speed: 2201 per/sec, 7923600 per/h, with 8 thread(s)
+2017-07-24 17:09:36.276  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:09:36.277  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:10:06.277  INFO 2857 --- [ool-18-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 500 fields in doc], total executions 24253 for 00:00:30.001, speed: 808 per/sec, 2908800 per/h, with 1 thread(s)
+2017-07-24 17:10:08.285  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:10:08.288  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:10:38.307  INFO 2857 --- [ool-20-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 1112 for 00:00:30.022, speed: 37 per/sec, 133200 per/h, with 8 thread(s)
+2017-07-24 17:10:38.308  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:10:38.309  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:11:08.312  INFO 2857 --- [ool-22-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 5768 for 00:00:30.005, speed: 192 per/sec, 691200 per/h, with 8 thread(s)
+2017-07-24 17:11:08.313  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 5% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:11:08.313  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:11:38.330  INFO 2857 --- [ool-24-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 5% fields in KeyValue table, with 10000 fields in doc], total executions 3113 for 00:00:30.017, speed: 103 per/sec, 370800 per/h, with 1 thread(s)
+2017-07-24 17:11:39.939  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:11:39.940  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:12:09.954  INFO 2857 --- [ool-26-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 160931 for 00:00:30.015, speed: 5361 per/sec, 19299600 per/h, with 8 thread(s)
+2017-07-24 17:12:09.955  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:12:09.957  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:12:39.970  INFO 2857 --- [ool-28-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 175257 for 00:00:30.015, speed: 5838 per/sec, 21016800 per/h, with 8 thread(s)
+2017-07-24 17:12:39.971  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:12:39.971  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:13:09.974  INFO 2857 --- [ool-30-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 20 fields in doc], total executions 28266 for 00:00:30.003, speed: 942 per/sec, 3391200 per/h, with 1 thread(s)
+2017-07-24 17:13:11.113  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:13:11.115  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:13:41.122  INFO 2857 --- [ool-32-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 70174 for 00:00:30.009, speed: 2338 per/sec, 8416800 per/h, with 8 thread(s)
+2017-07-24 17:13:41.123  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:13:41.126  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:14:11.127  INFO 2857 --- [ool-34-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 135208 for 00:00:30.003, speed: 4506 per/sec, 16221600 per/h, with 8 thread(s)
+2017-07-24 17:14:11.128  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:14:11.129  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:14:41.136  INFO 2857 --- [ool-36-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 100 fields in doc], total executions 29715 for 00:00:30.008, speed: 990 per/sec, 3564000 per/h, with 1 thread(s)
+2017-07-24 17:14:42.446  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:14:42.447  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:15:12.464  INFO 2857 --- [ool-38-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 20399 for 00:00:30.018, speed: 679 per/sec, 2444400 per/h, with 8 thread(s)
+2017-07-24 17:15:12.465  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:15:12.467  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:15:42.474  INFO 2857 --- [ool-40-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 70707 for 00:00:30.010, speed: 2356 per/sec, 8481600 per/h, with 8 thread(s)
+2017-07-24 17:15:42.475  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:15:42.476  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:16:12.479  INFO 2857 --- [ool-42-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 500 fields in doc], total executions 24425 for 00:00:30.004, speed: 814 per/sec, 2930400 per/h, with 1 thread(s)
+2017-07-24 17:16:14.106  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:16:14.117  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:16:44.132  INFO 2857 --- [ool-44-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 1078 for 00:00:30.026, speed: 35 per/sec, 126000 per/h, with 8 thread(s)
+2017-07-24 17:16:44.135  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:16:44.137  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:17:14.147  INFO 2857 --- [ool-46-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 5148 for 00:00:30.012, speed: 171 per/sec, 615600 per/h, with 8 thread(s)
+2017-07-24 17:17:14.148  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 10% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:17:14.148  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:17:44.154  INFO 2857 --- [ool-48-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 10% fields in KeyValue table, with 10000 fields in doc], total executions 3199 for 00:00:30.006, speed: 106 per/sec, 381600 per/h, with 1 thread(s)
+2017-07-24 17:17:45.976  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:17:45.977  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:18:15.986  INFO 2857 --- [ool-50-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 150789 for 00:00:30.010, speed: 5024 per/sec, 18086400 per/h, with 8 thread(s)
+2017-07-24 17:18:15.987  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:18:15.989  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:18:45.999  INFO 2857 --- [ool-52-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 178463 for 00:00:30.011, speed: 5946 per/sec, 21405600 per/h, with 8 thread(s)
+2017-07-24 17:18:45.999  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:18:46.000  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:19:16.008  INFO 2857 --- [ool-54-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 20 fields in doc], total executions 30324 for 00:00:30.009, speed: 1010 per/sec, 3636000 per/h, with 1 thread(s)
+2017-07-24 17:19:17.531  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:19:17.532  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:19:47.547  INFO 2857 --- [ool-56-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 68983 for 00:00:30.016, speed: 2298 per/sec, 8272800 per/h, with 8 thread(s)
+2017-07-24 17:19:47.548  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:19:47.550  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:20:17.561  INFO 2857 --- [ool-58-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 136922 for 00:00:30.013, speed: 4562 per/sec, 16423200 per/h, with 8 thread(s)
+2017-07-24 17:20:17.562  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:20:17.562  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:20:47.563  INFO 2857 --- [ool-60-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 100 fields in doc], total executions 30699 for 00:00:30.002, speed: 1023 per/sec, 3682800 per/h, with 1 thread(s)
+2017-07-24 17:20:48.796  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:20:48.798  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:21:18.805  INFO 2857 --- [ool-62-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 19768 for 00:00:30.009, speed: 658 per/sec, 2368800 per/h, with 8 thread(s)
+2017-07-24 17:21:18.806  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:21:18.807  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:21:48.812  INFO 2857 --- [ool-64-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 67979 for 00:00:30.006, speed: 2265 per/sec, 8154000 per/h, with 8 thread(s)
+2017-07-24 17:21:48.812  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:21:48.813  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:22:18.814  INFO 2857 --- [ool-66-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 500 fields in doc], total executions 23913 for 00:00:30.002, speed: 797 per/sec, 2869200 per/h, with 1 thread(s)
+2017-07-24 17:22:20.790  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:22:20.793  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:22:50.806  INFO 2857 --- [ool-68-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 1033 for 00:00:30.015, speed: 34 per/sec, 122400 per/h, with 8 thread(s)
+2017-07-24 17:22:50.807  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:22:50.808  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:23:20.813  INFO 2857 --- [ool-70-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 4630 for 00:00:30.007, speed: 154 per/sec, 554400 per/h, with 8 thread(s)
+2017-07-24 17:23:20.814  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 30% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:23:20.814  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:23:50.822  INFO 2857 --- [ool-72-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 30% fields in KeyValue table, with 10000 fields in doc], total executions 436 for 00:00:30.008, speed: 14 per/sec, 50400 per/h, with 1 thread(s)
+2017-07-24 17:23:52.148  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:23:52.149  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:24:22.153  INFO 2857 --- [ool-74-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 151357 for 00:00:30.005, speed: 5044 per/sec, 18158400 per/h, with 8 thread(s)
+2017-07-24 17:24:22.155  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:24:22.157  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:24:52.168  INFO 2857 --- [ool-76-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 175851 for 00:00:30.014, speed: 5858 per/sec, 21088800 per/h, with 8 thread(s)
+2017-07-24 17:24:52.169  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:24:52.170  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:25:01.020 ERROR 2857 --- [ool-71-thread-1] com.example.benchmark.BenchmarkSuite     : Exception in task
+
+java.lang.RuntimeException: com.datastax.driver.core.exceptions.InvalidQueryException: Undefined column name open280closepointabout
+	at com.example.dao.cassandra.CassandraService.execute(CassandraService.java:117) ~[main/:na]
+	at com.example.benchmark.cassandra.CassandraBenchmarkService.editKeyValue(CassandraBenchmarkService.java:93) ~[test/:na]
+	at com.example.benchmark.cassandra.CassandraBenchmarkService$editKeyValue$9.call(Unknown Source) ~[na:na]
+	at com.example.benchmark.cassandra.CassandraBenchmark$_testReadWriteEditKeyValue_closure4$_closure9$_closure12.doCall(CassandraBenchmark.groovy:145) ~[test/:na]
+	at com.example.benchmark.cassandra.CassandraBenchmark$_testReadWriteEditKeyValue_closure4$_closure9$_closure12.doCall(CassandraBenchmark.groovy) ~[test/:na]
+	at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_141]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_141]
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93) ~[groovy-all-2.4.12.jar:2.4.12]
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325) ~[groovy-all-2.4.12.jar:2.4.12]
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:294) ~[groovy-all-2.4.12.jar:2.4.12]
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1022) ~[groovy-all-2.4.12.jar:2.4.12]
+	at groovy.lang.Closure.call(Closure.java:414) [groovy-all-2.4.12.jar:2.4.12]
+	at groovy.lang.Closure.call(Closure.java:408) [groovy-all-2.4.12.jar:2.4.12]
+	at com.example.benchmark.BenchmarkSuite$_call_closure1.doCall(BenchmarkSuite.groovy:22) ~[main/:na]
+	at com.example.benchmark.BenchmarkSuite$_call_closure1.call(BenchmarkSuite.groovy) ~[main/:na]
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2040) ~[groovy-all-2.4.12.jar:2.4.12]
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2025) ~[groovy-all-2.4.12.jar:2.4.12]
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2066) ~[groovy-all-2.4.12.jar:2.4.12]
+	at com.example.benchmark.BenchmarkSuite.call(BenchmarkSuite.groovy:21) ~[main/:na]
+	at com.example.benchmark.BenchmarkSuite.start(BenchmarkSuite.groovy:29) ~[main/:na]
+	at com.example.benchmark.BenchmarkSuite$_startTasks_closure2$_closure4.doCall(BenchmarkSuite.groovy:54) [main/:na]
+	at com.example.benchmark.BenchmarkSuite$_startTasks_closure2$_closure4.call(BenchmarkSuite.groovy) [main/:na]
+	at groovy.lang.Closure.run(Closure.java:495) [groovy-all-2.4.12.jar:2.4.12]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_141]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_141]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_141]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_141]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_141]
+Caused by: com.datastax.driver.core.exceptions.InvalidQueryException: Undefined column name open280closepointabout
+	at com.datastax.driver.core.exceptions.InvalidQueryException.copy(InvalidQueryException.java:50) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.datastax.driver.core.DriverThrowables.propagateCause(DriverThrowables.java:37) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.datastax.driver.core.DefaultResultSetFuture.getUninterruptibly(DefaultResultSetFuture.java:245) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.datastax.driver.core.AbstractSession.execute(AbstractSession.java:68) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.example.dao.cassandra.CassandraService.execute(CassandraService.java:112) ~[main/:na]
+	... 28 common frames omitted
+Caused by: com.datastax.driver.core.exceptions.InvalidQueryException: Undefined column name open280closepointabout
+	at com.datastax.driver.core.Responses$Error.asException(Responses.java:148) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.datastax.driver.core.DefaultResultSetFuture.onSet(DefaultResultSetFuture.java:179) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.datastax.driver.core.RequestHandler.setFinalResult(RequestHandler.java:186) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.datastax.driver.core.RequestHandler.access$2500(RequestHandler.java:50) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.datastax.driver.core.RequestHandler$SpeculativeExecution.setFinalResult(RequestHandler.java:817) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.datastax.driver.core.RequestHandler$SpeculativeExecution.onSet(RequestHandler.java:651) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.datastax.driver.core.Connection$Dispatcher.channelRead0(Connection.java:1077) ~[cassandra-driver-core-3.3.0.jar:na]
+	at com.datastax.driver.core.Connection$Dispatcher.channelRead0(Connection.java:1000) ~[cassandra-driver-core-3.3.0.jar:na]
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:356) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:342) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:335) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:287) ~[netty-handler-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:356) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:342) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:335) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102) ~[netty-codec-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:356) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:342) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:335) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:312) ~[netty-codec-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:286) ~[netty-codec-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:356) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:342) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:335) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1294) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:356) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:342) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:911) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:645) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:580) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:497) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:459) ~[netty-transport-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131) ~[netty-common-4.0.47.Final.jar:4.0.47.Final]
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138) ~[netty-common-4.0.47.Final.jar:4.0.47.Final]
+	... 1 common frames omitted
+
+2017-07-24 17:25:22.181  INFO 2857 --- [ool-78-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 20 fields in doc], total executions 30991 for 00:00:30.011, speed: 1032 per/sec, 3715200 per/h, with 1 thread(s)
+2017-07-24 17:25:23.542  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:25:23.543  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:25:53.563  INFO 2857 --- [ool-80-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 68440 for 00:00:30.021, speed: 2279 per/sec, 8204400 per/h, with 8 thread(s)
+2017-07-24 17:25:53.564  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:25:53.566  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:26:23.586  INFO 2857 --- [ool-82-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 138799 for 00:00:30.022, speed: 4623 per/sec, 16642800 per/h, with 8 thread(s)
+2017-07-24 17:26:23.586  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:26:23.587  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:26:53.600  INFO 2857 --- [ool-84-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 100 fields in doc], total executions 30945 for 00:00:30.014, speed: 1031 per/sec, 3711600 per/h, with 1 thread(s)
+2017-07-24 17:26:54.697  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:26:54.699  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:27:24.706  INFO 2857 --- [ool-86-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 20091 for 00:00:30.009, speed: 669 per/sec, 2408400 per/h, with 8 thread(s)
+2017-07-24 17:27:24.707  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:27:24.708  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:27:54.712  INFO 2857 --- [ool-88-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 72907 for 00:00:30.005, speed: 2429 per/sec, 8744400 per/h, with 8 thread(s)
+2017-07-24 17:27:54.713  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:27:54.713  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:28:24.726  INFO 2857 --- [ool-90-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 500 fields in doc], total executions 19658 for 00:00:30.013, speed: 654 per/sec, 2354400 per/h, with 1 thread(s)
+2017-07-24 17:28:26.763  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:28:26.770  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:28:56.792  INFO 2857 --- [ool-92-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 1065 for 00:00:30.029, speed: 35 per/sec, 126000 per/h, with 8 thread(s)
+2017-07-24 17:28:56.793  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:28:56.794  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:29:26.795  INFO 2857 --- [ool-94-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 5235 for 00:00:30.002, speed: 174 per/sec, 626400 per/h, with 8 thread(s)
+2017-07-24 17:29:26.796  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 50% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:29:26.796  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:29:56.799  INFO 2857 --- [ool-96-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 50% fields in KeyValue table, with 10000 fields in doc], total executions 3266 for 00:00:30.004, speed: 108 per/sec, 388800 per/h, with 1 thread(s)
+2017-07-24 17:29:58.123  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:29:58.124  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:30:28.138  INFO 2857 --- [ool-98-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 151758 for 00:00:30.015, speed: 5056 per/sec, 18201600 per/h, with 8 thread(s)
+2017-07-24 17:30:28.140  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:30:28.141  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:30:58.143  INFO 2857 --- [ol-100-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 184827 for 00:00:30.003, speed: 6160 per/sec, 22176000 per/h, with 8 thread(s)
+2017-07-24 17:30:58.143  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:30:58.144  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:31:28.152  INFO 2857 --- [ol-102-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 20 fields in doc], total executions 34973 for 00:00:30.008, speed: 1165 per/sec, 4194000 per/h, with 1 thread(s)
+2017-07-24 17:31:29.638  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:31:29.639  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:31:59.650  INFO 2857 --- [ol-104-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 68291 for 00:00:30.013, speed: 2275 per/sec, 8190000 per/h, with 8 thread(s)
+2017-07-24 17:31:59.651  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:31:59.653  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:32:29.668  INFO 2857 --- [ol-106-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 139939 for 00:00:30.017, speed: 4661 per/sec, 16779600 per/h, with 8 thread(s)
+2017-07-24 17:32:29.669  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:32:29.671  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:32:59.671  INFO 2857 --- [ol-108-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 100 fields in doc], total executions 32482 for 00:00:30.001, speed: 1082 per/sec, 3895200 per/h, with 1 thread(s)
+2017-07-24 17:33:00.882  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:33:00.883  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:33:30.896  INFO 2857 --- [ol-110-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 19067 for 00:00:30.014, speed: 635 per/sec, 2286000 per/h, with 8 thread(s)
+2017-07-24 17:33:30.896  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:33:30.897  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:34:00.898  INFO 2857 --- [ol-112-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 69541 for 00:00:30.002, speed: 2317 per/sec, 8341200 per/h, with 8 thread(s)
+2017-07-24 17:34:00.899  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:34:00.899  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:34:30.900  INFO 2857 --- [ol-114-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 500 fields in doc], total executions 19501 for 00:00:30.001, speed: 650 per/sec, 2340000 per/h, with 1 thread(s)
+2017-07-24 17:34:32.416  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:34:32.426  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:35:02.446  INFO 2857 --- [ol-116-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 999 for 00:00:30.030, speed: 33 per/sec, 118800 per/h, with 8 thread(s)
+2017-07-24 17:35:02.447  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:35:02.449  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:35:32.463  INFO 2857 --- [ol-118-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 4346 for 00:00:30.016, speed: 144 per/sec, 518400 per/h, with 8 thread(s)
+2017-07-24 17:35:32.463  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 70% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:35:32.464  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:36:02.477  INFO 2857 --- [ol-120-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 70% fields in KeyValue table, with 10000 fields in doc], total executions 1574 for 00:00:30.014, speed: 52 per/sec, 187200 per/h, with 1 thread(s)
+2017-07-24 17:36:04.329  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:36:04.330  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:36:34.335  INFO 2857 --- [ol-122-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 20 fields], total executions 136181 for 00:00:30.006, speed: 4538 per/sec, 16336800 per/h, with 8 thread(s)
+2017-07-24 17:36:34.336  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 20 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:36:34.337  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:37:05.318  INFO 2857 --- [ol-124-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 20 fields], total executions 146560 for 00:00:30.016, speed: 4882 per/sec, 17575200 per/h, with 8 thread(s)
+2017-07-24 17:37:05.319  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 20 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:37:05.319  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:37:35.327  INFO 2857 --- [ol-126-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 20 fields in doc], total executions 27055 for 00:00:30.008, speed: 901 per/sec, 3243600 per/h, with 1 thread(s)
+2017-07-24 17:37:36.876  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:37:36.877  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:38:06.881  INFO 2857 --- [ol-128-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 100 fields], total executions 55502 for 00:00:30.005, speed: 1849 per/sec, 6656400 per/h, with 8 thread(s)
+2017-07-24 17:38:06.881  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 100 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:38:06.884  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:38:36.899  INFO 2857 --- [ol-130-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 100 fields], total executions 102569 for 00:00:30.018, speed: 3416 per/sec, 12297600 per/h, with 8 thread(s)
+2017-07-24 17:38:36.900  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 100 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:38:36.900  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:39:06.910  INFO 2857 --- [ol-132-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 100 fields in doc], total executions 24458 for 00:00:30.010, speed: 814 per/sec, 2930400 per/h, with 1 thread(s)
+2017-07-24 17:39:08.700  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:39:08.702  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:39:38.716  INFO 2857 --- [ol-134-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 500 fields], total executions 16711 for 00:00:30.016, speed: 556 per/sec, 2001600 per/h, with 8 thread(s)
+2017-07-24 17:39:38.717  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 500 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:39:38.718  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:40:08.730  INFO 2857 --- [ol-136-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 500 fields], total executions 41497 for 00:00:30.014, speed: 1382 per/sec, 4975200 per/h, with 8 thread(s)
+2017-07-24 17:40:08.731  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 500 fields in doc] in 1 thread(s), test duration: 30000ms
+
+2017-07-24 17:40:38.740  INFO 2857 --- [ol-138-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 500 fields in doc], total executions 12873 for 00:00:30.009, speed: 428 per/sec, 1540800 per/h, with 1 thread(s)
+2017-07-24 17:40:40.403  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra write map as key-value, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:40:40.414  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:41:10.433  INFO 2857 --- [ol-140-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra write map as key-value, 10000 fields], total executions 1015 for 00:00:30.030, speed: 33 per/sec, 118800 per/h, with 8 thread(s)
+2017-07-24 17:41:10.434  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Cassandra read cassandra key-value in map, 10000 fields] in 8 thread(s), test duration: 30000ms
+2017-07-24 17:41:10.447  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 8 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:41:40.460  INFO 2857 --- [ol-142-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Cassandra read cassandra key-value in map, 10000 fields], total executions 4733 for 00:00:30.027, speed: 157 per/sec, 565200 per/h, with 8 thread(s)
+2017-07-24 17:41:40.461  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting the tasks: [Edit 90% fields in KeyValue table, with 10000 fields in doc] in 1 thread(s), test duration: 30000ms
+2017-07-24 17:41:40.461  INFO 2857 --- [    Test worker] com.example.benchmark.BenchmarkSuite     : Starting monitoring thread for 1 concurrent thread(s), cheking interval: 10000ms
+2017-07-24 17:42:10.477  INFO 2857 --- [ol-144-thread-1] com.example.benchmark.BenchmarkReport    : Tasks: [Edit 90% fields in KeyValue table, with 10000 fields in doc], total executions 531 for 00:00:30.016, speed: 17 per/sec, 61200 per/h, with 1 thread(s)
+2017-07-24 17:42:11.738  INFO 2857 --- [       Thread-6] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@2fc093bf: startup date [Mon Jul 24 17:05:31 MSK 2017]; root of context hierarchy
+:buildDashboard UP-TO-DATE
+BUILD SUCCESSFUL
+Total time: 36 mins 45.286 secs
+17:42:12: External tasks execution finished ':cleanTest :test --tests "com.example.benchmark.cassandra.CassandraBenchmark.testReadWriteEditKeyValue"'.

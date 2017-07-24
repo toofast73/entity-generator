@@ -2,7 +2,8 @@ package com.example.benchmark.cassandra
 
 import com.example.Start
 import com.example.benchmark.BenchmarkSuite
-import com.example.benchmark.ReadWriteEdit
+
+import com.example.benchmark.Util
 import com.example.dao.IdGenerator
 import com.example.dao.oracle.ReaderService
 import com.example.dao.oracle.WriterService
@@ -24,7 +25,7 @@ import static com.example.benchmark.Util.executeBenchmarks
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Start.class)
-class CassandraBenchmark extends ReadWriteEdit {
+class CassandraBenchmark {
     private static Log log = LogFactory.getLog(CassandraBenchmark.class)
 
     @Autowired
@@ -44,7 +45,7 @@ class CassandraBenchmark extends ReadWriteEdit {
 
 
     private static final Random random = new Random()
-    private static final List<Integer> SHORT_THREAD_TEST = [4, 8, 10]
+    private static final List<Integer> SHORT_THREAD_TEST = [8, 10]
     public static final List<Integer> ONE_OPTIMAL = [8]
 
     @Test
@@ -54,7 +55,7 @@ class CassandraBenchmark extends ReadWriteEdit {
 
         List<Map<String, String>> initialOperationsData = keyValueLoader.loadAll()
 
-        testReadWrite(initialOperationsData,
+        Util.testReadWrite(initialOperationsData,
                 { operationData -> cassandraBenchmarkService.writeMapAsMap(operationData) },
                 { operationId -> cassandraBenchmarkService.readMap(operationId) }
         )
@@ -77,7 +78,7 @@ class CassandraBenchmark extends ReadWriteEdit {
             def operationData = initialOperationsData.get(nextInt)
             def id = cassandraBenchmarkService.writeMapAsKeyValue(operationData)
 
-            def editInfo = determineKeysForEdit(operationData, 50)
+            def editInfo = Util.determineKeysForEditOneUpdate(operationData, 50)
             cassandraBenchmarkService.editKeyValue(String.valueOf(id), editInfo)
 
         } catch (Exception e) {
@@ -134,16 +135,16 @@ class CassandraBenchmark extends ReadWriteEdit {
 
                 } as Callable, ONE_OPTIMAL)
 
-                BenchmarkSuite.executeBenchmark(prepareReport(),
+                BenchmarkSuite.executeBenchmark(Util.prepareReport(),
                         [("Edit $percentsOfFieldsForEdit% fields in KeyValue table, with $fieldsCount fields in doc" as String): {
 
                             String id = String.valueOf(random.nextInt((Integer) index))
                             Map<String, String> operation = cassandraBenchmarkService.read(id, pattern)
                             if (operation != null) {
-                                def editInfo = determineKeysForEdit(operation, percentsOfFieldsForEdit)
+                                def editInfo = Util.determineKeysForEditOneUpdate(operation, percentsOfFieldsForEdit)
                                 cassandraBenchmarkService.editKeyValue(id, editInfo)
                             }
-                        } as Callable])
+                        } as Callable ])
 
                 cassandraBenchmarkService.drop()
             }
