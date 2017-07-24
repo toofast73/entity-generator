@@ -54,6 +54,11 @@ public class WriterService {
         keyValueDao.updateChildren(id, keysToUpdate);
     }
 
+    public void editKeyValueOperation(long id, Map<String, String> keyValue) {
+        keyValueDao.deleteChildren(id, keyValue);
+        keyValueDao.insertChildren(id, keyValue);
+    }
+
     public void editChunkedOperation(long recordId, String json) {
         AtomicInteger index = new AtomicInteger();
 

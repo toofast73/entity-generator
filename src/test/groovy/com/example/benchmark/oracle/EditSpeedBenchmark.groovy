@@ -31,7 +31,7 @@ class EditSpeedBenchmark extends ReadWriteEdit {
     private WriterService writerService
 
     @Test
-    void testKeyValue() {
+    void testKeyValue_percentages() {
 
         int i = 0
         [5, 10, 30, 50, 70, 90].each { percentsOfFieldsForEdit ->
@@ -54,7 +54,31 @@ class EditSpeedBenchmark extends ReadWriteEdit {
     }
 
     @Test
-    void testChunks() {
+    void testKeyValue_full() {
+
+        int i = 0
+
+        [20, 100, 500, 10_000].each { fieldsCount ->
+
+            List<Long> ids = readerService.loadKeyValueOperationIds(fieldsCount)
+            Assert.assertFalse("Operations not found in DB", ids.isEmpty())
+
+            Map<Long, Map<String, String>> operations = ids.collectEntries { id ->
+                [(id as Long): readerService.readKeyValueOperation(id)]
+            }
+
+            BenchmarkSuite.executeBenchmark(prepareReport(),
+                    [("Edit all fields in KeyValue table, with $fieldsCount fields in doc" as String): {
+
+                        long id = ids[++i % 10]
+                        writerService.editKeyValueOperation(id, operations[id])
+
+                    } as Callable])
+        }
+    }
+
+    @Test
+    void testChunks_full() {
 
         int i = 0
         [20: 1, 100: 2, 500: 7, /*10_000: 134*/ 10_000: 137].each { fieldsCount, chunksCount ->
