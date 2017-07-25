@@ -12,18 +12,22 @@ import static org.junit.Assert.assertTrue
  *
  */
 @Slf4j
-class CompressingSplitterTest {
+class CompressingChunkerTest {
 
-    CompressingSplitter splitter = new CompressingSplitter()
+    CompressingChunker splitter = new CompressingChunker()
 
     @Test
     void testCompress() {
 
-        def string = "Привет медвед, трали вали, привет"
-        def encStr = splitter.split(string, 10).collect(Collectors.joining())
-        def decStr = splitter.merge([encStr])
+        Encoder.values().each { Encoder e ->
+            splitter.setEncoder(e.encoder)
 
-        assertEquals(string, decStr)
+            def string = "Привет медвед, трали вали, привет"
+            def encStr = splitter.split(string, 10).collect(Collectors.joining())
+            def decStr = splitter.merge([encStr])
+
+            assertEquals(string, decStr)
+        }
     }
 
     @Test
@@ -35,9 +39,13 @@ class CompressingSplitterTest {
             1в23456789_ 1234567в89_1234в56789_  1234567895в_12345656789_  123564s dg6789_12gh3456789_  1234вghj56789_123gh764567в89_  1234560в789_
         """
 
-        double coeff = splitter.calcCompressionCoefficient(string)
-        log.info "Compression coefficient is $coeff"
+        Encoder.values().each { Encoder e ->
+            splitter.setEncoder(e.encoder)
 
-        assertTrue(coeff > 1)
+            double coeff = splitter.calcCompressionCoefficient(string)
+            log.info "Compression coefficient for $e is $coeff"
+
+            assertTrue(coeff > 1)
+        }
     }
 }

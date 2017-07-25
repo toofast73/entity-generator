@@ -9,7 +9,7 @@ import java.util.stream.StreamSupport;
  *
  */
 //@Service
-class SimpleSplitter implements Chunker {
+class SimpleChunker implements Chunker {
 
     @Override
     public Stream<String> split(String data, int chunkLength) {

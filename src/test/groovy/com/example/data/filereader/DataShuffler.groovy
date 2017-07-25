@@ -37,9 +37,9 @@ class DataShuffler {
 
 
     @Test
-    void shuffle() {
+    void randomize() {
 
-        [10_000].each { fieldsCount ->
+        [20, 100, 500, 10_000].each { fieldsCount ->
             pojoLoader.load(fieldsCount).each { Operation[] pojo ->
 
                 pojo.each { Operation op ->
@@ -50,25 +50,52 @@ class DataShuffler {
                     op.setBalance(RandomStringUtils.randomNumeric(10))
                     op.setPicture("http://placehold.it/" + RandomStringUtils.randomAlphanumeric(20))
                     op.setAge(RandomUtils.nextInt(18, 100))
-                    op.setEyeColor(RandomStringUtils.randomAlphabetic(10))
-                    op.setName(RandomStringUtils.randomAlphabetic(20))
+                    op.setEyeColor(randomWords(10))
+                    op.setName(randomWords(20))
                     op.setGender(RandomStringUtils.randomAlphabetic(1))
-                    op.setCompany(RandomStringUtils.randomAlphabetic(100))
+                    op.setCompany(randomWords(100))
                     op.setEmail(RandomStringUtils.randomAlphanumeric(20) + "@mail.ru")
                     op.setPhone(RandomStringUtils.randomNumeric(10))
-                    op.setAddress(RandomStringUtils.randomAlphabetic(200))
-                    op.setAbout(RandomStringUtils.randomAscii(1000))
-                    op.setRegistered(RandomStringUtils.randomNumeric(20))
+                    op.setAddress(randomWords(200))
+                    op.setAbout(randomWords(1000))
+                    op.setRegistered(randomWords(20))
                     op.setLatitude(RandomUtils.nextDouble(0.0, 360.0))
                     op.setLongitude(RandomUtils.nextDouble(0.0, 360.0))
-                    op.tags[0] = RandomStringUtils.randomAscii(50)
-                    op.tags[1] = RandomStringUtils.randomAlphabetic(25)
+                    op.tags[0] = randomWords(50)
+                    op.tags[1] = randomWords(25)
                 }
                 def json = prettyPrint(converter.convertPojoToJson(pojo))
                 log.info "JSON: $json\n"
 
-                Files.write(Paths.get("tratra"), [json], StandardOpenOption.CREATE)
+                Files.write(Paths.get("01.01.01_${fieldsCount}f.json"), [json], StandardOpenOption.CREATE)
             }
         }
+    }
+
+
+    String randomWords(int textLength) {
+
+        def sb = new StringBuilder()
+        List<String> words = getWords(1000)
+
+        while (sb.length() < textLength) {
+            sb.append(words[RandomUtils.nextInt(0, words.size())]).append(' ')
+        }
+        sb.deleteCharAt(sb.length() - 1).toString()
+    }
+
+    List<String> list
+
+    List<String> getWords(Integer count) {
+        if (list) {
+            return list
+        }
+
+        list = []
+        count.times {
+            def length = RandomUtils.nextInt(3, 10)
+            list << RandomStringUtils.randomAlphabetic(length)
+        }
+        return list
     }
 }

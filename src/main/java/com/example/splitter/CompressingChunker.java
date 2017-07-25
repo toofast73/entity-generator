@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -22,10 +21,12 @@ import java.util.zip.GZIPOutputStream;
  *
  */
 @Service
-class CompressingSplitter implements Chunker {
+public class CompressingChunker implements Chunker {
 
     private static final Charset CHARSET = StandardCharsets.UTF_8;
     private int level = Deflater.DEFAULT_COMPRESSION;
+
+    private ByteArrayEncoder encoder = Encoder.BASE64.getEncoder();
 
     @Override
     public Stream<String> split(String data, int chunkLength) {
@@ -33,21 +34,19 @@ class CompressingSplitter implements Chunker {
         return StreamSupport.stream(
                 Splitter.fixedLength(chunkLength)
                         .split(
-                                Base64.getEncoder()
-                                        .encodeToString(
-                                                compress(data.getBytes(CHARSET), level)
-                                        )
+                                encoder.encode(
+                                        compress(data.getBytes(CHARSET), level)
+                                )
                         ).spliterator(), false);
     }
 
     public String merge(List<String> chunks) {
-        return chunks.stream()
-                .map(chunk -> {
-
-                    byte[] bytes = Base64.getDecoder().decode(chunk);
-                    return new String(decompress(bytes), CHARSET);
-
-                }).collect(Collectors.joining());
+        return new String(
+                decompress(
+                        encoder.decode(
+                                chunks.stream().collect(Collectors.joining())
+                        )
+                ), CHARSET);
     }
 
     public double calcCompressionCoefficient(String text) {
@@ -84,6 +83,14 @@ class CompressingSplitter implements Chunker {
         }
     }
 
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setEncoder(ByteArrayEncoder encoder) {
+        this.encoder = encoder;
+    }
+
     private static class SpecifiedLevelGZIPOutputStream extends GZIPOutputStream {
         private SpecifiedLevelGZIPOutputStream(OutputStream out) throws IOException {
             super(out);
@@ -92,9 +99,5 @@ class CompressingSplitter implements Chunker {
         private void setLevel(int level) {
             def.setLevel(level);
         }
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
     }
 }
