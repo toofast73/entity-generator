@@ -25,7 +25,6 @@ public class CompressingChunker implements Chunker {
 
     private static final Charset CHARSET = StandardCharsets.UTF_8;
     private int level = Deflater.DEFAULT_COMPRESSION;
-
     private ByteArrayEncoder encoder = Encoder.BASE64.getEncoder();
 
     @Override
