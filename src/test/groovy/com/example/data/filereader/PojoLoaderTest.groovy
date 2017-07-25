@@ -62,11 +62,4 @@ class PojoLoaderTest {
             }
         }
     }
-
-    @Test
-    void name() {
-
-        def pojo = pojoLoader.load(20)
-
-    }
 }

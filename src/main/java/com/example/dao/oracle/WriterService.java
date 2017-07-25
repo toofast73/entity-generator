@@ -1,7 +1,7 @@
 package com.example.dao.oracle;
 
 import com.example.dao.IdGenerator;
-import com.google.common.base.Splitter;
+import com.example.splitter.Chunker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 /**
  *
@@ -25,6 +24,8 @@ public class WriterService {
     private ChunkDao chunkDao;
     @Autowired
     private IdGenerator idGenerator;
+    @Autowired
+    private Chunker chunker;
 
     public long createKeyValueOperation(Map<String, String> data) {
 
@@ -75,7 +76,6 @@ public class WriterService {
     }
 
     private Stream<String> asChunkedStream(String data) {
-        return StreamSupport.stream(
-                Splitter.fixedLength(4000).split(data).spliterator(), false);
+        return chunker.split(data, 4000);
     }
 }
