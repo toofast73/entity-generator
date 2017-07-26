@@ -1,0 +1,6 @@
+
+
+Tasks: [Edit in Chunk table, with 20 fields in doc], total executions 49754 for 00:00:30.005,   speed: 1658 per/sec, 5968800 per/h, with 1 thread(s)
+Tasks: [Edit in Chunk table, with 100 fields in doc], total executions 49734 for 00:00:30.003,  speed: 1657 per/sec, 5965200 per/h, with 1 thread(s)
+Tasks: [Edit in Chunk table, with 500 fields in doc], total executions 36225 for 00:00:30.001,  speed: 1207 per/sec, 4345200 per/h, with 1 thread(s)
+Tasks: [Edit in Chunk table, with 10000 fields in doc], total executions 4149 for 00:00:30.001, speed: 138  per/sec, 496800 per/h, with 1 thread(s)
