@@ -25,7 +25,7 @@ public class CompressingChunker implements Chunker {
 
     private static final Charset CHARSET = StandardCharsets.UTF_8;
     private int level = Deflater.DEFAULT_COMPRESSION;
-    private ByteArrayEncoder encoder = Encoder.BASE64.getEncoder();
+    private ByteArrayEncoder encoder = Encoder.BASE64_JAVA_UTIL.getInstance();
 
     @Override
     public Stream<String> split(String data, int chunkLength) {

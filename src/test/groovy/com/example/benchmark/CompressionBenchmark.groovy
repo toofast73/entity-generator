@@ -3,6 +3,7 @@ package com.example.benchmark
 import com.example.Start
 import com.example.data.filereader.JsonLoader
 import com.example.splitter.CompressingChunker
+import com.example.splitter.Encoder
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.junit.Test
@@ -36,20 +37,26 @@ class CompressionBenchmark {
 
             List<String> jsons = jsonLoader.load(fieldsCount)
 
-            ["DEFAULT_COMPRESSION": Deflater.DEFAULT_COMPRESSION,
-             "BEST_SPEED"         : Deflater.BEST_SPEED,
-             "BEST_COMPRESSION"   : Deflater.BEST_COMPRESSION
+            ["DEFAULT_COMPRESSION"   : Deflater.DEFAULT_COMPRESSION,
+             "BEST_SPEED_COMPRESSION": Deflater.BEST_SPEED,
+             "BEST_COMPRESSION"      : Deflater.BEST_COMPRESSION
             ].each { levelName, level ->
 
-                chunker.setLevel(level)
-                def coeff = new BigDecimal(chunker.calcCompressionCoefficient(jsons[0]), new MathContext(2))
+                Encoder.values().each { Encoder e ->
 
-                BenchmarkSuite.executeBenchmark(prepareReport(),
-                        [("Compress JSON, $fieldsCount fields, compression level $levelName, Compression coefficient $coeff" as String): {
-                            jsons.collect {
-                                json -> chunker.split(json, 4000)
-                            }
-                        } as Callable])
+                    chunker.setLevel(level)
+                    chunker.setEncoder(e.instance)
+                    def coeff = new BigDecimal(chunker.calcCompressionCoefficient(jsons[0]), new MathContext(2))
+
+                    BenchmarkSuite.executeBenchmark(prepareReport(),
+                            [("Compress JSON, $fieldsCount fields, $levelName, Codec $e, Compr. coeff: $coeff" as String): {
+
+                                jsons.collect {
+                                    json -> chunker.split(json, 4000)
+                                }
+
+                            } as Callable])
+                }
             }
         }
     }

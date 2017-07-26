@@ -1,18 +1,52 @@
 
+Tasks: [Compress JSON, 20 fields,       DEFAULT_COMPRESSION,        HEX,                Compr. coeff: 0.75], speed: 15898 per/sec
+Tasks: [Compress JSON, 20 fields,       DEFAULT_COMPRESSION,        BASE64_JAVA_UTIL,   Compr. coeff: 1.1],  speed: 16134 per/sec
+Tasks: [Compress JSON, 20 fields,       DEFAULT_COMPRESSION,        BASE64_COMMONS,     Compr. coeff: 1.1],  speed: 14018 per/sec
+Tasks: [Compress JSON, 20 fields,       DEFAULT_COMPRESSION,        BINARY_COMMONS,     Compr. coeff: 0.19], speed: 8464 per/sec
+Tasks: [Compress JSON, 20 fields,       BEST_SPEED_COMPRESSION,     HEX,                Compr. coeff: 0.75], speed: 20329 per/sec
+Tasks: [Compress JSON, 20 fields,       BEST_SPEED_COMPRESSION,     BASE64_JAVA_UTIL,   Compr. coeff: 1.1],  speed: 19941 per/sec
+Tasks: [Compress JSON, 20 fields,       BEST_SPEED_COMPRESSION,     BASE64_COMMONS,     Compr. coeff: 1.1],  speed: 17342 per/sec
+Tasks: [Compress JSON, 20 fields,       BEST_SPEED_COMPRESSION,     BINARY_COMMONS,     Compr. coeff: 0.19], speed: 9255 per/sec
+Tasks: [Compress JSON, 20 fields,       BEST_COMPRESSION,           HEX,                Compr. coeff: 0.75], speed: 15211 per/sec
+Tasks: [Compress JSON, 20 fields,       BEST_COMPRESSION,           BASE64_JAVA_UTIL,   Compr. coeff: 1.1],  speed: 16218 per/sec
+Tasks: [Compress JSON, 20 fields,       BEST_COMPRESSION,           BASE64_COMMONS,     Compr. coeff: 1.1],  speed: 14270 per/sec
+Tasks: [Compress JSON, 20 fields,       BEST_COMPRESSION,           BINARY_COMMONS,     Compr. coeff: 0.19], speed: 8589 per/sec
 
-Tasks: [Compress JSON, 20 fields, compression level BEST_SPEED,             Compression coefficient 1.1], total executions 209304 for 00:00:10.002, speed: 20926 per/sec, 75333600 per/h, with 1 thread(s)
-Tasks: [Compress JSON, 20 fields, compression level DEFAULT_COMPRESSION,    Compression coefficient 1.1], total executions 305976 for 00:00:20.009, speed: 15291 per/sec, 55047600 per/h, with 1 thread(s)
-Tasks: [Compress JSON, 20 fields, compression level BEST_COMPRESSION,       Compression coefficient 1.1], total executions 173685 for 00:00:10.003, speed: 17363 per/sec, 62506800 per/h, with 1 thread(s)
+Tasks: [Compress JSON, 100 fields,      DEFAULT_COMPRESSION,        HEX,                Compr. coeff: 0.98], speed: 3547 per/sec
+Tasks: [Compress JSON, 100 fields,      DEFAULT_COMPRESSION,        BASE64_JAVA_UTIL,   Compr. coeff: 1.5],  speed: 3641 per/sec
+Tasks: [Compress JSON, 100 fields,      DEFAULT_COMPRESSION,        BASE64_COMMONS,     Compr. coeff: 1.5],  speed: 3334 per/sec
+Tasks: [Compress JSON, 100 fields,      DEFAULT_COMPRESSION,        BINARY_COMMONS,     Compr. coeff: 0.25], speed: 2106 per/sec
+Tasks: [Compress JSON, 100 fields,      BEST_SPEED_COMPRESSION,     HEX,                Compr. coeff: 0.94], speed: 4840 per/sec
+Tasks: [Compress JSON, 100 fields,      BEST_SPEED_COMPRESSION,     BASE64_JAVA_UTIL,   Compr. coeff: 1.4],  speed: 5100 per/sec
+Tasks: [Compress JSON, 100 fields,      BEST_SPEED_COMPRESSION,     BASE64_COMMONS,     Compr. coeff: 1.4],  speed: 4216 per/sec
+Tasks: [Compress JSON, 100 fields,      BEST_SPEED_COMPRESSION,     BINARY_COMMONS,     Compr. coeff: 0.24], speed: 2417 per/sec
+Tasks: [Compress JSON, 100 fields,      BEST_COMPRESSION,           HEX,                Compr. coeff: 0.98], speed: 3523 per/sec
+Tasks: [Compress JSON, 100 fields,      BEST_COMPRESSION,           BASE64_JAVA_UTIL,   Compr. coeff: 1.5],  speed: 3148 per/sec
+Tasks: [Compress JSON, 100 fields,      BEST_COMPRESSION,           BASE64_COMMONS,     Compr. coeff: 1.5],  speed: 3205 per/sec
+Tasks: [Compress JSON, 100 fields,      BEST_COMPRESSION,           BINARY_COMMONS,     Compr. coeff: 0.25], speed: 2095 per/sec
 
-Tasks: [Compress JSON, 100 fields, compression level BEST_SPEED,            Compression coefficient 1.4], total executions 52614 for 00:00:10.013,  speed: 5254 per/sec, 18914400 per/h, with 1 thread(s)
-Tasks: [Compress JSON, 100 fields, compression level DEFAULT_COMPRESSION,   Compression coefficient 1.5], total executions 39897 for 00:00:10.004,  speed: 3988 per/sec, 14356800 per/h, with 1 thread(s)
-Tasks: [Compress JSON, 100 fields, compression level BEST_COMPRESSION,      Compression coefficient 1.5], total executions 37635 for 00:00:10.010,  speed: 3759 per/sec, 13532400 per/h, with 1 thread(s)
+Tasks: [Compress JSON, 500 fields,      DEFAULT_COMPRESSION,        HEX,                Compr. coeff: 1.3],  speed: 731 per/sec
+Tasks: [Compress JSON, 500 fields,      DEFAULT_COMPRESSION,        BASE64_JAVA_UTIL,   Compr. coeff: 2.0],  speed: 763 per/sec
+Tasks: [Compress JSON, 500 fields,      DEFAULT_COMPRESSION,        BASE64_COMMONS,     Compr. coeff: 2.0],  speed: 582 per/sec
+Tasks: [Compress JSON, 500 fields,      DEFAULT_COMPRESSION,        BINARY_COMMONS,     Compr. coeff: 0.33], speed: 357 per/sec
+Tasks: [Compress JSON, 500 fields,      BEST_SPEED_COMPRESSION,     HEX,                Compr. coeff: 1.2],  speed: 1280 per/sec
+Tasks: [Compress JSON, 500 fields,      BEST_SPEED_COMPRESSION,     BASE64_JAVA_UTIL,   Compr. coeff: 1.8],  speed: 1310 per/sec
+Tasks: [Compress JSON, 500 fields,      BEST_SPEED_COMPRESSION,     BASE64_COMMONS,     Compr. coeff: 1.8],  speed: 1119 per/sec
+Tasks: [Compress JSON, 500 fields,      BEST_SPEED_COMPRESSION,     BINARY_COMMONS,     Compr. coeff: 0.31], speed: 621 per/sec
+Tasks: [Compress JSON, 500 fields,      BEST_COMPRESSION,           HEX,                Compr. coeff: 1.3],  speed: 549 per/sec
+Tasks: [Compress JSON, 500 fields,      BEST_COMPRESSION,           BASE64_JAVA_UTIL,   Compr. coeff: 2.0],  speed: 550 per/sec
+Tasks: [Compress JSON, 500 fields,      BEST_COMPRESSION,           BASE64_COMMONS,     Compr. coeff: 2.0],  speed: 516 per/sec
+Tasks: [Compress JSON, 500 fields,      BEST_COMPRESSION,           BINARY_COMMONS,     Compr. coeff: 0.33], speed: 388 per/sec
 
-Tasks: [Compress JSON, 500 fields, compression level BEST_SPEED,            Compression coefficient 1.8], total executions 13567 for 00:00:10.002,  speed: 1356 per/sec, 4881600 per/h, with 1 thread(s)
-Tasks: [Compress JSON, 500 fields, compression level DEFAULT_COMPRESSION,   Compression coefficient 2.0], total executions 7937 for 00:00:10.011,   speed: 792 per/sec, 2851200 per/h, with 1 thread(s)
-Tasks: [Compress JSON, 500 fields, compression level BEST_COMPRESSION,      Compression coefficient 2.0], total executions 5733 for 00:00:10.008,   speed: 572 per/sec, 2059200 per/h, with 1 thread(s)
-
-Tasks: [Compress JSON, 10000 fields, compression level BEST_SPEED,          Compression coefficient 2.1], total executions 1292 for 00:00:20.013,   speed: 64 per/sec, 230400 per/h, with 1 thread(s)
-Tasks: [Compress JSON, 10000 fields, compression level DEFAULT_COMPRESSION, Compression coefficient 2.3], total executions 356 for 00:00:10.002,    speed: 35 per/sec, 126000 per/h, with 1 thread(s)
-Tasks: [Compress JSON, 10000 fields, compression level BEST_COMPRESSION,    Compression coefficient 2.3], total executions 236 for 00:00:10.012,    speed: 23 per/sec, 82800 per/h, with 1 thread(s)
-
+Tasks: [Compress JSON, 10000 fields,    DEFAULT_COMPRESSION,        HEX,                Compr. coeff: 1.5],  speed: 34 per/sec
+Tasks: [Compress JSON, 10000 fields,    DEFAULT_COMPRESSION,        BASE64_JAVA_UTIL,   Compr. coeff: 2.3],  speed: 35 per/sec
+Tasks: [Compress JSON, 10000 fields,    DEFAULT_COMPRESSION,        BASE64_COMMONS,     Compr. coeff: 2.3],  speed: 32 per/sec
+Tasks: [Compress JSON, 10000 fields,    DEFAULT_COMPRESSION,        BINARY_COMMONS,     Compr. coeff: 0.38], speed: 23 per/sec
+Tasks: [Compress JSON, 10000 fields,    BEST_SPEED_COMPRESSION,     HEX,                Compr. coeff: 1.4],  speed: 63 per/sec
+Tasks: [Compress JSON, 10000 fields,    BEST_SPEED_COMPRESSION,     BASE64_JAVA_UTIL,   Compr. coeff: 2.1],  speed: 63 per/sec
+Tasks: [Compress JSON, 10000 fields,    BEST_SPEED_COMPRESSION,     BASE64_COMMONS,     Compr. coeff: 2.1],  speed: 55 per/sec
+Tasks: [Compress JSON, 10000 fields,    BEST_SPEED_COMPRESSION,     BINARY_COMMONS,     Compr. coeff: 0.35], speed: 32 per/sec
+Tasks: [Compress JSON, 10000 fields,    BEST_COMPRESSION,           HEX,                Compr. coeff: 1.5],  speed: 22 per/sec
+Tasks: [Compress JSON, 10000 fields,    BEST_COMPRESSION,           BASE64_JAVA_UTIL,   Compr. coeff: 2.3],  speed: 23 per/sec
+Tasks: [Compress JSON, 10000 fields,    BEST_COMPRESSION,           BASE64_COMMONS,     Compr. coeff: 2.3],  speed: 21 per/sec
+Tasks: [Compress JSON, 10000 fields,    BEST_COMPRESSION,           BINARY_COMMONS,     Compr. coeff: 0.38], speed: 17 per/sec
